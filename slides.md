@@ -5,6 +5,8 @@ drawings:
   persist: false
 transition: slide-left
 comark: true
+fonts:
+  sans: Avenir Next,Nunito Sans,Noto Serif JP
 duration: 45min
 ---
 

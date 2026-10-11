@@ -1,0 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@400;700&display=swap');
+
+.slidev-layout .slidev-vclick-target {
+  transition: opacity 0.25s ease;
+}
+
+/* Diagram text: Latin glyphs from the deck font, Japanese from M PLUS Rounded 1c */
+.slidev-layout svg text {
+  font-family: 'Avenir Next', 'Nunito Sans', 'M PLUS Rounded 1c', sans-serif;
+}
