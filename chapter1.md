@@ -433,3 +433,305 @@ class: bg-black
 
 コンテキストの長さはステップ数に比例して増えますが、送信量の合計はステップ数の2乗に比例して増えます。これが、エージェントの使用量が想像以上に大きくなる根本的な理由です。
 -->
+
+---
+layout: statement
+---
+
+<v-click>
+
+# プロンプトキャッシュ
+
+</v-click>
+
+<!--
+これを毎回まともに計算していたら、時間もコストも大変なことになります。そこで使われるのが[click]プロンプトキャッシュです。
+-->
+
+---
+layout: full
+class: bg-black
+---
+
+<svg class="pc absolute inset-0 w-full h-full" viewBox="0 0 1376 768" preserveAspectRatio="xMidYMid meet">
+  <g class="server">
+    <rect x="1110" y="268" width="150" height="64" rx="8" />
+    <rect x="1110" y="340" width="150" height="64" rx="8" />
+    <rect x="1110" y="412" width="150" height="64" rx="8" />
+    <circle cx="1134" cy="300" r="7" />
+    <circle cx="1134" cy="372" r="7" />
+    <circle cx="1134" cy="444" r="7" />
+    <path d="M 1160 300 H 1236 M 1160 372 H 1236 M 1160 444 H 1236" />
+  </g>
+  <g v-click.hide="4">
+    <rect class="init" x="180" y="230" width="220" height="60" rx="10" />
+    <rect class="added drop" v-click="1" x="180" y="300" width="220" height="60" rx="10" />
+    <rect class="added drop" v-click="2" x="180" y="370" width="220" height="60" rx="10" />
+    <rect class="added drop" v-click="3" x="180" y="440" width="220" height="60" rx="10" />
+    <g class="fly absorb" v-click="1" style="--ty: 77px">
+      <rect class="init" x="180" y="230" width="220" height="60" rx="10" />
+      <rect class="added" x="180" y="300" width="220" height="60" rx="10" />
+    </g>
+    <rect class="flash" v-click="1" x="1100" y="258" width="170" height="228" rx="14" />
+    <g class="fly absorb" v-click="2" style="--ty: 42px">
+      <rect class="init" x="180" y="230" width="220" height="60" rx="10" />
+      <rect class="added" x="180" y="300" width="220" height="60" rx="10" />
+      <rect class="added" x="180" y="370" width="220" height="60" rx="10" />
+    </g>
+    <rect class="flash" v-click="2" x="1100" y="258" width="170" height="228" rx="14" />
+    <g class="fly absorb" v-click="3" style="--ty: 7px">
+      <rect class="init" x="180" y="230" width="220" height="60" rx="10" />
+      <rect class="added" x="180" y="300" width="220" height="60" rx="10" />
+      <rect class="added" x="180" y="370" width="220" height="60" rx="10" />
+      <rect class="added" x="180" y="440" width="220" height="60" rx="10" />
+    </g>
+    <rect class="flash" v-click="3" x="1100" y="258" width="170" height="228" rx="14" />
+  </g>
+  <g v-click="4">
+    <rect class="frame" x="804" y="214" width="252" height="302" rx="14" />
+    <text class="label" x="930" y="186">キャッシュ</text>
+    <rect class="ghost late init" v-click="5" x="820" y="230" width="220" height="60" rx="10" />
+    <rect class="ghost late added" v-click="5" x="820" y="300" width="220" height="60" rx="10" />
+    <rect class="ghost late added" v-click="6" x="820" y="370" width="220" height="60" rx="10" />
+    <rect class="ghost late added" v-click="7" x="820" y="440" width="220" height="60" rx="10" />
+    <rect class="init" x="180" y="230" width="220" height="60" rx="10" />
+    <rect class="added drop" v-click="5" x="180" y="300" width="220" height="60" rx="10" />
+    <rect class="added drop" v-click="6" x="180" y="370" width="220" height="60" rx="10" />
+    <rect class="added drop" v-click="7" x="180" y="440" width="220" height="60" rx="10" />
+    <g class="fly dock" v-click="[5,6]">
+      <rect class="init" x="180" y="230" width="220" height="60" rx="10" />
+      <rect class="added" x="180" y="300" width="220" height="60" rx="10" />
+    </g>
+    <g class="late" v-click="[5,6]">
+      <path class="bracket" d="M 796 230 H 780 V 360 H 796" />
+      <text class="caption write" x="766" y="295">キャッシュ書き込み</text>
+    </g>
+    <g class="fly dock" v-click="[6,7]">
+      <rect class="init hit" x="180" y="230" width="220" height="60" rx="10" />
+      <rect class="added hit" x="180" y="300" width="220" height="60" rx="10" />
+      <rect class="added" x="180" y="370" width="220" height="60" rx="10" />
+    </g>
+    <g class="late" v-click="[6,7]">
+      <path class="bracket" d="M 796 230 H 780 V 356 H 796" />
+      <text class="caption read" x="766" y="293">キャッシュ読み込み</text>
+      <path class="bracket" d="M 796 374 H 780 V 430 H 796" />
+      <text class="caption write" x="766" y="402">キャッシュ書き込み</text>
+    </g>
+    <g class="fly dock" v-click="7">
+      <rect class="init hit" x="180" y="230" width="220" height="60" rx="10" />
+      <rect class="added hit" x="180" y="300" width="220" height="60" rx="10" />
+      <rect class="added hit" x="180" y="370" width="220" height="60" rx="10" />
+      <rect class="added" x="180" y="440" width="220" height="60" rx="10" />
+    </g>
+    <g class="late" v-click="7">
+      <path class="bracket" d="M 796 230 H 780 V 426 H 796" />
+      <text class="caption read" x="766" y="328">キャッシュ読み込み</text>
+      <path class="bracket" d="M 796 444 H 780 V 500 H 796" />
+      <text class="caption write" x="766" y="472">キャッシュ書き込み</text>
+    </g>
+  </g>
+</svg>
+
+<style>
+.pc .init {
+  fill: var(--c-red);
+  stroke: var(--c-red);
+}
+.pc .added {
+  fill: var(--c-green);
+  stroke: var(--c-green);
+}
+.pc rect.init,
+.pc rect.added {
+  stroke-width: 0;
+}
+.pc .ghost {
+  fill-opacity: 0.3;
+  stroke-width: 2 !important;
+}
+.pc .server rect,
+.pc .server path {
+  fill: none;
+  stroke: var(--c-yellow);
+  stroke-width: 4;
+}
+.pc .server circle {
+  fill: var(--c-yellow);
+}
+.pc .flash {
+  fill: var(--c-yellow);
+  opacity: 0;
+}
+.pc .frame {
+  fill: none;
+  stroke: var(--c-yellow);
+  stroke-width: 3;
+  stroke-dasharray: 10 8;
+}
+.pc .bracket {
+  fill: none;
+  stroke: var(--c-yellow);
+  stroke-width: 3;
+}
+.pc text {
+  fill: var(--c-yellow);
+  font-size: 26px;
+  text-anchor: middle;
+  dominant-baseline: central;
+}
+.pc .caption {
+  font-size: 24px;
+  text-anchor: end;
+}
+.pc .drop {
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+.pc .drop.slidev-vclick-hidden {
+  transform: translateY(-16px);
+}
+.pc .fly,
+.pc .late,
+.pc .flash {
+  transition: none;
+}
+.pc .fly {
+  transform-box: fill-box;
+  transform-origin: center;
+}
+.pc .absorb:not(.slidev-vclick-hidden) {
+  animation: pc-absorb 1.2s ease-in 0.4s both;
+}
+.pc .dock:not(.slidev-vclick-hidden) {
+  animation: pc-dock 0.9s ease-in-out 0.4s both;
+}
+.pc .dock:not(.slidev-vclick-hidden) .hit {
+  animation: pc-hit 0.8s ease 1.4s both;
+}
+.pc .late:not(.slidev-vclick-hidden) {
+  animation: pc-fade 0.4s ease 1.4s both;
+}
+.pc .flash:not(.slidev-vclick-hidden) {
+  animation: pc-flash 0.6s ease 1.3s both;
+}
+@keyframes pc-absorb {
+  0% { opacity: 0; transform: none; }
+  1% { opacity: 1; transform: none; }
+  75% { opacity: 1; transform: translate(895px, var(--ty)) scale(0.3); }
+  100% { opacity: 0; transform: translate(895px, var(--ty)) scale(0.3); }
+}
+@keyframes pc-dock {
+  0% { opacity: 0; transform: none; }
+  1% { opacity: 1; transform: none; }
+  100% { opacity: 1; transform: translateX(640px); }
+}
+@keyframes pc-hit {
+  0% { opacity: 1; stroke: var(--c-yellow); stroke-width: 0; }
+  40% { opacity: 1; stroke: var(--c-yellow); stroke-width: 8; }
+  100% { opacity: 0; stroke: var(--c-yellow); stroke-width: 8; }
+}
+@keyframes pc-fade {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+@keyframes pc-flash {
+  0% { opacity: 0; }
+  30% { opacity: 0.5; }
+  100% { opacity: 0; }
+}
+</style>
+
+<!--
+先ほど、[click]コンテキストは徐々に伸びていく、[click]そして毎回入力し直す[click]という話をしましたが、実はLLMサーバーには、[click]前回までの計算結果を[click]サーバー側にキャッシュしておく機能が備わっています。[click]そしてこのキャッシュを使用した場合は、[click]通常と比べてずっと安いキャッシュ読み込み価格が適用されることになります。ちなみに、キャッシュ書き込みにも追加でコストが生じるので、キャッシュに乗った分は格安、新しい追加分は割高、って感じですね。
+-->
+
+---
+layout: full
+class: bg-black
+---
+
+<svg class="csum absolute inset-0 w-full h-full" viewBox="0 0 1376 768" preserveAspectRatio="xMidYMid meet">
+  <defs>
+    <marker id="csum-head" viewBox="0 0 10 10" refX="8" refY="5"
+            markerWidth="5" markerHeight="5" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 Z" style="fill: var(--c-yellow)" />
+    </marker>
+  </defs>
+  <g class="dim">
+    <g v-for="i in 99" :key="i">
+      <rect class="init" :x="238 + i * 9" y="580" width="7" height="80" />
+      <rect class="added" :x="238 + i * 9" :y="584 - i * 4" width="7" :height="i * 4 - 4" />
+    </g>
+  </g>
+  <g class="cached" v-click.hide="1">
+    <g v-for="i in 99" :key="i">
+      <rect class="init" :x="238 + i * 9" y="580" width="7" height="80" />
+      <rect class="added" :x="238 + i * 9" :y="584 - i * 4" width="7" :height="i * 4 - 4" />
+    </g>
+  </g>
+  <g>
+    <rect class="init" x="238" y="580" width="7" height="80" />
+    <rect v-for="i in 99" :key="i" class="added" :x="238 + i * 9" :y="580 - i * 4" width="7" height="4" />
+  </g>
+  <g class="write" v-click="2">
+    <rect x="238" y="580" width="7" height="80" />
+    <rect v-for="i in 99" :key="i" :x="238 + i * 9" :y="580 - i * 4" width="7" height="4" />
+  </g>
+  <text class="total" v-click.hide="1" x="780" y="470">≈ 7M</text>
+  <g v-click="1">
+    <text class="caption" x="820" y="410">キャッシュ読み込み</text>
+    <text class="total" x="820" y="480">≈ 6.8M</text>
+  </g>
+  <g v-click="2">
+    <text class="caption" x="420" y="240">キャッシュ書き込み</text>
+    <text class="total small" x="420" y="305">≈ 120K</text>
+    <path class="arrow" d="M 500 350 L 586 412" />
+  </g>
+</svg>
+
+<style>
+.csum .init {
+  fill: var(--c-red);
+}
+.csum .added {
+  fill: var(--c-green);
+}
+.csum .dim {
+  opacity: 0.25;
+}
+.csum .cached {
+  transition: opacity 0.6s ease;
+}
+.csum .write rect {
+  fill: var(--c-orange);
+}
+.csum text {
+  fill: white;
+  font-size: 26px;
+  text-anchor: middle;
+  dominant-baseline: central;
+}
+.csum .caption {
+  font-size: 32px;
+  fill: var(--c-yellow);
+}
+.csum .total {
+  font-size: 80px;
+  font-weight: bold;
+  stroke: black;
+  stroke-width: 10px;
+  paint-order: stroke;
+}
+.csum .total.small {
+  font-size: 56px;
+}
+.csum .arrow {
+  fill: none;
+  stroke: var(--c-yellow);
+  stroke-width: 4;
+  marker-end: url(#csum-head);
+}
+</style>
+
+<!--
+先ほどの例では約700万トークンが入力されるという結果になっていましたが、[click]ここではそのほとんどがキャッシュ読み込みになります。つまり、この約680万トークンは格安価格になって、[click]この上っ面の約12万トークンだけが、通常入力＋キャッシュ書き込みの価格が適用される範囲になるということですね。
+-->
