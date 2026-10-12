@@ -1,7 +1,7 @@
 ---
 theme: default
 colorSchema: dark
-title: Welcome to Slidev
+title: コンテキストエンジニアリング
 drawings:
   persist: false
 transition: slide-left
@@ -11,7 +11,7 @@ fonts:
 duration: 45min
 ---
 
-# Welcome to my talk
+# コンテキストエンジニアリング
 
 ---
 src: ./sections/section1.md
