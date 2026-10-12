@@ -1,5 +1,15 @@
 @import url('https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@400;700&display=swap');
 
+/* Color scheme */
+:root {
+  --c-red: #FF003C;
+  --c-orange: #FF8A00;
+  --c-yellow: #FABE28;
+  --c-lime: #88C100;
+  --c-green: #00C176;
+  --c-muted: #888;
+}
+
 .slidev-layout .slidev-vclick-target {
   transition: opacity 0.25s ease;
 }

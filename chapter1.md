@@ -62,7 +62,7 @@ class: bg-black
   </g>
   <g v-click="5">
     <path d="M 654 420 H 926 A 24 24 0 0 1 950 444 V 486 A 24 24 0 0 1 926 510 L 912 510 L 940 548 L 878 510 H 654 A 24 24 0 0 1 630 486 V 444 A 24 24 0 0 1 654 420 Z" />
-    <text x="790" y="465"><tspan fill="#888">(ABC)</tspan> D</text>
+    <text x="790" y="465"><tspan style="fill: var(--c-muted)">(ABC)</tspan> D</text>
   </g>
 </svg>
 
@@ -128,10 +128,10 @@ class: bg-black
 
 <style>
 .ctx .init rect {
-  fill: #9d7e79;
+  fill: var(--c-red);
 }
 .ctx .added rect {
-  fill: #5b756c;
+  fill: var(--c-green);
 }
 .ctx text {
   fill: white;
@@ -164,7 +164,7 @@ class: bg-black
   <defs>
     <marker id="flow-head" viewBox="0 0 10 10" refX="8" refY="5"
             markerWidth="5" markerHeight="5" orient="auto-start-reverse">
-      <path d="M 0 0 L 10 5 L 0 10 Z" fill="#ccac95" />
+      <path d="M 0 0 L 10 5 L 0 10 Z" style="fill: var(--c-yellow)" />
     </marker>
   </defs>
   <g transform="translate(0 40)">
@@ -224,10 +224,10 @@ class: bg-black
 
 <style>
 .flow .init rect {
-  fill: #9d7e79;
+  fill: var(--c-red);
 }
 .flow .added rect {
-  fill: #5b756c;
+  fill: var(--c-green);
 }
 .flow text {
   fill: white;
@@ -237,16 +237,16 @@ class: bg-black
 }
 .flow .caption {
   font-size: 20px;
-  fill: #ccac95;
+  fill: var(--c-yellow);
 }
 .flow .bracket {
   fill: none;
-  stroke: #ccac95;
+  stroke: var(--c-yellow);
   stroke-width: 3;
 }
 .flow .arrow {
   fill: none;
-  stroke: #ccac95;
+  stroke: var(--c-yellow);
   stroke-width: 4;
   stroke-dasharray: 14 10;
   marker-end: url(#flow-head);
@@ -254,12 +254,12 @@ class: bg-black
 }
 .flow .file {
   fill: none;
-  stroke: #ccac95;
+  stroke: var(--c-yellow);
   stroke-width: 3;
   stroke-linejoin: round;
 }
 .flow .file-line {
-  stroke: #ccac95;
+  stroke: var(--c-yellow);
   stroke-width: 3;
 }
 .flow .slidev-vclick-target {
@@ -302,7 +302,7 @@ class: bg-black
 <svg class="calc absolute inset-0 w-full h-full" viewBox="0 0 1376 768" preserveAspectRatio="xMidYMid meet">
   <defs>
     <pattern id="calc-steps" width="200" height="4" patternUnits="userSpaceOnUse">
-      <rect width="200" height="4" fill="#5b756c" />
+      <rect width="200" height="4" style="fill: var(--c-green)" />
       <rect width="200" height="1" fill="black" opacity="0.5" />
     </pattern>
   </defs>
@@ -324,7 +324,7 @@ class: bg-black
 
 <style>
 .calc .init {
-  fill: #9d7e79;
+  fill: var(--c-red);
 }
 .calc .step,
 .calc .grow {
@@ -338,7 +338,7 @@ class: bg-black
 }
 .calc .bracket {
   fill: none;
-  stroke: #ccac95;
+  stroke: var(--c-yellow);
   stroke-width: 3;
 }
 .calc .step,
@@ -396,10 +396,10 @@ class: bg-black
 
 <style>
 .sum .init {
-  fill: #9d7e79;
+  fill: var(--c-red);
 }
 .sum .added {
-  fill: #5b756c;
+  fill: var(--c-green);
 }
 .sum text {
   fill: white;
@@ -409,7 +409,7 @@ class: bg-black
 }
 .sum .caption {
   font-size: 32px;
-  fill: #ccac95;
+  fill: var(--c-yellow);
 }
 .sum .total {
   font-size: 80px;
