@@ -6,6 +6,7 @@ settings:
 
 overrides:
   markdown-it: 14.3.2
+  '@unocss/vite>magic-string': 0.30.21
 
 importers:
 
@@ -3950,7 +3951,7 @@ snapshots:
       '@unocss/core': 66.10.5
       '@unocss/inspector': 66.10.5(cac@7.0.1)(srvx@1.0.5)
       chokidar: 5.0.0
-      magic-string: 1.4.3
+      magic-string: 0.30.21
       pathe: 2.0.3
       tinyglobby: 0.2.17
       unplugin-utils: 0.3.2
