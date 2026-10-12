@@ -10,12 +10,11 @@ layout: statement
 
 ---
 layout: full
-class: bg-black
 ---
 
 <svg class="absolute inset-0 w-full h-full" viewBox="0 0 1376 768" preserveAspectRatio="xMidYMid meet">
   <g transform="translate(344 192) scale(0.5)">
-    <image href="/images/ch1/smart-ai.png" width="1376" height="768" />
+    <image href="/images/sec3/smart-ai.png" width="1376" height="768" />
   </g>
 </svg>
 
@@ -36,13 +35,12 @@ class: bg-black
 
 ---
 layout: full
-class: bg-black
 ---
 
 <svg class="chat absolute inset-0 w-full h-full" viewBox="0 0 1376 768" preserveAspectRatio="xMidYMid meet">
-  <image href="/images/ch1/human.png" x="150" y="400" width="320" height="320" />
+  <image href="/images/sec3/human.png" x="150" y="400" width="320" height="320" />
   <svg x="976" y="450" width="260" height="230" viewBox="300 90 700 620">
-    <image href="/images/ch1/smart-ai.png" width="1376" height="768" />
+    <image href="/images/sec3/smart-ai.png" width="1376" height="768" />
   </svg>
   <g v-click="1">
     <path d="M 454 90 H 546 A 24 24 0 0 1 570 114 V 156 A 24 24 0 0 1 546 180 L 502 180 L 440 218 L 468 180 H 454 A 24 24 0 0 1 430 156 V 114 A 24 24 0 0 1 454 90 Z" />
@@ -92,7 +90,6 @@ class: bg-black
 
 ---
 layout: full
-class: bg-black
 ---
 
 <svg class="ctx absolute inset-0 w-full h-full" viewBox="0 0 1376 768" preserveAspectRatio="xMidYMid meet">
@@ -157,7 +154,6 @@ class: bg-black
 
 ---
 layout: full
-class: bg-black
 ---
 
 <svg class="flow absolute inset-0 w-full h-full" viewBox="0 0 1376 768" preserveAspectRatio="xMidYMid meet">
@@ -169,7 +165,7 @@ class: bg-black
   </defs>
   <g transform="translate(0 40)">
   <svg x="900" y="230" width="320" height="283" viewBox="300 90 700 620">
-    <image href="/images/ch1/smart-ai.png" width="1376" height="768" />
+    <image href="/images/sec3/smart-ai.png" width="1376" height="768" />
   </svg>
   <g class="init">
     <rect x="150" y="100" width="400" height="50" rx="10" />
@@ -296,7 +292,6 @@ class: bg-black
 
 ---
 layout: full
-class: bg-black
 ---
 
 <svg class="calc absolute inset-0 w-full h-full" viewBox="0 0 1376 768" preserveAspectRatio="xMidYMid meet">
@@ -367,7 +362,6 @@ class: bg-black
 
 ---
 layout: full
-class: bg-black
 ---
 
 <svg class="sum absolute inset-0 w-full h-full" viewBox="0 0 1376 768" preserveAspectRatio="xMidYMid meet">
@@ -450,7 +444,6 @@ layout: statement
 
 ---
 layout: full
-class: bg-black
 ---
 
 <svg class="pc absolute inset-0 w-full h-full" viewBox="0 0 1376 768" preserveAspectRatio="xMidYMid meet">
@@ -646,7 +639,6 @@ class: bg-black
 
 ---
 layout: full
-class: bg-black
 ---
 
 <svg class="csum absolute inset-0 w-full h-full" viewBox="0 0 1376 768" preserveAspectRatio="xMidYMid meet">

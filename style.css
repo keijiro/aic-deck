@@ -10,6 +10,11 @@
   --c-muted: #888;
 }
 
+/* Base background: pure black */
+.slidev-layout {
+  background: black;
+}
+
 .slidev-layout .slidev-vclick-target {
   transition: opacity 0.25s ease;
 }
