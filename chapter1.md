@@ -295,11 +295,141 @@ class: bg-black
 -->
 
 ---
+layout: full
+class: bg-black
+---
+
+<svg class="calc absolute inset-0 w-full h-full" viewBox="0 0 1376 768" preserveAspectRatio="xMidYMid meet">
+  <defs>
+    <pattern id="calc-steps" width="200" height="4" patternUnits="userSpaceOnUse">
+      <rect width="200" height="4" fill="#5b756c" />
+      <rect width="200" height="1" fill="black" opacity="0.5" />
+    </pattern>
+  </defs>
+  <g v-click="1">
+    <rect class="init" x="588" y="580" width="200" height="80" />
+    <text x="820" y="620">20K</text>
+  </g>
+  <rect class="step" v-click="2" x="588" y="576" width="200" height="4" style="transition-delay: 0ms" />
+  <rect class="step" v-click="2" x="588" y="572" width="200" height="4" style="transition-delay: 250ms" />
+  <rect class="step" v-click="2" x="588" y="568" width="200" height="4" style="transition-delay: 500ms" />
+  <text v-click="[2,3]" x="820" y="572">+1K</text>
+  <rect class="grow" v-click="3" x="588" y="180" width="200" height="400" />
+  <g class="late" v-click="3">
+    <path class="bracket" d="M 572 184 H 556 V 576 H 572" />
+    <text x="536" y="380" text-anchor="end">× 100</text>
+    <text x="820" y="180">120K</text>
+  </g>
+</svg>
+
+<style>
+.calc .init {
+  fill: #9d7e79;
+}
+.calc .step,
+.calc .grow {
+  fill: url(#calc-steps);
+}
+.calc text {
+  fill: white;
+  font-size: 32px;
+  text-anchor: start;
+  dominant-baseline: central;
+}
+.calc .bracket {
+  fill: none;
+  stroke: #ccac95;
+  stroke-width: 3;
+}
+.calc .step,
+.calc .grow {
+  transform-box: fill-box;
+  transform-origin: bottom;
+  transition: opacity 0.2s ease, transform 0.3s ease;
+}
+.calc .grow {
+  transition: opacity 0.2s ease, transform 1.2s ease-in-out;
+}
+.calc .step.slidev-vclick-hidden,
+.calc .grow.slidev-vclick-hidden {
+  transform: scaleY(0);
+}
+.calc .late {
+  transition-delay: 1s;
+}
+</style>
 
 <!--
-ここで簡単な計算をしてみます。システムプロンプトとツール定義で最初に２万トークン消費して、ツールを１回使うごとに平均 1,000 トークンずつ増えていくとします。これで 100 ステップ作業すると、最終的にコンテキストは約 12 万トークンになります。
+ここで簡単な計算をしてみます。[click]システムプロンプトとツール定義で最初に２万トークン消費して、[click]ツールを１回使うごとに平均 1,000 トークンずつ増えていくとします。[click]これで 100 ステップ作業すると、最終的にコンテキストは約 12 万トークンになります。
 
-ですが、モデルに送られた入力の合計は 12 万トークンではありません。1 回目に2万、2回目に2万1千、3回目に2万2千……と毎回全体を送るので、100回分を足し合わせると約700万トークンになります。
+ですが、モデルに送られた入力の合計は 12 万トークンではありません。
+-->
+
+---
+layout: full
+class: bg-black
+---
+
+<svg class="sum absolute inset-0 w-full h-full" viewBox="0 0 1376 768" preserveAspectRatio="xMidYMid meet">
+  <g v-click="[1,4]">
+    <rect class="init" x="260" y="580" width="60" height="80" />
+    <text x="290" y="550">20K</text>
+  </g>
+  <g v-click="[2,4]">
+    <rect class="init" x="340" y="580" width="60" height="80" />
+    <rect class="added" x="340" y="576" width="60" height="4" />
+    <text x="370" y="546">21K</text>
+  </g>
+  <g v-click="[3,4]">
+    <rect class="init" x="420" y="580" width="60" height="80" />
+    <rect class="added" x="420" y="572" width="60" height="8" />
+    <text x="450" y="542">22K</text>
+    <text x="530" y="620">…</text>
+  </g>
+  <g v-for="i in 100" :key="i" class="col" v-click="4" :style="{ transitionDelay: i * 8 + 'ms' }">
+    <rect class="init" :x="229 + i * 9" y="580" width="7" height="80" />
+    <rect class="added" :x="229 + i * 9" :y="584 - i * 4" width="7" :height="i * 4 - 4" />
+  </g>
+  <text class="caption" v-click="4" x="687" y="700">100 回</text>
+  <text class="total" v-click="5" x="780" y="470">≈ 7M</text>
+</svg>
+
+<style>
+.sum .init {
+  fill: #9d7e79;
+}
+.sum .added {
+  fill: #5b756c;
+}
+.sum text {
+  fill: white;
+  font-size: 26px;
+  text-anchor: middle;
+  dominant-baseline: central;
+}
+.sum .caption {
+  font-size: 32px;
+  fill: #ccac95;
+}
+.sum .total {
+  font-size: 80px;
+  font-weight: bold;
+  stroke: black;
+  stroke-width: 10px;
+  paint-order: stroke;
+}
+.sum .col {
+  transform-box: fill-box;
+  transform-origin: bottom;
+  transition: opacity 0.2s ease, transform 0.4s ease;
+}
+.sum .col.slidev-vclick-hidden {
+  transform: scaleY(0);
+}
+</style>
+
+<!--
+[click]1 回目に2万、[click]2回目に2万1千、[click]3回目に2万2千……と毎回全体を送るので、[click]100回分を足し合わせると[click]約700万トークンになります。
 
 コンテキストの長さはステップ数に比例して増えますが、送信量の合計はステップ数の2乗に比例して増えます。これが、エージェントの使用量が想像以上に大きくなる根本的な理由です。
 -->
