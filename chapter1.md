@@ -317,7 +317,7 @@ class: bg-black
   <rect class="grow" v-click="3" x="588" y="180" width="200" height="400" />
   <g class="late" v-click="3">
     <path class="bracket" d="M 572 184 H 556 V 576 H 572" />
-    <text x="536" y="380" text-anchor="end">× 100</text>
+    <text x="536" y="380" style="text-anchor: end">× 100</text>
     <text x="820" y="180">120K</text>
   </g>
 </svg>
