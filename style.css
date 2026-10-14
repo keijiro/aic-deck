@@ -23,3 +23,12 @@
 .slidev-layout svg text {
   font-family: 'Avenir Next', 'Nunito Sans', 'M PLUS Rounded 1c', sans-serif;
 }
+
+/* Tables: muted header text with a thicker rule below the header row */
+.slidev-layout th {
+  color: var(--c-muted);
+}
+
+.slidev-layout thead tr {
+  border-bottom-width: 3px;
+}
