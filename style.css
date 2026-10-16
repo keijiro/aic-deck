@@ -32,3 +32,8 @@
 .slidev-layout thead tr {
   border-bottom-width: 3px;
 }
+
+/* Tables: fixed-width digits so right-aligned numbers line up */
+.slidev-layout table {
+  font-variant-numeric: tabular-nums;
+}
