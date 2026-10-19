@@ -2,7 +2,7 @@
 
 - 対象プロジェクト: `/Users/keijiro/Projects/urp-tower-defense`
 - 対象期間: 2026-09-29 12:00 JST 以降に worktree 上で実行された Claude Code (CLI) セッションから選別
-- 作成日: 2026-09-30
+- 作成日: 2026-09-30（2026-10-19 作業書方式を追加）
 - コスト: API 従量課金前提。各 transcript 末尾の `cost-state` エントリ (`totalCostUSD`) を使用（Claude Code が API 定価で算出した推定値）
 - 時刻はすべて JST
 
@@ -13,6 +13,7 @@
 | 単一セッション | 1 セッションで作業 | 自動命名 worktree（個別） |
 | テスト分離方式 | `urptd-main` + `urptd-tester`（両方 Opus 5.5） | `.claude/worktrees/split-tester` |
 | 作業分担方式 | `urptd(2)-main`（Opus 5.5）+ `urptd(2)-tester`（Sonnet 5.5） | `.claude/worktrees/multi-session`, `multi-session2` |
+| 作業書方式 | 親（Opus 5.5、`claude --worktree` で起動）が一部シーンで移行・検証して移行作業書を作成 → 子（Sonnet 5.5、同じ worktree 内で手動起動）が作業書に従って残りを移行 | 自動命名 worktree（個別） |
 
 ## コストサマリー
 
@@ -40,6 +41,14 @@
 | `0fda2c95` | `1bc11ff9` | $15.67 | $0.95 | $16.62 |
 | `f669946c` | `9d5d346f` | $11.51 | $6.89 | $18.40 |
 
+### 作業書方式
+
+| 親 | 子 | 親コスト | 子コスト | 合計 |
+|---|---|---|---|---|
+| `e5973965` | `768effe5` | $13.41 | $0.61 | $14.02 |
+| `6f2ff81a` | `a02ecf48` | $19.24 | $1.80 | $21.04 |
+| `be4dc109` | `fe329d73` | $9.80 | $0.95 | $10.75 |
+
 ## セッション詳細
 
 内部ターン数 = メインスレッドの assistant メッセージのユニーク `message.id` 数（API 呼び出し数。サブエージェント・`<synthetic>` 除く）。サブエージェントの使用はなし。受信メッセージ = 相手セッションから届いた cross-session メッセージ数。API時間・ツール時間・トークン・追加/削除行は `cost-state` の値。
@@ -61,10 +70,24 @@
 | 作業分担方式 | tester | `1bc11ff9-6701-4948-8d51-045d42f9faf3` | urptd-tester | `.claude/worktrees/multi-session` | Sonnet 5.5 | 09/30 11:16 | 09/30 12:09 | 53 | 41 | 6 | 3.5 | 3.3 | 670 | 19,660 | 2,492,117 | 63,722 | 80 | 0 | $0.95 |
 | 作業分担方式 | main | `f669946c-3fc6-4c47-b4e7-8e8eaef88d50` | urptd2-main | `.claude/worktrees/multi-session2` | Opus 5.5 | 09/30 13:01 | 09/30 13:46 | 45 | 145 | 14 | 28.3 | 1.5 | 412 | 132,175 | 31,120,947 | 329,698 | 1469 | 9 | $11.51 |
 | 作業分担方式 | tester | `9d5d346f-2308-408e-b3c1-0555a67eb73b` | urptd2-tester | `.claude/worktrees/multi-session2` | Sonnet 5.5 | 09/30 13:01 | 09/30 13:46 | 44 | 132 | 14 | 15.0 | 3.9 | 484 | 76,252 | 22,105,089 | 426,272 | 270 | 4 | $6.89 |
+| 作業書方式 | 親 | `e5973965-dcf2-4fc7-aba5-e3cb5de80efc` | — | `.claude/worktrees/peaceful-pondering-frog` | Opus 5.5 | 10/19 10:45 | 10/19 11:10 | 25 | 172 | 0 | 22.5 | 2.1 | 344 | 126,704 | 40,651,662 | 342,981 | 1199 | 39 | $13.41 |
+| 作業書方式 | 子 | `768effe5-06e2-4a7d-8009-65bab6fa5ab9` | — | `.claude/worktrees/peaceful-pondering-frog` | Sonnet 5.5 | 10/19 11:10 | 10/19 11:17 | 7 | 32 | 0 | 2.4 | 4.4 | 1,255 | 15,126 | 2,102,631 | 62,967 | 0 | 0 | $0.61 |
+| 作業書方式 | 親 | `6f2ff81a-1b65-43f0-9776-979f9662b2b0` | — | `.claude/worktrees/magical-roaming-piglet` | Opus 5.5 | 10/19 11:20 | 10/19 12:55 | 94 | 208 | 0 | 30.6 | 9.8 | 5,502 | 182,244 | 60,478,774 | 436,130 | 1832 | 96 | $19.24 |
+| 作業書方式 | 子 | `a02ecf48-78f8-4eb3-9b7f-c7c2d3c4dff8` | — | `.claude/worktrees/magical-roaming-piglet` | Sonnet 5.5 | 10/19 12:02 | 10/19 12:14 | 12 | 70 | 0 | 5.4 | 5.7 | 1,321 | 32,628 | 9,029,898 | 143,830 | 37 | 13 | $1.80 |
+| 作業書方式 | 親 | `be4dc109-65b2-4bf8-8b89-1fb7499518aa` | — | `.claude/worktrees/refactored-enchanting-abelson` | Opus 5.5 | 10/19 13:07 | 10/19 13:29 | 22 | 133 | 0 | 18.6 | 2.7 | 1,643 | 109,924 | 26,125,915 | 297,746 | 1206 | 27 | $9.80 |
+| 作業書方式 | 子 | `fe329d73-a44f-430c-975c-37ec770f8b78` | — | `.claude/worktrees/refactored-enchanting-abelson` | Sonnet 5.5 | 10/19 13:39 | 10/19 13:47 | 8 | 40 | 0 | 3.3 | 3.2 | 1,271 | 23,542 | 3,341,236 | 95,834 | 21 | 0 | $0.95 |
+
+作業書方式の補足:
+
+- 親セッションへの指示（3 回とも同一）: `/migrate-birp-to-urp` で一部のシーン・レベルのみ移行・検証し、横展開可能な移行作業書を作成する。実作業は Claude Code の別セッションが行う前提（人間の可読性は重視しない）。Color Space は Gamma のまま
+- 子セッションへの指示: 親が作成した作業書を指定して実行させるのみ（`@URP_MIGRATION_PLAYBOOK.md に従って作業して下さい。` / `@URP_MIGRATION.md に従って作業して下さい` / `@URPMigration/RUNBOOK.md を実行して下さい`）。`a02ecf48` のみ途中で停止したため `続けて下さい`、`残りを全て進めて下さい` の追加指示が 2 回入っている
+- 実行順: `e5973965` → `768effe5`、`be4dc109` → `fe329d73` は親の終了後に子を起動。`6f2ff81a` → `a02ecf48` は親セッションの実行中（12:02–12:14）に子を起動しており、親の所要 94 分には子の作業中の待ち時間も含まれる
+- 入力・出力・キャッシュのトークン数は `cost-state.modelUsage` の全モデル合計（Claude Code が内部で呼ぶ Haiku 5.5 の少量の呼び出しを含む。コストへの寄与は $0.001 未満）
+- 子セッションは所要 10 分未満のものを含むが、親とセットの構成のため除外条件の対象外とした
 
 ## ログの所在
 
-transcript はすべて `~/.claude/projects/-Users-keijiro-Projects-urp-tower-defense/` 以下（worktree で実行されたセッションも起動元プロジェクトのディレクトリに記録されている）。
+transcript は原則 `~/.claude/projects/-Users-keijiro-Projects-urp-tower-defense/` 以下（worktree で実行されたセッションも起動元プロジェクトのディレクトリに記録されている）。例外として、作業書方式の子セッションは worktree ディレクトリ内で直接 `claude` を起動したため、worktree パスに対応するディレクトリ（`-Users-keijiro-Projects-urp-tower-defense--claude-worktrees-<名前>/`）に記録されている。
 
 | セッション ID | transcript パス |
 |---|---|
@@ -83,6 +106,12 @@ transcript はすべて `~/.claude/projects/-Users-keijiro-Projects-urp-tower-de
 | `1bc11ff9` | `~/.claude/projects/-Users-keijiro-Projects-urp-tower-defense/1bc11ff9-6701-4948-8d51-045d42f9faf3.jsonl` |
 | `f669946c` | `~/.claude/projects/-Users-keijiro-Projects-urp-tower-defense/f669946c-3fc6-4c47-b4e7-8e8eaef88d50.jsonl` |
 | `9d5d346f` | `~/.claude/projects/-Users-keijiro-Projects-urp-tower-defense/9d5d346f-2308-408e-b3c1-0555a67eb73b.jsonl` |
+| `e5973965` | `~/.claude/projects/-Users-keijiro-Projects-urp-tower-defense/e5973965-dcf2-4fc7-aba5-e3cb5de80efc.jsonl` |
+| `768effe5` | `~/.claude/projects/-Users-keijiro-Projects-urp-tower-defense--claude-worktrees-peaceful-pondering-frog/768effe5-06e2-4a7d-8009-65bab6fa5ab9.jsonl` |
+| `6f2ff81a` | `~/.claude/projects/-Users-keijiro-Projects-urp-tower-defense/6f2ff81a-1b65-43f0-9776-979f9662b2b0.jsonl` |
+| `a02ecf48` | `~/.claude/projects/-Users-keijiro-Projects-urp-tower-defense--claude-worktrees-magical-roaming-piglet/a02ecf48-78f8-4eb3-9b7f-c7c2d3c4dff8.jsonl` |
+| `be4dc109` | `~/.claude/projects/-Users-keijiro-Projects-urp-tower-defense/be4dc109-65b2-4bf8-8b89-1fb7499518aa.jsonl` |
+| `fe329d73` | `~/.claude/projects/-Users-keijiro-Projects-urp-tower-defense--claude-worktrees-refactored-enchanting-abelson/fe329d73-a44f-430c-975c-37ec770f8b78.jsonl` |
 
 ## ログ分析メモ
 
@@ -93,4 +122,5 @@ transcript はすべて `~/.claude/projects/-Users-keijiro-Projects-urp-tower-de
 - コスト: `cost-state.totalCostUSD` と `cost-state.modelUsage.<model>.costUSD`（トークン内訳も含む）。`totalAPIDuration` / `totalToolDuration` はミリ秒
 - ユーザーの初回指示: `user` エントリのうち `origin.kind == "human"` のもの（tester 側は冒頭で `/model` によりモデルを切り替えている）
 - ペア間の連携: 相手セッションからのメッセージは `queue-operation`（`operation: "enqueue"`）の `content` に `<cross-session-message from-name="urptd2-main" ...>` として記録される。送信側は `assistant` の `tool_use`（SendMessage）として現れる
+- 作業書方式: セッション名（`custom-title`）・cross-session メッセージ・サブエージェントの使用はいずれもなし。親セッションには `worktree-state` があるが、子セッションにはない
 - 除外条件（参考）: 所要 10 分未満のセッション、メイン worktree（プロジェクトルート）で実行されたセッション、作業分担方式のうち上記 3 組以外（f8b02722/c4cdd789, 35dbc7bf/debd1f6b, 2c0cbcc7/db3f1479, 879590ef/43e9cc43）
