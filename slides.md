@@ -4,7 +4,7 @@ colorSchema: dark
 title: コンテキストエンジニアリング
 drawings:
   persist: false
-transition: slide-left
+transition: fade-out
 comark: true
 fonts:
   sans: Avenir Next,Nunito Sans,Noto Serif JP

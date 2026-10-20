@@ -10,9 +10,18 @@
   --c-muted: #888;
 }
 
-/* Base background: pure black */
+/* Base background: pure black (also behind slides, so transitions fade to black) */
 .slidev-layout {
   background: black;
+}
+
+.slidev-slide-content {
+  background: black !important;
+}
+
+/* Slide transitions: twice as fast as the default 0.5s */
+html:root {
+  --slidev-transition-duration: 0.25s;
 }
 
 .slidev-layout .slidev-vclick-target {
