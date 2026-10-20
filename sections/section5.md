@@ -1,58 +1,45 @@
+<!--
+さて、基本的に１タスクを１セッションでやっていこう、という話をしてきました。次に焦点となるのは、それら１セッション１セッションの中でどのようにコストを減らせるのかという話です。
+
+そして、ここで最も重要になるのは……
+-->
+
 ---
 layout: bigtext
 ---
 
-確認フェーズのコスト
+動作検証の
+
+コストが高い
 
 <!--
-ここからは、Unity 開発ならではのコストの話をしたいと思います。キーワードは「確認フェーズ」です。
+動作検証のコストが高い、ということです。
+
+これが存外に侮れなくて、実のところ、実装作業そのものよりも、動作検証の方がコストがかかる、というケースが度々あるんですよね。
 -->
 
 ---
-
-# 解剖：無敵アイテムの実装
-
-<div class="grid grid-cols-4 gap-6 mt-12 text-center">
-  <div><div class="text-5xl font-bold" style="color: var(--c-yellow)">$2.04</div><div class="mt-2" style="color: var(--c-muted)">合計コスト</div></div>
-  <div><div class="text-5xl font-bold">48</div><div class="mt-2" style="color: var(--c-muted)">リクエスト</div></div>
-  <div><div class="text-5xl font-bold">60</div><div class="mt-2" style="color: var(--c-muted)">ツール呼び出し</div></div>
-  <div><div class="text-5xl font-bold">118K</div><div class="mt-2" style="color: var(--c-muted)">最終コンテキスト</div></div>
-</div>
-
-<p class="text-sm text-right mt-16" style="color: var(--c-muted)">Bunny Blitz, Opus 5.5, Unity MCP 使用, 1回分のセッション</p>
-
-<!--
-先ほどの実験で使った「無敵アイテムを実装してください」というタスク、これを1回分取り出して、中身を細かく解剖してみました。
-
-合計コストは $2.04。エージェントは LLM に48回リクエストを送っていて、その中でツールを60回呼び出しています。コンテキストは最終的に 118K トークンまで膨らみました。
-
-この48回のリクエストが、それぞれ何をしていたのか、を見ていきます。
--->
-
+clicks: 3
 ---
-clicks: 1
----
-
-# リクエスト毎のコスト
 
 <div class="req-chart mt-6">
-  <div class="bars" :class="{ focus: $clicks >= 1 }">
-    <div class="bar"><i class="r" style="height:3.1%"></i><i class="o" style="height:2.0%"></i><i class="w" style="height:94.3%"></i></div>
-    <div class="bar"><i class="r" style="height:5.5%"></i><i class="o" style="height:3.1%"></i><i class="w" style="height:18.6%"></i></div>
-    <div class="bar"><i class="r" style="height:6.0%"></i><i class="o" style="height:3.2%"></i><i class="w" style="height:15.0%"></i></div>
-    <div class="bar"><i class="r" style="height:6.3%"></i><i class="o" style="height:2.5%"></i><i class="w" style="height:8.2%"></i></div>
-    <div class="bar"><i class="r" style="height:6.5%"></i><i class="o" style="height:5.2%"></i><i class="w" style="height:47.0%"></i></div>
-    <div class="bar"><i class="r" style="height:7.7%"></i><i class="o" style="height:3.2%"></i><i class="w" style="height:17.5%"></i></div>
-    <div class="bar"><i class="r" style="height:8.2%"></i><i class="o" style="height:4.8%"></i><i class="w" style="height:16.6%"></i></div>
-    <div class="bar"><i class="r" style="height:8.6%"></i><i class="o" style="height:6.7%"></i><i class="w" style="height:15.2%"></i></div>
-    <div class="bar"><i class="r" style="height:9.0%"></i><i class="o" style="height:9.1%"></i><i class="w" style="height:7.7%"></i></div>
-    <div class="bar"><i class="r" style="height:9.1%"></i><i class="o" style="height:3.0%"></i><i class="w" style="height:4.0%"></i></div>
-    <div class="bar"><i class="r" style="height:9.2%"></i><i class="o" style="height:2.4%"></i><i class="w" style="height:2.0%"></i></div>
-    <div class="bar"><i class="r" style="height:9.3%"></i><i class="o" style="height:4.2%"></i><i class="w" style="height:15.9%"></i></div>
-    <div class="bar"><i class="r" style="height:9.7%"></i><i class="o" style="height:15.2%"></i><i class="w" style="height:3.3%"></i></div>
-    <div class="bar"><i class="r" style="height:9.8%"></i><i class="o" style="height:7.6%"></i><i class="w" style="height:11.4%"></i></div>
-    <div class="bar"><i class="r" style="height:10.1%"></i><i class="o" style="height:6.5%"></i><i class="w" style="height:10.5%"></i></div>
-    <div class="bar"><i class="r" style="height:10.3%"></i><i class="o" style="height:31.4%"></i><i class="w" style="height:8.8%"></i></div>
+  <div class="bars" :data-focus="[null, 'inv', 'impl', 'check'][$clicks]">
+    <div class="bar inv"><i class="r" style="height:3.1%"></i><i class="o" style="height:2.0%"></i><i class="w" style="height:94.3%"></i></div>
+    <div class="bar inv"><i class="r" style="height:5.5%"></i><i class="o" style="height:3.1%"></i><i class="w" style="height:18.6%"></i></div>
+    <div class="bar inv"><i class="r" style="height:6.0%"></i><i class="o" style="height:3.2%"></i><i class="w" style="height:15.0%"></i></div>
+    <div class="bar inv"><i class="r" style="height:6.3%"></i><i class="o" style="height:2.5%"></i><i class="w" style="height:8.2%"></i></div>
+    <div class="bar inv"><i class="r" style="height:6.5%"></i><i class="o" style="height:5.2%"></i><i class="w" style="height:47.0%"></i></div>
+    <div class="bar inv"><i class="r" style="height:7.7%"></i><i class="o" style="height:3.2%"></i><i class="w" style="height:17.5%"></i></div>
+    <div class="bar inv"><i class="r" style="height:8.2%"></i><i class="o" style="height:4.8%"></i><i class="w" style="height:16.6%"></i></div>
+    <div class="bar inv"><i class="r" style="height:8.6%"></i><i class="o" style="height:6.7%"></i><i class="w" style="height:15.2%"></i></div>
+    <div class="bar inv"><i class="r" style="height:9.0%"></i><i class="o" style="height:9.1%"></i><i class="w" style="height:7.7%"></i></div>
+    <div class="bar inv"><i class="r" style="height:9.1%"></i><i class="o" style="height:3.0%"></i><i class="w" style="height:4.0%"></i></div>
+    <div class="bar inv"><i class="r" style="height:9.2%"></i><i class="o" style="height:2.4%"></i><i class="w" style="height:2.0%"></i></div>
+    <div class="bar inv"><i class="r" style="height:9.3%"></i><i class="o" style="height:4.2%"></i><i class="w" style="height:15.9%"></i></div>
+    <div class="bar inv"><i class="r" style="height:9.7%"></i><i class="o" style="height:15.2%"></i><i class="w" style="height:3.3%"></i></div>
+    <div class="bar inv"><i class="r" style="height:9.8%"></i><i class="o" style="height:7.6%"></i><i class="w" style="height:11.4%"></i></div>
+    <div class="bar inv"><i class="r" style="height:10.1%"></i><i class="o" style="height:6.5%"></i><i class="w" style="height:10.5%"></i></div>
+    <div class="bar impl"><i class="r" style="height:10.3%"></i><i class="o" style="height:31.4%"></i><i class="w" style="height:8.8%"></i></div>
     <div class="bar"><i class="r" style="height:10.5%"></i><i class="o" style="height:5.5%"></i><i class="w" style="height:15.2%"></i></div>
     <div class="bar"><i class="r" style="height:10.9%"></i><i class="o" style="height:0.5%"></i><i class="w" style="height:11.6%"></i></div>
     <div class="bar"><i class="r" style="height:11.2%"></i><i class="o" style="height:0.5%"></i><i class="w" style="height:1.0%"></i></div>
@@ -86,11 +73,11 @@ clicks: 1
     <div class="bar"><i class="r" style="height:14.4%"></i><i class="o" style="height:3.3%"></i><i class="w" style="height:9.5%"></i></div>
     <div class="bar"><i class="r" style="height:14.6%"></i><i class="o" style="height:12.0%"></i><i class="w" style="height:3.8%"></i></div>
   </div>
-  <div class="phases" :class="{ focus: $clicks >= 1 }">
-    <div style="--n: 15">調査</div>
-    <div style="--n: 1">実装</div>
-    <div style="--n: 6">コンパイル</div>
-    <div class="check" style="--n: 23">プレイモードで確認</div>
+  <div class="phases" :data-focus="[null, 'inv', 'impl', 'check'][$clicks]">
+    <div class="inv" style="--n: 15">調査</div>
+    <div class="impl" style="--n: 1">実装</div>
+    <div style="--n: 6">セットアップ</div>
+    <div class="check" style="--n: 23">動作検証</div>
     <div style="--n: 3">後片付け</div>
   </div>
   <div class="legend">
@@ -130,7 +117,11 @@ clicks: 1
   transition: opacity 0.4s ease;
 }
 .req-chart .phases > .check { color: var(--c-yellow); border-color: var(--c-yellow); }
-.req-chart .focus > :not(.check) { opacity: 0.25; }
+.req-chart .phases[data-focus="inv"] > .inv,
+.req-chart .phases[data-focus="impl"] > .impl { color: var(--c-yellow); border-color: var(--c-yellow); }
+.req-chart [data-focus="inv"] > :not(.inv),
+.req-chart [data-focus="impl"] > :not(.impl),
+.req-chart [data-focus="check"] > :not(.check) { opacity: 0.25; }
 .req-chart .legend {
   display: flex;
   justify-content: flex-end;
@@ -148,36 +139,40 @@ clicks: 1
 </style>
 
 <!--
-48回のリクエストを、1本ずつ棒グラフにしてみました。棒の高さが1回のリクエストのコストです。色はコストの種類で、緑がキャッシュ読み取り、オレンジがキャッシュ書き込み、赤が出力です。
+先ほど例として使った無敵アイテムの実装タスク、今回は動作検証もちゃんと含めて実行してもらいました。このタスクでは 48 回の API リクエストが発生しました。このグラフは、その 48 回のリクエストのコストを棒グラフで表したものです。
 
-前半はプロジェクトの調査ですね。スクリプトを読み込んでいくので、キャッシュ書き込みのオレンジが目立ちます。真ん中の1本だけ赤い棒がコードを書いているところ。実装そのものは、たった1回のリクエストで終わっています。
+[click]前半はプロジェクトの調査ですね。スクリプトを読み込んでいくので、キャッシュ書き込みのコストが目立ちます。
 
-[click]注目してほしいのは後半です。ここはプレイモードに入って、実装がちゃんと動いているかを確認しているフェーズです。1本1本は小さいんですが、とにかく本数が多い。23本並んでいます。そして、下の方の緑、キャッシュ読み取りの部分が、じわじわと積み上がっていっているのが分かると思います。
+[click]その次に１本だけ大量の出力を行なっている棒がありますね。これがコードを書いているステップです。実装そのものは、たった１回のリクエストで終わっています。
+
+注目してほしいのは[click]ここです。ここはプレイモードに入って、実装がちゃんと動いているかを検証しているフェーズです。目立って重いステップはありませんが、ある程度膨らんでしまったコンテキストの中で細かくコストを重ねているのが分かりますね。ステップ数も多いです。23 回リクエストしています。
 -->
 
 ---
-
-# フェーズ別の集計
+layout: center
+---
 
 | フェーズ | リクエスト | ツール呼び出し | キャッシュ読込 | コスト |
 | --- | ---: | ---: | ---: | ---: |
 | 調査 | 15 | 16 | $0.19 | $0.77 (38%) |
 | 実装 | 1 | 1 | $0.02 | $0.08 (4%) |
-| コンパイル・プレハブ作成 | 6 | 6 | $0.11 | $0.23 (11%) |
-| <span style="color: var(--c-yellow)">プレイモードで確認</span> | <span style="color: var(--c-yellow)">23</span> | <span style="color: var(--c-yellow)">33</span> | <span style="color: var(--c-yellow)">$0.47</span> | <span style="color: var(--c-yellow)">**$0.83 (41%)**</span> |
+| セットアップ | 6 | 6 | $0.11 | $0.23 (11%) |
+| <span style="color: var(--c-yellow)">動作検証</span> | <span style="color: var(--c-yellow)">23</span> | <span style="color: var(--c-yellow)">33</span> | <span style="color: var(--c-yellow)">$0.47</span> | <span style="color: var(--c-yellow)">**$0.83 (41%)**</span> |
 | 後片付け | 3 | 4 | $0.07 | $0.13 (6%) |
 
 <!--
-フェーズ別に集計するとこうなります。
+フェーズ別に数値を集計してみました。
 
-一番お金がかかっているのは、実は調査でも実装でもなく、確認のフェーズでした。全体の41%、$0.83 を使っています。実装そのものは $0.08 なので、その10倍ですね。
+一番コストがかかっているのは、調査でも実装でもなく、動作検証のフェーズでした。全体の41% を使っています。実装そのものは 4% なので、その 10 倍ですね。
 
-リクエスト数は23回、ツール呼び出しは33回。全体の半分近くのやり取りが、この確認フェーズに集中しています。そしてキャッシュ読み取りのコストが $0.47 と、他のフェーズより飛び抜けて大きくなっています。
+リクエスト数は 23 回、ツール呼び出しは 33 回。全体の半分近くのやり取りが、この動作検証フェーズに集中しています。キャッシュ読み込みのコストも顕著に大きいです。膨らんだコンテキストの中でステップ数を重ねている影響が、ここに現れていますね。
+
+さて、それでは、この動作検証フェーズの中では、一体どのようなことを行なっているのでしょうか？
 -->
 
 ---
 
-# 確認フェーズでやっていること
+# 動作検証フェーズの中身
 
 <div class="grid grid-cols-2 gap-12 mt-8">
 
@@ -209,11 +204,11 @@ clicks: 1
 </div>
 
 <!--
-確認フェーズの中身を見てみましょう。
+動作検証フェーズの中身を覗いてみましょう。
 
-シーンを開いて再生する。アイテムを生成してスクリーンショットを撮る。見た目がおかしいので調整してまた撮る。プレイヤーをアイテムの位置に動かして取得させる。ダメージが無効になっているか HP を読んで確かめる。敵にぶつけてまた撮る。最後にコンソールの警告を確認する……と、こんな感じです。
+シーンを開いて再生する、アイテムを生成してスクリーンショットを撮る、見た目がおかしいので調整してまた撮る「プレイヤーをアイテムの位置に動かして取得させる「ダメージが無効になっているか HP を読んで確かめる、敵にぶつけてまた撮る、最後にコンソールの警告を確認する……と、こんな感じです。
 
-人間が Unity エディタでやっている動作確認を、エージェントが一手ずつツールで再現しているわけですね。エディタ上で C# を実行する eval が14回、ゲーム画面の撮影が9回。小さな操作を細切れに、何度も何度も呼び出しています。
+まあ要するに、人間が Unity エディタでやっているような動作検証を、エージェントが１ステップずつツールで再現しているわけですね。エディタ上で C# を実行する eval が 14 回、ゲーム画面の撮影が 9 回、とか、小さな操作を細切れに、何回も呼び出しています。
 -->
 
 ---
