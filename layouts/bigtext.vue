@@ -1,9 +1,14 @@
 <!--
 Big text layout (Takahashi method style): centered huge text, scaled so the
 widest line fills the slide width (minus 15% padding on each side).
+The font size is capped at `maxSize` px (overridable via frontmatter).
 -->
 <script setup>
 import { ref, onMounted, onBeforeUnmount } from 'vue'
+
+const props = defineProps({
+  maxSize: { type: Number, default: 70 },
+})
 
 const box = ref()
 const text = ref()
@@ -15,7 +20,7 @@ function fit() {
   t.style.fontSize = BASE + 'px'
   if (!t.offsetWidth || !b.clientWidth) return // hidden slide
   const s = Math.min(b.clientWidth / t.offsetWidth, b.clientHeight / t.offsetHeight)
-  t.style.fontSize = BASE * s * 0.995 + 'px'
+  t.style.fontSize = Math.min(BASE * s * 0.995, props.maxSize) + 'px'
 }
 
 let observer
