@@ -37,6 +37,7 @@ layout: full
 
 ---
 layout: full
+clicks: 5
 ---
 
 <svg class="chat absolute inset-0 w-full h-full" viewBox="0 0 1376 768" preserveAspectRatio="xMidYMid meet">
@@ -44,30 +45,36 @@ layout: full
   <svg x="976" y="450" width="260" height="230" viewBox="300 90 700 620">
     <image href="/images/sec3/smart-ai.png" width="1376" height="768" />
   </svg>
-  <g v-click="1">
-    <path d="M 454 90 H 546 A 24 24 0 0 1 570 114 V 156 A 24 24 0 0 1 546 180 L 502 180 L 440 218 L 468 180 H 454 A 24 24 0 0 1 430 156 V 114 A 24 24 0 0 1 454 90 Z" />
-    <text x="500" y="135">A</text>
+  <g v-if="$clicks === 1">
+    <g v-for="(m, i) in [['１＋１は？'], ['２です'], ['×３は？'], ['６です']]" :key="i" class="msg" :class="i % 2 ? 'to-human' : 'to-llm'" :style="{ animationDelay: i * 1.25 + 's' }">
+      <rect :x="-30 - Math.max(...m.map(l => l.length)) * 20" :y="-36 - (m.length - 1) * 26" :width="60 + Math.max(...m.map(l => l.length)) * 40" :height="72 + (m.length - 1) * 52" rx="20" />
+      <text v-for="(l, j) in m" :key="j" :y="(j * 2 - m.length + 1) * 26" :class="{ muted: j < m.length - 1 }">{{ l }}</text>
+    </g>
   </g>
-  <g v-click="2">
-    <path d="M 834 200 H 926 A 24 24 0 0 1 950 224 V 266 A 24 24 0 0 1 926 290 L 912 290 L 940 328 L 878 290 H 834 A 24 24 0 0 1 810 266 V 224 A 24 24 0 0 1 834 200 Z" />
-    <text x="880" y="245">B</text>
+  <g v-if="$clicks === 2">
+    <g v-for="(m, i) in [['１＋１は？'], ['２です'], ['（１＋１は？）', '（２です）', '×３は？'], ['６です']]" :key="i" class="msg" :class="i % 2 ? 'to-human' : 'to-llm'" :style="{ animationDelay: i * 1.25 + 's' }">
+      <rect :x="-30 - Math.max(...m.map(l => l.length)) * 20" :y="-36 - (m.length - 1) * 26" :width="60 + Math.max(...m.map(l => l.length)) * 40" :height="72 + (m.length - 1) * 52" rx="20" />
+      <text v-for="(l, j) in m" :key="j" :y="(j * 2 - m.length + 1) * 26" :class="{ muted: j < m.length - 1 }">{{ l }}</text>
+    </g>
   </g>
-  <g v-click="3">
-    <path d="M 454 310 H 546 A 24 24 0 0 1 570 334 V 376 A 24 24 0 0 1 546 400 L 502 400 L 440 438 L 468 400 H 454 A 24 24 0 0 1 430 376 V 334 A 24 24 0 0 1 454 310 Z" />
-    <text x="500" y="355">C</text>
+  <g v-click="[3, 5]">
+    <path d="M 444 310 H 616 A 24 24 0 0 1 640 334 V 366 A 24 24 0 0 1 616 390 H 490 L 420 430 L 450 390 H 444 A 24 24 0 0 1 420 366 V 334 A 24 24 0 0 1 444 310 Z" />
+    <text x="530" y="350">÷２は？</text>
   </g>
-  <g v-click="[4,5]">
-    <path d="M 834 420 H 926 A 24 24 0 0 1 950 444 V 486 A 24 24 0 0 1 926 510 L 912 510 L 940 548 L 878 510 H 834 A 24 24 0 0 1 810 486 V 444 A 24 24 0 0 1 834 420 Z" />
-    <text x="880" y="465">D</text>
+  <g v-click="[4, 5]">
+    <path d="M 764 340 H 956 A 24 24 0 0 1 980 364 V 396 A 24 24 0 0 1 956 420 H 950 L 990 460 L 920 420 H 764 A 24 24 0 0 1 740 396 V 364 A 24 24 0 0 1 764 340 Z" />
+    <text x="860" y="380">何を…？</text>
   </g>
   <g v-click="5">
-    <path d="M 654 420 H 926 A 24 24 0 0 1 950 444 V 486 A 24 24 0 0 1 926 510 L 912 510 L 940 548 L 878 510 H 654 A 24 24 0 0 1 630 486 V 444 A 24 24 0 0 1 654 420 Z" />
-    <text x="790" y="465"><tspan style="fill: var(--c-muted)">(ABC)</tspan> D</text>
+    <path d="M 444 160 H 976 A 24 24 0 0 1 1000 184 V 366 A 24 24 0 0 1 976 390 H 490 L 420 430 L 450 390 H 444 A 24 24 0 0 1 420 366 V 184 A 24 24 0 0 1 444 160 Z" />
+    <text x="710" y="210" class="muted">（１＋１は？）（２です）</text>
+    <text x="710" y="275" class="muted">（×３は？）（６です）</text>
+    <text x="710" y="340">÷２は？</text>
   </g>
 </svg>
 
 <style>
-.chat path {
+.chat rect, .chat path {
   fill: black;
   stroke: white;
   stroke-width: 3.5;
@@ -75,19 +82,42 @@ layout: full
 }
 .chat text {
   fill: white;
-  font-size: 52px;
+  font-size: 40px;
   font-weight: 600;
   text-anchor: middle;
   dominant-baseline: central;
 }
+.chat .muted {
+  fill: var(--c-muted);
+}
+.msg {
+  opacity: 0;
+  animation: 1.2s ease-in-out both;
+}
+.msg.to-llm { animation-name: to-llm; }
+.msg.to-human { animation-name: to-human; }
+@keyframes to-llm {
+  0% { transform: translate(560px, 300px); opacity: 0; }
+  15% { transform: translate(560px, 300px); opacity: 1; }
+  85% { transform: translate(860px, 300px); opacity: 1; }
+  100% { transform: translate(860px, 300px); opacity: 0; }
+}
+@keyframes to-human {
+  0% { transform: translate(860px, 300px); opacity: 0; }
+  15% { transform: translate(860px, 300px); opacity: 1; }
+  85% { transform: translate(560px, 300px); opacity: 1; }
+  100% { transform: translate(560px, 300px); opacity: 0; }
+}
 </style>
 
 <!--
-エージェントを使っていると、まるで記憶を持った知能との会話を続けているように感じられますよね。[click:4]
+エージェントを使っていると、[click]まるで記憶を持った知能との会話を続けているように感じられますよね。
 
-でも実際には、LLMには会話の文脈を記憶する機能がありません。会話を成立させるには、[click:5]それまでのやり取りをすべて入力し直してやる必要があります。この図で言えば、ここで"C"だけを入力してもダメで、今までのやり取り全て、"ABC"を再度入力してやる必要があるんですね。
+でも実際には、LLMには会話の文脈を記憶する機能がありません。会話を成立させるには、[click]それまでのやり取りをすべて入力し直してやる必要があります。
 
-この"ABC"が、このやり取りにおける文脈、コンテキストです。
+例えば、[click]ここから「割る２は？」とだけ送っても[click]ダメなんですね。[click]これを全部送る必要があります。
+
+これこそが、このやり取りにおける文脈、コンテキストです。
 -->
 
 ---
