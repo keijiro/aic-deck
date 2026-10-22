@@ -60,13 +60,28 @@ html:root {
 /* Cleared per task: 1 total cost / 2 context and cache read (excluding the total row) */
 .cost-cleared.hl-1 tbody tr:last-child td:nth-child(6),
 .cost-cleared.hl-2 tbody tr:not(:last-child) td:is(:nth-child(2), :nth-child(4)),
-/* Comparison: 1-3 per-task cost / 5 task 2 cache read / 6 task 3 cache read / 7 task 3 cache write */
+/* Similar tasks, single session: 1 context / 2 total cost */
+.cost-single2.hl-1 tbody tr:not(:last-child) td:nth-child(2),
+.cost-single2.hl-2 tbody tr:last-child td:nth-child(6),
+/* Similar tasks, cleared per task: 1 context / 2 cache write / 3 total cost */
+.cost-cleared2.hl-1 tbody tr:not(:last-child) td:nth-child(2),
+.cost-cleared2.hl-2 tbody tr:not(:last-child) td:nth-child(5),
+.cost-cleared2.hl-3 tbody tr:last-child td:nth-child(6),
+/* Similar tasks comparison: 1 tasks 2-3 cache read / 2 tasks 2-3 cache write / 3 total cost / 4 cleared */
+.cost-compare2.hl-1 tbody tr:is(:nth-child(2), :nth-child(3)) td:nth-child(2),
+.cost-compare2.hl-2 tbody tr:is(:nth-child(2), :nth-child(3)) td:nth-child(3),
+.cost-compare2.hl-3 tbody tr:last-child td:nth-child(4),
+/* Comparison: 1-3 per-task cost / 5 task 2 cache read / 6 task 3 cache read / 7 task 3 cache write / 9 tasks 2-3 cache read / 10 tasks 2-3 cache write */
 .cost-compare.hl-1 tbody tr:nth-child(1) td:nth-child(4),
 .cost-compare.hl-2 tbody tr:nth-child(2) td:nth-child(4),
 .cost-compare.hl-3 tbody tr:nth-child(3) td:nth-child(4),
 .cost-compare.hl-5 tbody tr:nth-child(2) td:nth-child(2),
 .cost-compare.hl-6 tbody tr:nth-child(3) td:nth-child(2),
-.cost-compare.hl-7 tbody tr:nth-child(3) td:nth-child(3) {
+.cost-compare.hl-7 tbody tr:nth-child(3) td:nth-child(3),
+.cost-compare.hl-9 tbody tr:nth-child(2) td:nth-child(2),
+.cost-compare.hl-9 tbody tr:nth-child(3) td:nth-child(2),
+.cost-compare.hl-10 tbody tr:nth-child(2) td:nth-child(3),
+.cost-compare.hl-10 tbody tr:nth-child(3) td:nth-child(3) {
   color: var(--c-yellow);
   background-color: color-mix(in srgb, var(--c-yellow) 15%, transparent);
 }

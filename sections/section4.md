@@ -198,7 +198,7 @@ clicks: 6
 | 無敵アイテム | 65K | $0.18 | $0.15 | $0.39 | $0.72 |
 | 白黒２値化 | 98K | $0.28 | $0.28 | $0.26 | $0.83 |
 | UI和訳 | 130K | $0.20 | $0.35 | $0.25 | $0.80 |
-| **合計** | | $0.66 | $0.77 | $0.91 | **$2.35** |
+| 合計 | | $0.66 | $0.77 | $0.91 | $2.35 |
 
 </div>
 
@@ -224,7 +224,7 @@ clicks: 2
 | 無敵アイテム | 62K | $0.17 | $0.12 | $0.35 | $0.63 |
 | 白黒２値化 | 47K | $0.23 | $0.08 | $0.28 | $0.59 |
 | UI和訳 | 60K | $0.18 | $0.13 | $0.40 | $0.71 |
-| **合計** | | $0.58 | $0.33 | $1.02 | **$1.94** |
+| 合計 | | $0.58 | $0.33 | $1.02 | $1.94 |
 
 </div>
 
@@ -238,7 +238,7 @@ clicks: 2
 
 ---
 layout: center
-clicks: 8
+clicks: 10
 ---
 
 <div class="cost-hl cost-compare" :class="`hl-${$clicks}`">
@@ -248,52 +248,131 @@ clicks: 8
 | 無敵アイテム | $0.15 → $0.12 <span style="color: var(--c-green)">(-$0.03)</span> | $0.39 → $0.35 <span style="color: var(--c-green)">(-$0.04)</span> | $0.72 → $0.63 <span style="color: var(--c-green)">(-$0.09)</span> |
 | 白黒２値化 | $0.28 → $0.08 <span style="color: var(--c-green)">(-$0.20)</span> | $0.26 → $0.28 <span style="color: var(--c-red)">(+$0.02)</span> | $0.83 → $0.59 <span style="color: var(--c-green)">(-$0.24)</span> |
 | UI和訳 | $0.35 → $0.13 <span style="color: var(--c-green)">(-$0.22)</span> | $0.25 → $0.40 <span style="color: var(--c-red)">(+$0.15)</span> | $0.80 → $0.71 <span style="color: var(--c-green)">(-$0.09)</span> |
-| **合計** | $0.77 → $0.33 <span style="color: var(--c-green)">(-$0.44)</span> | $0.91 → $1.02 <span style="color: var(--c-red)">(+$0.11)</span> | **$2.35 → $1.94 <span style="color: var(--c-green)">(-$0.41)</span>** |
+| 合計 | $0.77 → $0.33 <span style="color: var(--c-green)">(-$0.44)</span> | $0.91 → $1.02 <span style="color: var(--c-red)">(+$0.11)</span> | $2.35 → $1.94 <span style="color: var(--c-green)">(-$0.41)</span> |
 
 </div>
-
-<div v-click="8" class="ctx-quote flex justify-center gap-12 mt-4 text-sm">
-  <div>
-    <div class="mb-1" style="color: var(--c-yellow)">単一セッション</div>
-    <table>
-      <thead><tr><th>タスク</th><th class="text-right">コンテキスト</th></tr></thead>
-      <tbody>
-        <tr><td>UI和訳</td><td class="text-right">98K → 130K <span style="color: var(--c-yellow)">(+32K)</span></td></tr>
-      </tbody>
-    </table>
-  </div>
-  <div>
-    <div class="mb-1" style="color: var(--c-yellow)">タスク毎にクリア</div>
-    <table>
-      <thead><tr><th>タスク</th><th class="text-right">コンテキスト</th></tr></thead>
-      <tbody>
-        <tr><td>UI和訳</td><td class="text-right"><span style="color: var(--c-yellow)">60K</span></td></tr>
-      </tbody>
-    </table>
-  </div>
-</div>
-
-<style>
-.ctx-quote table { margin: 0; }
-.ctx-quote th, .ctx-quote td { padding: 0.15rem 0.75rem; }
-</style>
 
 <!--
 タスク毎に見てみると、[click]最初のタスクは条件が同じなので差は誤差の範囲内ですね。[click]２つ目はちょっと安くなりました。[click]３つ目はあんまり安くならなかったようです。[click]
 
-キャッシュの読み書きの量も見てみましょう。２つ目のタスクでは、[click]キャッシュ読み込みのコストが顕著に減っています。これはコンテキストをクリアした効果が現れていると考えることができます。
+キャッシュの読み書きのコストも見てみましょう。２つ目のタスクでは、[click]キャッシュ読み込みのコストが顕著に減っています。これはコンテキストをクリアした効果が現れていますね。
 
 [click]３つ目のタスクでも同様にキャッシュ読み込み量の減少が見られます。ただしこちらでは[click]キャッシュ書き込み量が増えてしまいました。
 
-ちょっとこのタスクのコンテキストサイズを比較してみましょう。
+[click]このようにセッションを分割すると、[click]キャッシュ読み込みのコストは下がるんだけど、[click]キャッシュ書き込みのコストは上がる、と言うことが起きがちです。
 
-[click]単一セッションの場合は、このタスクでコンテキストが98Kから130Kに増えていました。32Kの増加ですね。それに対して、分割方式では60Kのコンテキストが構築されました。どうやら、このタスクは前のタスクと関係が無いように見えて、実は使い回せる部分、つまり共通した文脈が、まあ30Kトークンぐらいはあったようです。なので、ここの値は分割したことによって不利になってしまった、というか、トントンぐらいに相殺されてしまった、という格好ですね。
+なんでそうなるのか、少し考えてみましょう。
 -->
 
 ---
+layout: full
+clicks: 4
+---
+
+<svg class="ctx-venn absolute inset-0 w-full h-full" viewBox="-90 -77 1564 873" preserveAspectRatio="xMidYMid meet">
+  <g class="row1" :class="{ left: $clicks >= 2, up: $clicks >= 3 }">
+    <g :class="{ venn: $clicks >= 1 }">
+      <g class="task t1"><circle cx="150" cy="200" r="100" /><text x="150" y="200"><tspan x="150" dy="-0.6em">無敵</tspan><tspan x="150" dy="1.2em">アイテム</tspan></text></g>
+      <g class="task t2"><circle cx="370" cy="200" r="100" /><text x="370" y="200">白黒２値化</text></g>
+      <g class="task t3"><circle cx="590" cy="200" r="100" /><text x="590" y="200">UI和訳</text></g>
+    </g>
+    <g class="bars" :class="{ show: $clicks >= 2 }">
+      <g class="bar"><rect x="740" y="110" width="260" height="40" /></g><text x="1012" y="130">65K</text>
+      <g class="bar"><rect class="base" x="740" y="180" width="260" height="40" /><rect x="1000" y="180" width="132" height="40" /></g><text x="1144" y="200">+33K</text>
+      <g class="bar"><rect class="base" x="740" y="250" width="392" height="40" /><rect x="1132" y="250" width="128" height="40" /></g><text x="1272" y="270">+32K</text>
+    </g>
+  </g>
+  <g class="split" :class="{ show: $clicks >= 3 }">
+    <g class="task t1"><circle cx="150" cy="560" r="100" /><text x="150" y="560"><tspan x="150" dy="-0.6em">無敵</tspan><tspan x="150" dy="1.2em">アイテム</tspan></text></g>
+    <g class="task t2"><circle cx="370" cy="560" r="100" /><text x="370" y="560">白黒２値化</text></g>
+    <g class="task t3"><circle cx="590" cy="560" r="100" /><text x="590" y="560">UI和訳</text></g>
+  </g>
+  <g class="bars" :class="{ show: $clicks >= 4 }">
+    <g class="bar"><rect x="740" y="470" width="248" height="40" /></g><text x="1000" y="490">62K</text>
+    <g class="bar"><rect x="740" y="540" width="188" height="40" /></g><text x="940" y="560">47K</text>
+    <g class="bar"><rect x="740" y="610" width="240" height="40" /></g><text x="992" y="630">60K</text>
+  </g>
+</svg>
+
+<style>
+.ctx-venn .row1 {
+  transform: translate(322px, 160px);
+  transition: transform 0.8s ease;
+}
+.ctx-venn .row1.left {
+  transform: translate(0, 160px);
+}
+.ctx-venn .row1.left.up {
+  transform: translate(0, 0);
+}
+.ctx-venn .task {
+  transition: transform 0.8s ease;
+}
+.ctx-venn .task circle {
+  fill: color-mix(in srgb, var(--c-lime) 25%, transparent);
+  stroke: var(--c-lime);
+  stroke-width: 4;
+}
+.ctx-venn text {
+  fill: white;
+  font-size: 26px;
+  text-anchor: middle;
+  dominant-baseline: central;
+}
+.ctx-venn .task text {
+  font-size: 22px;
+}
+.ctx-venn .venn .t1 { transform: translate(145px, -43px); }
+.ctx-venn .venn .t2 { transform: translate(0, 87px); }
+.ctx-venn .venn .t3 { transform: translate(-145px, -43px); }
+.ctx-venn .split {
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+.ctx-venn .split.show {
+  opacity: 1;
+  transition-delay: 0.6s;
+}
+.ctx-venn .bars rect {
+  fill: var(--c-lime);
+}
+.ctx-venn .bars rect.base {
+  fill: color-mix(in srgb, var(--c-lime) 35%, transparent);
+}
+.ctx-venn .bar {
+  transform: scaleX(0);
+  transform-box: fill-box;
+  transform-origin: left;
+  transition: transform 0.6s ease;
+}
+.ctx-venn .bars text {
+  text-anchor: start;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+.ctx-venn .bars.show .bar {
+  transform: scaleX(1);
+}
+.ctx-venn .bars.show text {
+  opacity: 1;
+  transition-delay: 0.5s;
+}
+.ctx-venn .row1 .bars.show .bar {
+  transition-delay: 0.6s;
+}
+.ctx-venn .row1 .bars.show text {
+  transition-delay: 1.1s;
+}
+</style>
 
 <!--
-ちなみに、これらの数値は４回試行の平均値をとっていますが、試行毎のばらつきはかなり大きくて、やり直す度に毎回違う数値になります。この表では分割した方がコストが安くなっていますが、運が悪ければコストが増加することも当然あります。でも、全体的な傾向としてやっぱりこういった事は見られます。単一セッションを使うと段々コストが嵩んでくる。そして、分割すると、安くなるかもしれないけど、キャッシュ書き込みで相殺してしまう可能性もある、と、そんな感じですね。
+この３つの作業はかなり異なる事をやっていますが、それでも[click]文脈が重なっている部分はあります。例えばプロジェクト設定はどの作業でも参照するでしょうし、シーン構造もある程度共通した部分を見ることになるでしょう。既に知っていることはコンテキストに追加する必要が無いので、[click]コンテキストの膨張速度は徐々に低下します。そのため、新しくコンテキストに追加される部分、つまりキャッシュ書き込みの量は、徐々に低下していくわけです。
+
+これに対して３つの作業を分離した場合、[click]それぞれのコンテキストは完全に分離していて、[click]３つのセッションそれぞれでコンテキストを１から積み上げていきます。そのため、キャッシュ書き込みの量は、それぞれのコンテキストの大きさをそのまま反映することになります。
+
+このような事情があるので、重なる領域が大きければ大きいほど、セッションを分割することのメリットは低下していきます。
+
+これを念頭に置いて、次にこのような実験を行なってみました。
 -->
 
 ---
@@ -305,60 +384,75 @@ clicks: 8
 - 移動速度増加アイテムを実装してください
 
 <!--
-次にこのような実験も行なってみました。同じBunny Blitzですが、今度はかなり近めのタスクを３つ並べてみました。１つ目の無敵アイテムは先ほどと同じですが、２つ目はジャンプ力の増加アイテム、３つ目は速度増加アイテムです。かなり似たような領域にある問題ですよね。
+同じBunny Blitzですが、今度はかなり近めのタスクを３つ並べてみました。１つ目の無敵アイテムは先ほどと同じですが、２つ目はジャンプ力の増加アイテム、３つ目は速度増加アイテムです。かなり似たような文脈を持ちうる作業ですよね。
 -->
 
 ---
+layout: center
+clicks: 2
+---
 
-# 単一セッションで続けて実行
+<div class="cost-hl cost-single2" :class="`hl-${$clicks}`">
 
 | タスク | コンテキスト | 出力 | キャッシュ<br>読み取り | キャッシュ<br>書き込み | コスト |
 | --- | ---: | ---: | ---: | ---: | ---: |
 | 無敵アイテム | 71K | $0.21 | $0.16 | $0.40 | $0.77 |
 | ジャンプ力増加 | 85K | $0.11 | $0.11 | $0.11 | $0.33 |
 | 移動速度増加 | 96K | $0.08 | $0.08 | $0.09 | $0.26 |
-| **合計** | | $0.40 | $0.35 | $0.60 | **$1.35** |
+| 合計 | | $0.40 | $0.35 | $0.60 | $1.35 |
+
+</div>
 
 <p class="text-sm text-right" style="color: var(--c-muted)">Opus 5.5, medium, 1h TTL, 4回試行の平均</p>
 
 <!--
 単一セッションでの実行結果はこんな感じです。
 
-先ほどと比べると、コンテキストの増加速度はかなり緩やかになっているようです。最初に71Kをガツンと積み上げたあと、次のタスクでは14K、その次では11Kと、微増で済んでいます。つまり、最初のタスクと同じような知識でできる事が多い、文脈をそのまま使い回せているので、コンテキストを膨張させずに済んでいるのだと推測できます。総コストは$1.35でした。
+先ほどと比べると、[click]コンテキストの増加速度はかなり緩やかになっているようです。最初に 71K をガツンと積み上げていますが、それ以降の増加は非常に緩やかです。つまり、最初のタスクと同じような知識でできる事が多い、文脈をそのまま使い回せているので、コンテキストを膨張させずに済んでいるのだと推測できます。総コストは[click]$1.35 でした。
 -->
 
 ---
+layout: center
+clicks: 3
+---
 
-# タスク毎にクリア
+<div class="cost-hl cost-cleared2" :class="`hl-${$clicks}`">
 
 | タスク | コンテキスト | 出力 | キャッシュ<br>読み取り | キャッシュ<br>書き込み | コスト |
 | --- | ---: | ---: | ---: | ---: | ---: |
 | 無敵アイテム | 72K | $0.23 | $0.22 | $0.43 | $0.88 |
 | ジャンプ力増加 | 59K | $0.17 | $0.15 | $0.39 | $0.71 |
 | 移動速度増加 | 51K | $0.12 | $0.07 | $0.32 | $0.52 |
-| **合計** | | $0.52 | $0.44 | $1.14 | **$2.11** |
+| 合計 | | $0.52 | $0.44 | $1.14 | $2.11 |
+
+</div>
 
 <p class="text-sm text-right" style="color: var(--c-muted)">Opus 5.5, medium, 1h TTL, 4回試行の平均</p>
 
 <!--
-次にセッションをクリアした場合の結果です。こちらはタスク毎に50K以上のコンテキストをゼロから積み上げています。これのせいで、キャッシュ書き込みがだいぶ嵩んでしまっていますね。総コストは$2.11に増えてしまいました。
+次にセッションをクリアした場合の結果です。[click]こちらはタスク毎に 50K 以上のコンテキストをゼロから積み上げています。これのせいで、[click]キャッシュ書き込みがだいぶ嵩んでしまっていますね。総コストは[click]$2.11 に増えてしまいました。
 -->
 
 ---
+layout: center
+clicks: 4
+---
 
-# 比較
+<div class="cost-hl cost-compare2" :class="`hl-${$clicks}`">
 
 | タスク | キャッシュ読込 | キャッシュ書込 | コスト |
 | --- | ---: | ---: | ---: |
 | 無敵アイテム | $0.16 → $0.22 <span style="color: var(--c-red)">(+$0.06)</span> | $0.40 → $0.43 <span style="color: var(--c-red)">(+$0.03)</span> | $0.77 → $0.88 <span style="color: var(--c-red)">(+$0.11)</span> |
 | ジャンプ力増加 | $0.11 → $0.15 <span style="color: var(--c-red)">(+$0.04)</span> | $0.11 → $0.39 <span style="color: var(--c-red)">(+$0.28)</span> | $0.33 → $0.71 <span style="color: var(--c-red)">(+$0.38)</span> |
 | 移動速度増加 | $0.08 → $0.07 <span style="color: var(--c-green)">(-$0.01)</span> | $0.09 → $0.32 <span style="color: var(--c-red)">(+$0.23)</span> | $0.26 → $0.52 <span style="color: var(--c-red)">(+$0.26)</span> |
-| **合計** | $0.35 → $0.44 <span style="color: var(--c-red)">(+$0.09)</span> | $0.60 → $1.14 <span style="color: var(--c-red)">(+$0.54)</span> | **$1.35 → $2.11 <span style="color: var(--c-red)">(+$0.76)</span>** |
+| 合計 | $0.35 → $0.44 <span style="color: var(--c-red)">(+$0.09)</span> | $0.60 → $1.14 <span style="color: var(--c-red)">(+$0.54)</span> | $1.35 → $2.11 <span style="color: var(--c-red)">(+$0.76)</span> |
+
+</div>
 
 <!--
-比較してみましょう。キャッシュ読み込みについては少し減らせたのかもしれませんが、結局書き込みの方で赤字になってしまいました。トータルでは大幅に負けています。
+比較してみましょう。今回は[click]キャッシュ読み込みについても効果は薄く、[click]書き込みの方では明らかな赤字になっています。[click]トータルでは大幅な負けですね。
 
-このように、近いことを連続してやらせる場合は、１セッションにまとめた方が安くつく、というのがわかったと思います。
+[click]このように、近いことを連続してやらせる場合は、１セッションにまとめた方が安くつく、というのがわかったと思います。
 -->
 
 ---
@@ -385,7 +479,7 @@ clicks: 8
 </v-click>
 
 <!--
-ということで、最初に1セッション1タスクという基本ルールを話したわけですが、これには例外があります。[click]ただし、性質の近いタスクは連続させた方が良いかもしれない。これですね。
+まとめましょう。最初に1セッション1タスクという基本ルールを話したわけですが、これには例外があります。[click]ただし、性質の近いタスクは連続させた方が良いかもしれない。これですね。
 
 ただ、すると、次はこの「性質の近さ」って一体何なのか、と言う話になるんですが、これは実のところ僕もよく分かっていません。ただ確実に言えそうなのは、同じスクリプトや同じファイルを弄るようなタスクは連続させちゃった方がいいんじゃないか、と言うことです。
 
