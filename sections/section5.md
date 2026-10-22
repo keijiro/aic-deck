@@ -130,9 +130,9 @@ clicks: 3
   color: var(--c-muted);
   transition: opacity 0.4s ease;
 }
-.req-chart .phases > .check { color: var(--c-yellow); border-color: var(--c-yellow); }
 .req-chart .phases[data-focus="inv"] > .inv,
-.req-chart .phases[data-focus="impl"] > .impl { color: var(--c-yellow); border-color: var(--c-yellow); }
+.req-chart .phases[data-focus="impl"] > .impl,
+.req-chart .phases[data-focus="check"] > .check { color: var(--c-yellow); border-color: var(--c-yellow); }
 .req-chart [data-focus="inv"] > :not(.inv),
 .req-chart [data-focus="impl"] > :not(.impl),
 .req-chart [data-focus="check"] > :not(.check) { opacity: 0.25; }
@@ -164,22 +164,27 @@ clicks: 3
 
 ---
 layout: center
+clicks: 6
 ---
+
+<div class="cost-hl cost-phase" :class="`hl-${$clicks}`">
 
 | フェーズ | リクエスト | ツール呼び出し | キャッシュ読込 | コスト |
 | --- | ---: | ---: | ---: | ---: |
 | 調査 | 15 | 16 | $0.19 | $0.77 (38%) |
 | 実装 | 1 | 1 | $0.02 | $0.08 (4%) |
 | セットアップ | 6 | 6 | $0.11 | $0.23 (11%) |
-| <span style="color: var(--c-yellow)">動作検証</span> | <span style="color: var(--c-yellow)">23</span> | <span style="color: var(--c-yellow)">33</span> | <span style="color: var(--c-yellow)">$0.47</span> | <span style="color: var(--c-yellow)">**$0.83 (41%)**</span> |
+| 動作検証 | 23 | 33 | $0.47 | $0.83 (41%) |
 | 後片付け | 3 | 4 | $0.07 | $0.13 (6%) |
 
+</div>
+
 <!--
-フェーズ別に数値を集計してみました。
+フェーズ毎に集計してみました。
 
-一番コストがかかっているのは、調査でも実装でもなく、動作検証のフェーズでした。全体の41% を使っています。実装そのものは 4% なので、その 10 倍ですね。
+一番コストがかかっているのは、調査でも実装でもなく、[click]動作検証のフェーズでした。[click]全体の 41% を使っています。[click]実装そのものは 4% なので、その 10 倍ですね。
 
-リクエスト数は 23 回、ツール呼び出しは 33 回。全体の半分近くのやり取りが、この動作検証フェーズに集中しています。キャッシュ読み込みのコストも顕著に大きいです。膨らんだコンテキストの中でステップ数を重ねている影響が、ここに現れていますね。
+[click]リクエストは 23 回、[click]ツール呼び出しは 33 回。[click]全体の半分近くのやり取りが、この動作検証フェーズに集中しています。キャッシュ読み込みのコストも顕著に大きいです。膨らんだコンテキストの中でステップ数を重ねている影響が、ここに現れていますね。
 
 ということで、ここで Unity 開発、というか恐らくはゲーム開発全般に言えることだと思うのですが、問題になるコスト構造が見えてきます。それは……
 -->
