@@ -85,3 +85,12 @@ html:root {
   color: var(--c-yellow);
   background-color: color-mix(in srgb, var(--c-yellow) 15%, transparent);
 }
+
+/* Inline text highlight toggled by adding .on */
+.text-hl {
+  transition: color 0.3s;
+}
+
+.text-hl.on {
+  color: var(--c-yellow);
+}
