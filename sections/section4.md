@@ -83,15 +83,15 @@ layout: full
       </g>
     </g>
   </g>
-  <g class="leave" v-click.hide="6">
+  <g class="leave" v-click.hide="7">
     <g class="quest" v-click="5">
       <image href="/images/sec4/quest.png" x="602" y="420" width="160" height="123" />
     </g>
-    <g class="enter" v-click="5">
+    <g class="enter" v-click="6">
       <image href="/images/sec4/warrior2.png" x="820" y="330" width="300" height="300" />
     </g>
   </g>
-  <g class="enter" v-click="7">
+  <g class="enter" v-click="8">
     <image href="/images/sec4/warrior1.png" x="820" y="330" width="300" height="300" />
   </g>
 </svg>
@@ -135,7 +135,7 @@ layout: full
 
 [click]AI チャットにおける AI というのは、人間と会話を続けて情報を集めたりタスクをこなしたりする存在ですよね。
 
-[click]コーディングエージェントはこれとは違って、一期一会のさすらいの傭兵、みたいな存在だなと思っています。[click]クエストを出すとそれを黙って受け取って、それをこなして[click]去っていく。[click]そしてまた新しいクエストを出すと、別の傭兵が現れて、またそれをこなして[click]去っていく……と、こんな感じです。
+[click]コーディングエージェントはこれとは違って、一期一会のさすらいの傭兵、みたいな存在だなと思っています。[click]クエストを出すとそれを黙って受け取って、それをこなして[click]去っていく。[click]そしてまた新しいクエストを出すと、[click]別の傭兵が現れて、またそれをこなして[click]去っていく……と、こんな感じです。
 
 なので、必要になるのは、[click]このさすらいの傭兵向けに仕事のしやすい状態を保っておくことなんだなと思います。例えば、来たばかりでもすぐに状況が飲み込めるように、必要な情報は資料にして揃えておこう……誰かの記憶とか文脈の中に閉じ込めておかない、常に文書の形で外部化しておく、と言うことですね。
 -->
@@ -170,6 +170,8 @@ layout: bigtext
 - 白黒２値化エフェクトを実装してください
 - UIを和訳して下さい
 
+※ただし動作検証は省略する
+
 <div class="flex items-center gap-4 mt-8">
   <img src="/images/sec4/bunny-blitz-before.png" class="w-[45%] rounded" />
   <div class="text-4xl" style="color: var(--c-yellow)">→</div>
@@ -183,7 +185,9 @@ layout: bigtext
 
 ここでは、敢えて関係の無さそうな、ランダムな作業を３つ並べてみました。
 
-そして、これらの作業を１セッションの中で、コンテキストを区切らずに実行した場合、コストはこのようになりました。
+なお、ここでは動作検証は敢えて行わず、実装作業だけやってもらいました。この理由については少し後で解説します。
+
+そして、これらの作業を１セッションの中で、コンテキストを区切らずに順に実行した場合、コストはこのようになりました。
 -->
 
 ---
