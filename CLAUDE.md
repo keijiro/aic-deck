@@ -21,3 +21,17 @@ When a visual check of a slide is needed, use a screenshot of the dev server ope
 3. Capture: `screencapture -x -o -l <window-id> <scratchpad>/slide.png`, then Read the image.
 
 The capture is of the on-screen window, so it must not be minimized or covered.
+
+## Edit instructions
+
+Edit instructions are passed inside the .md files as comment blocks like this:
+
+```
+<!-- EDIT HERE
+Make the font on this slide a bit larger
+Change the transition to the next slide to a fade
+-->
+```
+
+Such a comment is an instruction to edit the slide (page) where the comment is placed.
+Once the edit is done, remove the comment block.
