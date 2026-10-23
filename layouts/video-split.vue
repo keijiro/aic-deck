@@ -1,6 +1,6 @@
 <!--
 Video split layout: muted loop clip `video` (frontmatter) on the left (3/5),
-slide content on the right (2/5), no fade.
+slide content on the right (2/5), no fade. Uses <LoopVideo> for print posters.
 -->
 <script setup>
 defineProps({
@@ -10,7 +10,7 @@ defineProps({
 
 <template>
   <div class="slidev-layout video-split">
-    <video :src="video" muted autoplay loop playsinline />
+    <LoopVideo :src="video" />
     <div><slot /></div>
   </div>
 </template>

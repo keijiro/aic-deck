@@ -1,3 +1,5 @@
+allowBuilds:
+  playwright-chromium: true
 overrides:
   markdown-it: 14.3.2
   "@unocss/vite>magic-string": 0.30.21

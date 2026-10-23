@@ -207,10 +207,10 @@ layout: full
 ---
 
 <div class="video-grid">
-  <video src="/videos/sec1/dm-pr-small.mp4" muted autoplay loop playsinline />
-  <video src="/videos/sec1/mh-pr-small.mp4" muted autoplay loop playsinline />
-  <video src="/videos/sec1/mm-pr-small.mp4" muted autoplay loop playsinline />
-  <video src="/videos/sec1/ms-demo-small.mp4" muted autoplay loop playsinline />
+  <LoopVideo src="/videos/sec1/dm-pr-small.mp4" />
+  <LoopVideo src="/videos/sec1/mh-pr-small.mp4" />
+  <LoopVideo src="/videos/sec1/mm-pr-small.mp4" />
+  <LoopVideo src="/videos/sec1/ms-demo-small.mp4" />
 </div>
 
 <!--

@@ -16,9 +16,20 @@ Use only the palette defined as CSS variables in `style.css`:
   (uses `SlidevVideo`, restarts each time the slide is entered).
 - Video left, text right (muted loop, no fade): `layout: video-split` with `video: /videos/...`;
   the slide content goes to the right column.
-- Muted loop clip grid: plain `<video muted autoplay loop playsinline>` inside `.video-grid`
-  (2x2 grid, edges faded) from `style.css`.
+- Muted loop clip grid: `<LoopVideo src="/videos/..." />` inside `.video-grid`
+  (2x2 grid, edges faded) from `style.css`. Use `LoopVideo` for any muted loop clip, not plain `<video>`.
 - Don't add per-slide `<style>` blocks for video layout; extend the shared layouts/classes instead.
+
+### Video in print/export
+
+Headless Chromium (used by `slidev export`) does not paint seeked video frames, so videos would
+export as black. All video layouts/components go through `utils/printVideo.ts`: in print contexts
+they show a poster `foo-print.jpg` next to `foo.mp4`, don't autoplay, and use `preload="none"`.
+
+- When adding a video, generate its poster (3s frame; use the midpoint for clips shorter than that):
+  `ffmpeg -ss 3 -i public/videos/foo.mp4 -frames:v 1 -q:v 3 public/videos/foo-print.jpg`
+- Export with `pnpm export` (adds `--wait 1500 --wait-until load --timeout 90000`; the default
+  networkidle wait times out on video loading). Extra args pass through, e.g. `pnpm export --format pptx`.
 
 ## Diagrams and tables
 
@@ -32,15 +43,16 @@ Use only the palette defined as CSS variables in `style.css`:
 
 ## Visual check
 
-When a visual check of a slide is needed, use a screenshot of the dev server open in Safari
-(AppleScript is enabled in Safari) instead of Claude in Chrome:
+When a visual check of a slide is needed, render it to PNG with Slidev's exporter
+(headless Chromium via `playwright-chromium`) instead of Claude in Chrome:
 
-1. Navigate with the slidev MCP tool `slidev-goto-slide` (use `clicks` for animation steps).
-2. Get the window ID: `osascript -e 'tell application "Safari" to get id of window 1'`
-   (re-query each time; it changes when the window is reopened).
-3. Capture: `screencapture -x -o -l <window-id> <scratchpad>/slide.png`, then Read the image.
+```sh
+pnpm export --format png --range <N> --with-clicks --output <scratchpad>/shot
+```
 
-The capture is of the on-screen window, so it must not be minimized or covered.
+- Produces `<scratchpad>/shot/<NNN>-<click>.png` (one image per click step); Read the image.
+- `--range` accepts lists like `3,10-12`. No dev server needed; it starts its own.
+- Animations (marching arrows) are captured as a single frame; videos show their `-print.jpg` poster.
 
 ## Edit instructions
 
