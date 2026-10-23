@@ -48,7 +48,8 @@ html:root {
 }
 
 /* Cost tables (sections 4, 5): click-driven cell highlights; hl-N follows $clicks */
-.cost-hl td {
+.cost-hl td,
+.cost-hl li {
   transition: color 0.3s, background-color 0.3s;
 }
 
@@ -71,12 +72,12 @@ html:root {
 .cost-compare2.hl-1 tbody tr:is(:nth-child(2), :nth-child(3)) td:nth-child(2),
 .cost-compare2.hl-2 tbody tr:is(:nth-child(2), :nth-child(3)) td:nth-child(3),
 .cost-compare2.hl-3 tbody tr:last-child td:nth-child(4),
-/* Phase breakdown (section 5): 1 verification row / 2 verification cost / 3 + implementation cost / 4 verification requests / 5 verification tool calls / 6 verification row */
+/* Phase breakdown (section 5): 1 verification row / 2 verification cost / 3 + implementation cost / 4 verification requests + tool calls / 5 verification cache read / 6 verification row */
 .cost-phase.hl-1 tbody tr:nth-child(4) td,
 .cost-phase.hl-2 tbody tr:nth-child(4) td:nth-child(5),
 .cost-phase.hl-3 tbody tr:is(:nth-child(2), :nth-child(4)) td:nth-child(5),
-.cost-phase.hl-4 tbody tr:nth-child(4) td:nth-child(2),
-.cost-phase.hl-5 tbody tr:nth-child(4) td:nth-child(3),
+.cost-phase.hl-4 tbody tr:nth-child(4) td:is(:nth-child(2), :nth-child(3)),
+.cost-phase.hl-5 tbody tr:nth-child(4) td:nth-child(4),
 .cost-phase.hl-6 tbody tr:nth-child(4) td,
 /* Comparison: 1-3 per-task cost / 5 task 2 cache read / 6 task 3 cache read / 7 task 3 cache write / 9 tasks 2-3 cache read / 10 tasks 2-3 cache write */
 .cost-compare.hl-1 tbody tr:nth-child(1) td:nth-child(4),
@@ -88,9 +89,21 @@ html:root {
 .cost-compare.hl-9 tbody tr:nth-child(2) td:nth-child(2),
 .cost-compare.hl-9 tbody tr:nth-child(3) td:nth-child(2),
 .cost-compare.hl-10 tbody tr:nth-child(2) td:nth-child(3),
-.cost-compare.hl-10 tbody tr:nth-child(3) td:nth-child(3) {
+.cost-compare.hl-10 tbody tr:nth-child(3) td:nth-child(3),
+/* Verification steps (section 5): 1-6 list items / 8 eval row / 9 capture row (7 and 10 clear) */
+.verify-steps.hl-8 tbody tr:nth-child(1) td,
+.verify-steps.hl-9 tbody tr:nth-child(2) td {
   color: var(--c-yellow);
   background-color: color-mix(in srgb, var(--c-yellow) 15%, transparent);
+}
+
+.verify-steps.hl-1 li:nth-child(1),
+.verify-steps.hl-2 li:nth-child(2),
+.verify-steps.hl-3 li:nth-child(3),
+.verify-steps.hl-4 li:nth-child(4),
+.verify-steps.hl-5 li:nth-child(5),
+.verify-steps.hl-6 li:nth-child(6) {
+  color: var(--c-yellow);
 }
 
 /* Inline text highlight toggled by adding .on */
