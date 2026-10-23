@@ -10,6 +10,14 @@ Use only the palette defined as CSS variables in `style.css`:
 - In SVG, use CSS (`fill: var(--c-red)`) or the `style` attribute — `fill="var(...)"` as a presentation attribute does not work.
 - Existing roles: initial context = red, added context = green, lines/arrows/captions = yellow.
 
+## Video
+
+- Full-screen video with sound: `layout: fullvideo` with `video: /videos/...` in the frontmatter
+  (uses `SlidevVideo`, restarts each time the slide is entered).
+- Muted loop clips: plain `<video muted autoplay loop playsinline>` inside a shared class from `style.css`:
+  `.video-grid` (2x2 grid, edges faded) or `.video-split` (video left, text right, no fade).
+- Don't add per-slide `<style>` blocks for video layout; extend the shared classes instead.
+
 ## Visual check
 
 When a visual check of a slide is needed, use a screenshot of the dev server open in Safari

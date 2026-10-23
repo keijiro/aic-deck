@@ -211,36 +211,12 @@ clicks: 10
 layout: full
 ---
 
-<div class="vgrid">
+<div class="video-grid">
   <video src="/videos/sec1/dm-pr-small.mp4" muted autoplay loop playsinline />
   <video src="/videos/sec1/mh-pr-small.mp4" muted autoplay loop playsinline />
   <video src="/videos/sec1/mm-pr-small.mp4" muted autoplay loop playsinline />
   <video src="/videos/sec1/ms-demo-small.mp4" muted autoplay loop playsinline />
 </div>
-
-<style>
-.vgrid {
-  box-sizing: border-box;
-  height: 100%;
-  padding: 40px;
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  grid-template-rows: repeat(2, minmax(0, 1fr));
-  gap: 24px;
-}
-.vgrid video {
-  justify-self: center;
-  height: 100%;
-  max-width: 100%;
-  aspect-ratio: 16 / 9;
-  object-fit: cover;
-  --fade: 16px;
-  mask-image:
-    linear-gradient(to right, transparent, black var(--fade), black calc(100% - var(--fade)), transparent),
-    linear-gradient(to bottom, transparent, black var(--fade), black calc(100% - var(--fade)), transparent);
-  mask-composite: intersect;
-}
-</style>
 
 <!--
 そこで僕も Unity AI Assistant を使って色々とゲームを開発してみました。この辺りの体験は CEDEC とか Unite Seoul でもお話ししたのですが……今やこんなのはお話にならないぐらい、最先端のモデルは進化を遂げていますよね。半年前のものがすっかり陳腐化してしまうという、恐ろしいスピードの中で生きていることを実感します。
@@ -253,24 +229,9 @@ layout: full
 -->
 
 ---
-layout: full
+layout: fullvideo
+video: /videos/sec1/recent-projects-hq.mp4
 ---
-
-<SlidevVideo class="fullvideo" autoplay autoreset="slide">
-  <source src="/videos/sec1/recent-projects-hq.mp4" type="video/mp4" />
-</SlidevVideo>
-
-<style>
-.slidev-layout:has(.fullvideo) {
-  padding: 0;
-  background: black;
-}
-.fullvideo {
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-}
-</style>
 
 ---
 
@@ -282,7 +243,7 @@ layout: full
 
 ---
 
-<div class="game-split">
+<div class="video-split">
   <video src="/videos/sec1/salvonix-small.mp4" muted autoplay loop playsinline />
 <div>
 
@@ -295,26 +256,13 @@ layout: full
 </div>
 </div>
 
-<style>
-.game-split {
-  height: 100%;
-  display: grid;
-  grid-template-columns: minmax(0, 3fr) minmax(0, 2fr);
-  gap: 40px;
-  align-items: center;
-}
-.game-split video {
-  width: 100%;
-}
-</style>
-
 <!--
 最初は Salvonix という 3D シューティングゲームのプロトタイプです。誘導ミサイルの一斉発射で敵を倒しまくるという内容ですね。自動制御で自由軸回転しながらスペースコロニーの中を飛び回る、という複雑なセッティングを１プロンプトでちゃんと理解して実装してくれたのが嬉しかったですね。まさに、こんなのができるとは半年前には思っていなかった、という実例です。
 -->
 
 ---
 
-<div class="game-split">
+<div class="video-split">
   <video src="/videos/sec1/football-small.mp4" muted autoplay loop playsinline />
 <div>
 
@@ -326,19 +274,6 @@ layout: full
 
 </div>
 </div>
-
-<style>
-.game-split {
-  height: 100%;
-  display: grid;
-  grid-template-columns: minmax(0, 3fr) minmax(0, 2fr);
-  gap: 40px;
-  align-items: center;
-}
-.game-split video {
-  width: 100%;
-}
-</style>
 
 <!--
 次は Totally Realistic Football、超リアルフットボールという、とぼけた名前の、物理挙動系のシュールなゲームですね。カーソルキーの左で左足を軸とした回転、右で右足を軸とした回転を行うという、左右の足の軸回転だけで操作する激ムズゲームです。これも１プロンプトのプロトタイプなんですが、このシュールなシステムとアセットのルックが上手くマッチした形で実装できたのが嬉しかったですね。

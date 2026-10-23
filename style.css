@@ -114,3 +114,40 @@ html:root {
 .text-hl.on {
   color: var(--c-yellow);
 }
+
+/* Video grid: muted loop clips in a 2x2 grid, edges faded into the background */
+.video-grid {
+  box-sizing: border-box;
+  height: 100%;
+  padding: 40px;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-rows: repeat(2, minmax(0, 1fr));
+  gap: 24px;
+}
+
+.video-grid video {
+  justify-self: center;
+  height: 100%;
+  max-width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  --fade: 16px;
+  mask-image:
+    linear-gradient(to right, transparent, black var(--fade), black calc(100% - var(--fade)), transparent),
+    linear-gradient(to bottom, transparent, black var(--fade), black calc(100% - var(--fade)), transparent);
+  mask-composite: intersect;
+}
+
+/* Video split: muted loop clip on the left (3/5), text on the right (2/5) */
+.video-split {
+  height: 100%;
+  display: grid;
+  grid-template-columns: minmax(0, 3fr) minmax(0, 2fr);
+  gap: 40px;
+  align-items: center;
+}
+
+.video-split video {
+  width: 100%;
+}
