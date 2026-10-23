@@ -1,6 +1,13 @@
-jacquard-promo.mp4
+---
+layout: fullvideo
+video: /videos/sec2/jacquard-hq.mp4
+---
 
 ---
+
+<div class="video-split">
+  <video src="/videos/sec2/jacquard-hq.mp4" muted autoplay loop playsinline />
+<div>
 
 # Jacquard
 
@@ -8,6 +15,9 @@ jacquard-promo.mp4
 - 「繰り返し」と「変動」を折り込んだ演奏規則を生み出す
 - FM 音源によるレトロ感と近代的なエフェクトの組み合わせ
 - マルチプラットフォーム対応： Windows, Mac, iOS, Android
+
+</div>
+</div>
 
 <!--
 この Jacquard はゲームではなくて作曲ツールですね。作曲とは言っても、楽譜やピアノロールのような一般的なインターフェースで入力するのではなく、先ほどお見せしたような機能ブロックをグリッド上に並べていくことでシーケンスを構築します。このシーケンスは単純なリニア再生だけでなく、手続き的な性質があって、それによって多彩な変動を織り込んだ演奏規則を作ることができる、というものです。

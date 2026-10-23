@@ -281,8 +281,6 @@ video: /videos/sec1/recent-projects-hq.mp4
 
 ---
 
-trailers.mp4 (mini player)
-
 <!--
 とまあ、こんな感じで色々作ってみているわけですが、これらを作る前に取り組んでいたプロジェクトが、もう１つあります。それを紹介させてください。
 -->
