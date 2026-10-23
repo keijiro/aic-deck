@@ -302,8 +302,8 @@ clicks: 4
   transition: transform 0.8s ease;
 }
 .ctx-venn .task circle {
-  fill: color-mix(in srgb, var(--c-lime) 25%, transparent);
-  stroke: var(--c-lime);
+  fill: color-mix(in srgb, var(--c-green) 25%, transparent);
+  stroke: var(--c-green);
   stroke-width: 4;
 }
 .ctx-venn text {
@@ -324,10 +324,10 @@ clicks: 4
   transition-delay: 0.6s;
 }
 .ctx-venn .bars rect {
-  fill: var(--c-lime);
+  fill: var(--c-green);
 }
 .ctx-venn .bars rect.base {
-  fill: color-mix(in srgb, var(--c-lime) 35%, transparent);
+  fill: color-mix(in srgb, var(--c-green) 35%, transparent);
 }
 .ctx-venn .bar {
   transform: scaleX(0);

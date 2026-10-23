@@ -57,7 +57,7 @@ clicks: 2
   position: absolute;
   top: 0;
   height: 100%;
-  background: var(--c-lime);
+  background: var(--c-green);
   transition: left 0.8s cubic-bezier(0.65, 0, 0.35, 1), width 0.8s cubic-bezier(0.65, 0, 0.35, 1);
   transition-delay: var(--d);
 }
@@ -105,7 +105,7 @@ clicks: 1
 }
 .session-chart .bar {
   flex: 1 1 0;
-  background: var(--c-lime);
+  background: var(--c-green);
   transition: transform 0.4s cubic-bezier(0.65, 0, 0.35, 1), height 0.8s cubic-bezier(0.65, 0, 0.35, 1) 0.4s;
 }
 .session-chart .phases > div {
@@ -221,7 +221,7 @@ clicks: 1
 }
 .fix-chart .bar {
   flex: 1 1 0;
-  background: var(--c-lime);
+  background: var(--c-green);
   transition: height 0.4s cubic-bezier(0.65, 0, 0.35, 1);
 }
 .fix-chart .impl { transform: translateX(-20px); }

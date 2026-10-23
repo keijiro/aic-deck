@@ -19,7 +19,7 @@ clicks: 1
 }
 .session-bars .bar {
   height: 22px;
-  background: var(--c-lime);
+  background: var(--c-green);
   transform-origin: left center;
   transition: transform 0.8s cubic-bezier(0.65, 0, 0.35, 1);
 }
@@ -115,7 +115,7 @@ clicks: 3
   transition: opacity 0.4s ease;
 }
 .req-chart i { display: block; }
-.req-chart .r { background: var(--c-lime); }
+.req-chart .r { background: var(--c-green); }
 .req-chart .w { background: var(--c-orange); }
 .req-chart .o { background: var(--c-red); }
 .req-chart .phases > div {
