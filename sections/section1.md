@@ -208,6 +208,39 @@ clicks: 10
 -->
 
 ---
+layout: full
+---
+
+<div class="vgrid">
+  <video src="/videos/sec1/dm-pr-small.mp4" muted autoplay loop playsinline />
+  <video src="/videos/sec1/mh-pr-small.mp4" muted autoplay loop playsinline />
+  <video src="/videos/sec1/mm-pr-small.mp4" muted autoplay loop playsinline />
+  <video src="/videos/sec1/ms-demo-small.mp4" muted autoplay loop playsinline />
+</div>
+
+<style>
+.vgrid {
+  box-sizing: border-box;
+  height: 100%;
+  padding: 40px;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-rows: repeat(2, minmax(0, 1fr));
+  gap: 24px;
+}
+.vgrid video {
+  justify-self: center;
+  height: 100%;
+  max-width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  --fade: 16px;
+  mask-image:
+    linear-gradient(to right, transparent, black var(--fade), black calc(100% - var(--fade)), transparent),
+    linear-gradient(to bottom, transparent, black var(--fade), black calc(100% - var(--fade)), transparent);
+  mask-composite: intersect;
+}
+</style>
 
 <!--
 そこで僕も Unity AI Assistant を使って色々とゲームを開発してみました。この辺りの体験は CEDEC とか Unite Seoul でもお話ししたのですが……今やこんなのはお話にならないぐらい、最先端のモデルは進化を遂げていますよね。半年前のものがすっかり陳腐化してしまうという、恐ろしいスピードの中で生きていることを実感します。
