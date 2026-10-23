@@ -33,6 +33,60 @@ html:root {
   font-family: 'Avenir Next', 'Nunito Sans', 'M PLUS Rounded 1c', sans-serif;
 }
 
+/* Diagram base (svg.dia): centered white text; font sizes stay per slide */
+.dia text {
+  fill: white;
+  text-anchor: middle;
+  dominant-baseline: central;
+}
+
+.dia .caption {
+  fill: var(--c-yellow);
+}
+
+.dia .total {
+  font-weight: bold;
+  stroke: black;
+  stroke-width: 10px;
+  paint-order: stroke;
+}
+
+.dia .bracket {
+  fill: none;
+  stroke: var(--c-yellow);
+  stroke-width: 3;
+}
+
+/* Context roles: initial context = red, added context = green */
+.dia .init {
+  fill: var(--c-red);
+}
+
+.dia .added {
+  fill: var(--c-green);
+}
+
+/* Diagram arrows: marching yellow dashes with the shared head (global-bottom.vue) */
+.dia-arrow {
+  fill: none;
+  stroke: var(--c-yellow);
+  stroke-width: 4;
+  stroke-dasharray: 14 10;
+  marker-end: url(#arrow-head);
+  animation: arrow-march 0.6s linear infinite;
+}
+
+.dia-arrow.solid {
+  stroke-dasharray: none;
+  animation: none;
+}
+
+@keyframes arrow-march {
+  to {
+    stroke-dashoffset: -24;
+  }
+}
+
 /* Tables: muted header text with a thicker rule below the header row */
 .slidev-layout th {
   color: var(--c-muted);
@@ -139,15 +193,3 @@ html:root {
   mask-composite: intersect;
 }
 
-/* Video split: muted loop clip on the left (3/5), text on the right (2/5) */
-.video-split {
-  height: 100%;
-  display: grid;
-  grid-template-columns: minmax(0, 3fr) minmax(0, 2fr);
-  gap: 40px;
-  align-items: center;
-}
-
-.video-split video {
-  width: 100%;
-}

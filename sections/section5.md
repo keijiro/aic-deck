@@ -163,11 +163,10 @@ clicks: 3
 -->
 
 ---
-layout: center
+layout: cost-table
+table: cost-phase
 clicks: 6
 ---
-
-<div class="cost-hl cost-phase" :class="`hl-${$clicks}`">
 
 | フェーズ | リクエスト | ツール呼び出し | キャッシュ読込 | コスト |
 | --- | ---: | ---: | ---: | ---: |
@@ -176,8 +175,6 @@ clicks: 6
 | セットアップ | 6 | 6 | $0.11 | $0.23 (11%) |
 | 動作検証 | 23 | 33 | $0.47 | $0.83 (41%) |
 | 後片付け | 3 | 4 | $0.07 | $0.13 (6%) |
-
-</div>
 
 <!--
 フェーズ毎に集計してみました。
@@ -276,12 +273,6 @@ hide: true
 ---
 
 <svg class="mux absolute inset-0 w-full h-full" viewBox="0 0 1376 768" preserveAspectRatio="xMidYMid meet">
-  <defs>
-    <marker id="mux-head" viewBox="0 0 10 10" refX="8" refY="5"
-            markerWidth="5" markerHeight="5" orient="auto-start-reverse">
-      <path d="M 0 0 L 10 5 L 0 10 Z" style="fill: var(--c-yellow)" />
-    </marker>
-  </defs>
   <svg class="unity" x="170" y="280" width="240" height="240" viewBox="0 0 24 24">
     <path d="m12.9288 4.2939 3.7997 2.1929c.1366.077.1415.2905 0 .3675l-4.515 2.6076a.4192.4192 0 0 1-.4246 0L7.274 6.8543c-.139-.0745-.1415-.293 0-.3675l3.7972-2.193V0L1.3758 5.5977V16.793l3.7177-2.1456v-4.3858c-.0025-.1565.1813-.2682.318-.1838l4.5148 2.6076a.4252.4252 0 0 1 .2136.3676v5.2127c.0025.1565-.1813.2682-.3179.1838l-3.7996-2.1929-3.7178 2.1457L12 24l9.6954-5.5977-3.7178-2.1457-3.7996 2.1929c-.1341.082-.3229-.0248-.3179-.1838V13.053c0-.1565.087-.2956.2136-.3676l4.5149-2.6076c.134-.082.3228.0224.3179.1838v4.3858l3.7177 2.1456V5.5977L12.9288 0Z" />
   </svg>
@@ -289,13 +280,13 @@ hide: true
     <image href="/images/sec3/smart-ai.png" width="1376" height="768" />
   </svg>
   <g class="calls" v-click="1">
-    <path class="arrow trunk" d="M 910 400 H 840" />
-    <path class="arrow trunk" d="M 840 400 C 780 400 780 260 740 260 H 610 C 570 260 570 400 510 400" />
-    <path class="arrow trunk" d="M 840 400 C 780 400 780 330 740 330 H 610 C 570 330 570 400 510 400" />
-    <path class="arrow trunk" d="M 840 400 C 780 400 780 400 740 400 H 610 C 570 400 570 400 510 400" />
-    <path class="arrow trunk" d="M 840 400 C 780 400 780 470 740 470 H 610 C 570 470 570 400 510 400" />
-    <path class="arrow trunk" d="M 840 400 C 780 400 780 540 740 540 H 610 C 570 540 570 400 510 400" />
-    <path class="arrow" d="M 510 400 H 430" />
+    <path class="dia-arrow trunk" d="M 910 400 H 840" />
+    <path class="dia-arrow trunk" d="M 840 400 C 780 400 780 260 740 260 H 610 C 570 260 570 400 510 400" />
+    <path class="dia-arrow trunk" d="M 840 400 C 780 400 780 330 740 330 H 610 C 570 330 570 400 510 400" />
+    <path class="dia-arrow trunk" d="M 840 400 C 780 400 780 400 740 400 H 610 C 570 400 570 400 510 400" />
+    <path class="dia-arrow trunk" d="M 840 400 C 780 400 780 470 740 470 H 610 C 570 470 570 400 510 400" />
+    <path class="dia-arrow trunk" d="M 840 400 C 780 400 780 540 740 540 H 610 C 570 540 570 400 510 400" />
+    <path class="dia-arrow" d="M 510 400 H 430" />
     <circle class="pad" cx="675" cy="260" r="26" /><svg class="tool" x="658" y="243" width="34" height="34" viewBox="0 0 256 256"><path d="M232 96a72 72 0 0 1-100.94 66L79 222.22c-.12.14-.26.29-.39.42a32 32 0 0 1-45.26-45.26c.14-.13.28-.27.43-.39L94 124.94a72.07 72.07 0 0 1 83.54-98.78a8 8 0 0 1 3.93 13.19L144 80l5.66 26.35L176 112l40.65-37.52a8 8 0 0 1 13.19 3.93A72.6 72.6 0 0 1 232 96" /></svg>
     <circle class="pad" cx="675" cy="330" r="26" /><svg class="tool" x="658" y="313" width="34" height="34" viewBox="0 0 256 256"><path d="M232 96a72 72 0 0 1-100.94 66L79 222.22c-.12.14-.26.29-.39.42a32 32 0 0 1-45.26-45.26c.14-.13.28-.27.43-.39L94 124.94a72.07 72.07 0 0 1 83.54-98.78a8 8 0 0 1 3.93 13.19L144 80l5.66 26.35L176 112l40.65-37.52a8 8 0 0 1 13.19 3.93A72.6 72.6 0 0 1 232 96" /></svg>
     <circle class="pad" cx="675" cy="400" r="26" /><svg class="tool" x="658" y="383" width="34" height="34" viewBox="0 0 256 256"><path d="M232 96a72 72 0 0 1-100.94 66L79 222.22c-.12.14-.26.29-.39.42a32 32 0 0 1-45.26-45.26c.14-.13.28-.27.43-.39L94 124.94a72.07 72.07 0 0 1 83.54-98.78a8 8 0 0 1 3.93 13.19L144 80l5.66 26.35L176 112l40.65-37.52a8 8 0 0 1 13.19 3.93A72.6 72.6 0 0 1 232 96" /></svg>
@@ -308,15 +299,7 @@ hide: true
 .mux .unity path {
   fill: white;
 }
-.mux .arrow {
-  fill: none;
-  stroke: var(--c-yellow);
-  stroke-width: 4;
-  stroke-dasharray: 14 10;
-  marker-end: url(#mux-head);
-  animation: mux-march 0.6s linear infinite;
-}
-.mux .trunk {
+.mux .dia-arrow.trunk {
   marker-end: none;
 }
 .mux .pad {
@@ -326,11 +309,6 @@ hide: true
 }
 .mux .tool path {
   fill: var(--c-yellow);
-}
-@keyframes mux-march {
-  to {
-    stroke-dashoffset: -24;
-  }
 }
 </style>
 
@@ -345,12 +323,6 @@ hide: true
 ---
 
 <svg class="seq absolute inset-0 w-full h-full" viewBox="0 0 1376 768" preserveAspectRatio="xMidYMid meet">
-  <defs>
-    <marker id="seq-head" viewBox="0 0 10 10" refX="8" refY="5"
-            markerWidth="5" markerHeight="5" orient="auto-start-reverse">
-      <path d="M 0 0 L 10 5 L 0 10 Z" style="fill: var(--c-yellow)" />
-    </marker>
-  </defs>
   <svg class="unity" x="170" y="280" width="240" height="240" viewBox="0 0 24 24">
     <path d="m12.9288 4.2939 3.7997 2.1929c.1366.077.1415.2905 0 .3675l-4.515 2.6076a.4192.4192 0 0 1-.4246 0L7.274 6.8543c-.139-.0745-.1415-.293 0-.3675l3.7972-2.193V0L1.3758 5.5977V16.793l3.7177-2.1456v-4.3858c-.0025-.1565.1813-.2682.318-.1838l4.5148 2.6076a.4252.4252 0 0 1 .2136.3676v5.2127c.0025.1565-.1813.2682-.3179.1838l-3.7996-2.1929-3.7178 2.1457L12 24l9.6954-5.5977-3.7178-2.1457-3.7996 2.1929c-.1341.082-.3229-.0248-.3179-.1838V13.053c0-.1565.087-.2956.2136-.3676l4.5149-2.6076c.134-.082.3228.0224.3179.1838v4.3858l3.7177 2.1456V5.5977L12.9288 0Z" />
   </svg>
@@ -358,11 +330,11 @@ hide: true
     <image href="/images/sec3/smart-ai.png" width="1376" height="768" />
   </svg>
   <g class="step" :class="{ on: [1, 4].includes($clicks) }">
-    <path class="arrow" d="M 910 400 H 430" />
+    <path class="dia-arrow" d="M 910 400 H 430" />
     <circle class="pad" cx="670" cy="400" r="30" /><svg class="tool" x="650" y="380" width="40" height="40" viewBox="0 0 256 256"><path d="M232 96a72 72 0 0 1-100.94 66L79 222.22c-.12.14-.26.29-.39.42a32 32 0 0 1-45.26-45.26c.14-.13.28-.27.43-.39L94 124.94a72.07 72.07 0 0 1 83.54-98.78a8 8 0 0 1 3.93 13.19L144 80l5.66 26.35L176 112l40.65-37.52a8 8 0 0 1 13.19 3.93A72.6 72.6 0 0 1 232 96" /></svg>
   </g>
   <g class="step" :class="{ on: [2, 5].includes($clicks) }">
-    <path class="arrow" d="M 430 400 H 910" />
+    <path class="dia-arrow" d="M 430 400 H 910" />
     <circle class="pad" cx="670" cy="400" r="30" />
     <path class="file" d="M 658 384 H 676 L 686 394 V 416 H 658 Z" />
     <path class="file" d="M 664 397 H 680 M 664 405 H 680" />
@@ -372,15 +344,15 @@ hide: true
     <circle cx="470" cy="310" r="7" /><circle cx="500" cy="310" r="7" /><circle cx="530" cy="310" r="7" />
   </g>
   <g class="step" :class="{ on: $clicks === 6 }">
-    <path class="arrow" d="M 910 295 H 430" />
+    <path class="dia-arrow" d="M 910 295 H 430" />
     <circle class="pad" cx="670" cy="295" r="26" /><svg class="tool" x="653" y="278" width="34" height="34" viewBox="0 0 256 256"><path d="M232 96a72 72 0 0 1-100.94 66L79 222.22c-.12.14-.26.29-.39.42a32 32 0 0 1-45.26-45.26c.14-.13.28-.27.43-.39L94 124.94a72.07 72.07 0 0 1 83.54-98.78a8 8 0 0 1 3.93 13.19L144 80l5.66 26.35L176 112l40.65-37.52a8 8 0 0 1 13.19 3.93A72.6 72.6 0 0 1 232 96" /></svg>
-    <path class="arrow" d="M 430 365 H 910" />
+    <path class="dia-arrow" d="M 430 365 H 910" />
     <circle class="pad" cx="670" cy="365" r="26" />
     <path class="file" d="M 659 351 H 675 L 684 360 V 379 H 659 Z" />
     <path class="file" d="M 664 363 H 679 M 664 370 H 679" />
-    <path class="arrow" d="M 910 435 H 430" />
+    <path class="dia-arrow" d="M 910 435 H 430" />
     <circle class="pad" cx="670" cy="435" r="26" /><svg class="tool" x="653" y="418" width="34" height="34" viewBox="0 0 256 256"><path d="M232 96a72 72 0 0 1-100.94 66L79 222.22c-.12.14-.26.29-.39.42a32 32 0 0 1-45.26-45.26c.14-.13.28-.27.43-.39L94 124.94a72.07 72.07 0 0 1 83.54-98.78a8 8 0 0 1 3.93 13.19L144 80l5.66 26.35L176 112l40.65-37.52a8 8 0 0 1 13.19 3.93A72.6 72.6 0 0 1 232 96" /></svg>
-    <path class="arrow" d="M 430 505 H 910" />
+    <path class="dia-arrow" d="M 430 505 H 910" />
     <circle class="pad" cx="670" cy="505" r="26" />
     <path class="file" d="M 659 491 H 675 L 684 500 V 519 H 659 Z" />
     <path class="file" d="M 664 503 H 679 M 664 510 H 679" />
@@ -391,14 +363,6 @@ hide: true
 .seq .unity path {
   fill: white;
 }
-.seq .arrow {
-  fill: none;
-  stroke: var(--c-yellow);
-  stroke-width: 4;
-  stroke-dasharray: 14 10;
-  marker-end: url(#seq-head);
-  animation: seq-march 0.6s linear infinite;
-}
 .seq .pad {
   fill: black;
   stroke: var(--c-yellow);
@@ -406,11 +370,6 @@ hide: true
 }
 .seq .tool path {
   fill: var(--c-yellow);
-}
-@keyframes seq-march {
-  to {
-    stroke-dashoffset: -24;
-  }
 }
 </style>
 <style>

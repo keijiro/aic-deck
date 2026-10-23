@@ -191,11 +191,11 @@ layout: bigtext
 -->
 
 ---
-layout: center
+layout: cost-table
+table: cost-single
+note: Opus 5.5, medium, 1h TTL, 4回試行の平均
 clicks: 6
 ---
-
-<div class="cost-hl cost-single" :class="`hl-${$clicks}`">
 
 | タスク | コンテキスト | 出力 | キャッシュ<br>読み取り | キャッシュ<br>書き込み | コスト |
 | --- | ---: | ---: | ---: | ---: | ---: |
@@ -203,10 +203,6 @@ clicks: 6
 | 白黒２値化 | 98K | $0.28 | $0.28 | $0.26 | $0.83 |
 | UI和訳 | 130K | $0.20 | $0.35 | $0.25 | $0.80 |
 | 合計 | | $0.66 | $0.77 | $0.91 | $2.35 |
-
-</div>
-
-<p class="text-sm text-right" style="color: var(--c-muted)">Opus 5.5, medium, 1h TTL, 4回試行の平均</p>
 
 <!--
 最終的な合計コストは[click]$2.35 ですね。[click]細かくデータを見ていくと、[click]コンテキストはクリアしていないので、単純増加していっていますね。最終的に [click]130K トークンにまで膨らんでいます。それに伴って、[click]キャッシュ読み取りのコストも増加していってます。
@@ -217,11 +213,11 @@ clicks: 6
 -->
 
 ---
-layout: center
+layout: cost-table
+table: cost-cleared
+note: Opus 5.5, medium, 1h TTL, 4回試行の平均
 clicks: 2
 ---
-
-<div class="cost-hl cost-cleared" :class="`hl-${$clicks}`">
 
 | タスク | コンテキスト | 出力 | キャッシュ<br>読み取り | キャッシュ<br>書き込み | コスト |
 | --- | ---: | ---: | ---: | ---: | ---: |
@@ -230,10 +226,6 @@ clicks: 2
 | UI和訳 | 60K | $0.18 | $0.13 | $0.40 | $0.71 |
 | 合計 | | $0.58 | $0.33 | $1.02 | $1.94 |
 
-</div>
-
-<p class="text-sm text-right" style="color: var(--c-muted)">Opus 5.5, medium, 1h TTL, 4回試行の平均</p>
-
 <!--
 こんな感じです。合計コストは[click]$1.94ということで、少し安くなっています。[click]コンテキストのサイズとかキャッシュ読み取りのコストが増加せず安定しているのがさっきとの違いですね。
 
@@ -241,11 +233,10 @@ clicks: 2
 -->
 
 ---
-layout: center
+layout: cost-table
+table: cost-compare
 clicks: 10
 ---
-
-<div class="cost-hl cost-compare" :class="`hl-${$clicks}`">
 
 | タスク | キャッシュ読込 | キャッシュ書込 | コスト |
 | --- | ---: | ---: | ---: |
@@ -253,8 +244,6 @@ clicks: 10
 | 白黒２値化 | $0.28 → $0.08 <span style="color: var(--c-green)">(-$0.20)</span> | $0.26 → $0.28 <span style="color: var(--c-red)">(+$0.02)</span> | $0.83 → $0.59 <span style="color: var(--c-green)">(-$0.24)</span> |
 | UI和訳 | $0.35 → $0.13 <span style="color: var(--c-green)">(-$0.22)</span> | $0.25 → $0.40 <span style="color: var(--c-red)">(+$0.15)</span> | $0.80 → $0.71 <span style="color: var(--c-green)">(-$0.09)</span> |
 | 合計 | $0.77 → $0.33 <span style="color: var(--c-green)">(-$0.44)</span> | $0.91 → $1.02 <span style="color: var(--c-red)">(+$0.11)</span> | $2.35 → $1.94 <span style="color: var(--c-green)">(-$0.41)</span> |
-
-</div>
 
 <!--
 タスク毎に見てみると、[click]最初のタスクは条件が同じなので差は誤差の範囲内ですね。[click]２つ目はちょっと安くなりました。[click]３つ目はあんまり安くならなかったようです。[click]
@@ -273,7 +262,7 @@ layout: full
 clicks: 4
 ---
 
-<svg class="ctx-venn absolute inset-0 w-full h-full" viewBox="-90 -77 1564 873" preserveAspectRatio="xMidYMid meet">
+<svg class="ctx-venn dia absolute inset-0 w-full h-full" viewBox="-90 -77 1564 873" preserveAspectRatio="xMidYMid meet">
   <g class="row1" :class="{ left: $clicks >= 2, up: $clicks >= 3 }">
     <g :class="{ venn: $clicks >= 1 }">
       <g class="task t1"><circle cx="150" cy="200" r="100" /><text x="150" y="200"><tspan x="150" dy="-0.6em">無敵</tspan><tspan x="150" dy="1.2em">アイテム</tspan></text></g>
@@ -318,10 +307,7 @@ clicks: 4
   stroke-width: 4;
 }
 .ctx-venn text {
-  fill: white;
   font-size: 26px;
-  text-anchor: middle;
-  dominant-baseline: central;
 }
 .ctx-venn .task text {
   font-size: 22px;
@@ -392,11 +378,11 @@ clicks: 4
 -->
 
 ---
-layout: center
+layout: cost-table
+table: cost-single2
+note: Opus 5.5, medium, 1h TTL, 4回試行の平均
 clicks: 2
 ---
-
-<div class="cost-hl cost-single2" :class="`hl-${$clicks}`">
 
 | タスク | コンテキスト | 出力 | キャッシュ<br>読み取り | キャッシュ<br>書き込み | コスト |
 | --- | ---: | ---: | ---: | ---: | ---: |
@@ -405,10 +391,6 @@ clicks: 2
 | 移動速度増加 | 96K | $0.08 | $0.08 | $0.09 | $0.26 |
 | 合計 | | $0.40 | $0.35 | $0.60 | $1.35 |
 
-</div>
-
-<p class="text-sm text-right" style="color: var(--c-muted)">Opus 5.5, medium, 1h TTL, 4回試行の平均</p>
-
 <!--
 単一セッションでの実行結果はこんな感じです。
 
@@ -416,11 +398,11 @@ clicks: 2
 -->
 
 ---
-layout: center
+layout: cost-table
+table: cost-cleared2
+note: Opus 5.5, medium, 1h TTL, 4回試行の平均
 clicks: 3
 ---
-
-<div class="cost-hl cost-cleared2" :class="`hl-${$clicks}`">
 
 | タスク | コンテキスト | 出力 | キャッシュ<br>読み取り | キャッシュ<br>書き込み | コスト |
 | --- | ---: | ---: | ---: | ---: | ---: |
@@ -429,20 +411,15 @@ clicks: 3
 | 移動速度増加 | 51K | $0.12 | $0.07 | $0.32 | $0.52 |
 | 合計 | | $0.52 | $0.44 | $1.14 | $2.11 |
 
-</div>
-
-<p class="text-sm text-right" style="color: var(--c-muted)">Opus 5.5, medium, 1h TTL, 4回試行の平均</p>
-
 <!--
 次にセッションをクリアした場合の結果です。[click]こちらはタスク毎に 50K 以上のコンテキストをゼロから積み上げています。これのせいで、[click]キャッシュ書き込みがだいぶ嵩んでしまっていますね。総コストは[click]$2.11 に増えてしまいました。
 -->
 
 ---
-layout: center
+layout: cost-table
+table: cost-compare2
 clicks: 4
 ---
-
-<div class="cost-hl cost-compare2" :class="`hl-${$clicks}`">
 
 | タスク | キャッシュ読込 | キャッシュ書込 | コスト |
 | --- | ---: | ---: | ---: |
@@ -450,8 +427,6 @@ clicks: 4
 | ジャンプ力増加 | $0.11 → $0.15 <span style="color: var(--c-red)">(+$0.04)</span> | $0.11 → $0.39 <span style="color: var(--c-red)">(+$0.28)</span> | $0.33 → $0.71 <span style="color: var(--c-red)">(+$0.38)</span> |
 | 移動速度増加 | $0.08 → $0.07 <span style="color: var(--c-green)">(-$0.01)</span> | $0.09 → $0.32 <span style="color: var(--c-red)">(+$0.23)</span> | $0.26 → $0.52 <span style="color: var(--c-red)">(+$0.26)</span> |
 | 合計 | $0.35 → $0.44 <span style="color: var(--c-red)">(+$0.09)</span> | $0.60 → $1.14 <span style="color: var(--c-red)">(+$0.54)</span> | $1.35 → $2.11 <span style="color: var(--c-red)">(+$0.76)</span> |
-
-</div>
 
 <!--
 比較してみましょう。今回は[click]キャッシュ読み込みについても効果は薄く、[click]書き込みの方では明らかな赤字になっています。[click]トータルでは大幅な負けですね。

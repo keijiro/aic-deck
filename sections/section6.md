@@ -314,15 +314,9 @@ clicks: 4
 ---
 
 <svg class="hz absolute inset-0 w-full h-full" viewBox="0 0 1376 768" preserveAspectRatio="xMidYMid meet">
-  <defs>
-    <marker id="hz-head" viewBox="0 0 10 10" refX="8" refY="5"
-            markerWidth="5" markerHeight="5" orient="auto-start-reverse">
-      <path d="M 0 0 L 10 5 L 0 10 Z" style="fill: var(--c-yellow)" />
-    </marker>
-  </defs>
   <g class="step" :class="{ on: $clicks >= 1 }">
     <image class="shot" href="/images/sec6/stage1.jpg" x="88" y="85" width="384" height="216" />
-    <path class="arrow" d="M 280 395 V 316" />
+    <path class="dia-arrow" d="M 280 395 V 316" />
     <svg x="136" y="400" width="260" height="230" viewBox="300 90 700 620">
       <image href="/images/sec3/smart-ai.png" width="1376" height="768" />
     </svg>
@@ -337,7 +331,7 @@ clicks: 4
     </g>
   </g>
   <g class="step" :class="{ on: $clicks >= 3 }">
-    <path class="arrow" d="M 405 500 H 620" />
+    <path class="dia-arrow" d="M 405 500 H 620" />
     <g class="doc">
       <path d="M 643 430 H 713 L 743 460 V 570 H 643 Z" />
       <path d="M 713 430 V 460 H 743 M 660 488 H 726 M 660 508 H 726 M 660 528 H 726 M 660 548 H 704" />
@@ -347,8 +341,8 @@ clicks: 4
     <svg x="952" y="400" width="260" height="230" viewBox="300 90 700 620">
       <image href="/images/sec6/lite-ai.png" width="1376" height="768" />
     </svg>
-    <path class="arrow" d="M 760 500 H 985" />
-    <path class="arrow late" d="M 1096 395 V 326" />
+    <path class="dia-arrow" d="M 760 500 H 985" />
+    <path class="dia-arrow late" d="M 1096 395 V 326" />
     <image class="shot tile" href="/images/sec6/stage2.jpg" x="890" y="75" width="200" height="112.5" />
     <image class="shot tile" href="/images/sec6/stage3.jpg" x="1102" y="75" width="200" height="112.5" />
     <image class="shot tile" href="/images/sec6/stage4.jpg" x="890" y="199.5" width="200" height="112.5" />
@@ -366,14 +360,6 @@ clicks: 4
 }
 .hz .shot {
   clip-path: inset(0 round 8px);
-}
-.hz .arrow {
-  fill: none;
-  stroke: var(--c-yellow);
-  stroke-width: 4;
-  stroke-dasharray: 14 10;
-  marker-end: url(#hz-head);
-  animation: hz-march 0.6s linear infinite;
 }
 .hz .bubble > path {
   fill: black;
@@ -424,11 +410,6 @@ clicks: 4
 .hz .lite.on .tile:nth-of-type(2) { transition-delay: 1.4s; }
 .hz .lite.on .tile:nth-of-type(3) { transition-delay: 1.9s; }
 .hz .lite.on .tile:nth-of-type(4) { transition-delay: 2.4s; }
-@keyframes hz-march {
-  to {
-    stroke-dashoffset: -24;
-  }
-}
 </style>
 
 <!--
@@ -445,12 +426,6 @@ clicks: 4
 ---
 
 <svg class="xp absolute inset-0 w-full h-full" viewBox="0 0 1376 768" preserveAspectRatio="xMidYMid meet">
-  <defs>
-    <marker id="xp-head" viewBox="0 0 10 10" refX="8" refY="5"
-            markerWidth="5" markerHeight="5" orient="auto-start-reverse">
-      <path d="M 0 0 L 10 5 L 0 10 Z" style="fill: var(--c-yellow)" />
-    </marker>
-  </defs>
   <g class="step" :class="{ on: $clicks >= 1 }">
     <rect class="frame" x="121" y="69" width="170" height="170" rx="20" />
     <image href="/images/sec6/variants/char0.png" x="131" y="79" width="150" height="150" />
@@ -464,21 +439,21 @@ clicks: 4
     <image href="/images/sec6/variants/item0.png" x="131" y="539" width="150" height="150" />
   </g>
   <g class="spread" :class="{ on: $clicks >= 4 }">
-    <path class="arrow" d="M 328 154 H 406" />
+    <path class="dia-arrow" d="M 328 154 H 406" />
     <image class="var" href="/images/sec6/variants/char1.png" x="441" y="79" width="150" height="150" style="--d: 0.15s" />
     <image class="var" href="/images/sec6/variants/char2.png" x="671" y="79" width="150" height="150" style="--d: 0.27s" />
     <image class="var" href="/images/sec6/variants/char3.png" x="901" y="79" width="150" height="150" style="--d: 0.39s" />
     <image class="var" href="/images/sec6/variants/char4.png" x="1131" y="79" width="150" height="150" style="--d: 0.51s" />
   </g>
   <g class="spread" :class="{ on: $clicks >= 4 }">
-    <path class="arrow" d="M 328 384 H 406" />
+    <path class="dia-arrow" d="M 328 384 H 406" />
     <image class="var" href="/images/sec6/variants/stage1.png" x="441" y="309" width="150" height="150" style="--d: 0.25s" />
     <image class="var" href="/images/sec6/variants/stage2.png" x="671" y="309" width="150" height="150" style="--d: 0.37s" />
     <image class="var" href="/images/sec6/variants/stage3.png" x="901" y="309" width="150" height="150" style="--d: 0.49s" />
     <image class="var" href="/images/sec6/variants/stage4.png" x="1131" y="309" width="150" height="150" style="--d: 0.61s" />
   </g>
   <g class="spread" :class="{ on: $clicks >= 4 }">
-    <path class="arrow" d="M 328 614 H 406" />
+    <path class="dia-arrow" d="M 328 614 H 406" />
     <image class="var" href="/images/sec6/variants/item1.png" x="441" y="539" width="150" height="150" style="--d: 0.35s" />
     <image class="var" href="/images/sec6/variants/item2.png" x="671" y="539" width="150" height="150" style="--d: 0.47s" />
     <image class="var" href="/images/sec6/variants/item3.png" x="901" y="539" width="150" height="150" style="--d: 0.59s" />
@@ -502,17 +477,11 @@ clicks: 4
   stroke: var(--c-yellow);
   stroke-width: 4;
 }
-.xp .arrow {
-  fill: none;
-  stroke: var(--c-yellow);
-  stroke-width: 4;
-  stroke-dasharray: 14 10;
-  marker-end: url(#xp-head);
+.xp .dia-arrow {
   opacity: 0;
   transition: opacity 0.3s ease;
-  animation: xp-march 0.6s linear infinite;
 }
-.xp .spread.on .arrow {
+.xp .spread.on .dia-arrow {
   opacity: 1;
 }
 /* Variations slide in one after another, spreading out from the prototype */
@@ -525,11 +494,6 @@ clicks: 4
   opacity: 1;
   transform: none;
   transition-delay: var(--d);
-}
-@keyframes xp-march {
-  to {
-    stroke-dashoffset: -24;
-  }
 }
 </style>
 

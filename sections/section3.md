@@ -40,7 +40,7 @@ layout: full
 clicks: 5
 ---
 
-<svg class="chat absolute inset-0 w-full h-full" viewBox="0 0 1376 768" preserveAspectRatio="xMidYMid meet">
+<svg class="chat dia absolute inset-0 w-full h-full" viewBox="0 0 1376 768" preserveAspectRatio="xMidYMid meet">
   <image href="/images/sec3/human.png" x="150" y="400" width="320" height="320" />
   <svg x="976" y="450" width="260" height="230" viewBox="300 90 700 620">
     <image href="/images/sec3/smart-ai.png" width="1376" height="768" />
@@ -81,11 +81,8 @@ clicks: 5
   stroke-linejoin: round;
 }
 .chat text {
-  fill: white;
   font-size: 40px;
   font-weight: 600;
-  text-anchor: middle;
-  dominant-baseline: central;
 }
 .chat .muted {
   fill: var(--c-muted);
@@ -124,7 +121,7 @@ clicks: 5
 layout: full
 ---
 
-<svg class="ctx absolute inset-0 w-full h-full" viewBox="0 0 1376 768" preserveAspectRatio="xMidYMid meet">
+<svg class="ctx dia absolute inset-0 w-full h-full" viewBox="0 0 1376 768" preserveAspectRatio="xMidYMid meet">
   <g class="init" v-click>
     <rect x="448" y="96" width="480" height="64" rx="12" />
     <text x="688" y="128">システムプロンプト</text>
@@ -156,17 +153,8 @@ layout: full
 </svg>
 
 <style>
-.ctx .init rect {
-  fill: var(--c-red);
-}
-.ctx .added rect {
-  fill: var(--c-green);
-}
 .ctx text {
-  fill: white;
   font-size: 32px;
-  text-anchor: middle;
-  dominant-baseline: central;
 }
 </style>
 
@@ -188,13 +176,7 @@ layout: full
 layout: full
 ---
 
-<svg class="flow absolute inset-0 w-full h-full" viewBox="0 0 1376 768" preserveAspectRatio="xMidYMid meet">
-  <defs>
-    <marker id="flow-head" viewBox="0 0 10 10" refX="8" refY="5"
-            markerWidth="5" markerHeight="5" orient="auto-start-reverse">
-      <path d="M 0 0 L 10 5 L 0 10 Z" style="fill: var(--c-yellow)" />
-    </marker>
-  </defs>
+<svg class="flow dia absolute inset-0 w-full h-full" viewBox="0 0 1376 768" preserveAspectRatio="xMidYMid meet">
   <g transform="translate(0 40)">
   <svg x="900" y="230" width="320" height="283" viewBox="300 90 700 620">
     <image href="/images/sec3/smart-ai.png" width="1376" height="768" />
@@ -217,20 +199,20 @@ layout: full
   </g>
   <g class="send" v-click="[1,2]">
     <path class="bracket" d="M 566 100 H 586 V 324 H 566" />
-    <path class="arrow" d="M 600 212 L 880 330" />
+    <path class="dia-arrow" d="M 600 212 L 880 330" />
   </g>
   <g class="added from-llm" v-click="2">
     <rect x="150" y="332" width="400" height="50" rx="10" />
     <text x="350" y="357">ツール呼び出し</text>
   </g>
   <g class="send" v-click="[2,3]">
-    <path class="arrow" d="M 880 420 L 566 357" />
+    <path class="dia-arrow" d="M 880 420 L 566 357" />
   </g>
   <g class="tool" v-click="[3,4]">
     <path class="file" d="M 640 410 H 680 L 700 430 V 490 H 640 Z" />
     <path class="file-line" d="M 652 440 H 688 M 652 456 H 688 M 652 472 H 678" />
     <text class="caption" x="670" y="520">ファイル読み込み</text>
-    <path class="arrow" d="M 628 445 L 566 445" />
+    <path class="dia-arrow" d="M 628 445 L 566 445" />
   </g>
   <g class="added" v-click="3">
     <rect x="150" y="390" width="400" height="110" rx="10" />
@@ -238,47 +220,24 @@ layout: full
   </g>
   <g class="send" v-click="[4,5]">
     <path class="bracket" d="M 566 100 H 586 V 500 H 566" />
-    <path class="arrow" d="M 600 300 L 880 330" />
+    <path class="dia-arrow" d="M 600 300 L 880 330" />
   </g>
   <g class="added from-llm" v-click="5">
     <rect x="150" y="508" width="400" height="50" rx="10" />
     <text x="350" y="533">次の行動</text>
   </g>
   <g class="send" v-click="5">
-    <path class="arrow" d="M 880 420 L 566 533" />
+    <path class="dia-arrow" d="M 880 420 L 566 533" />
   </g>
   </g>
 </svg>
 
 <style>
-.flow .init rect {
-  fill: var(--c-red);
-}
-.flow .added rect {
-  fill: var(--c-green);
-}
 .flow text {
-  fill: white;
   font-size: 26px;
-  text-anchor: middle;
-  dominant-baseline: central;
 }
 .flow .caption {
   font-size: 20px;
-  fill: var(--c-yellow);
-}
-.flow .bracket {
-  fill: none;
-  stroke: var(--c-yellow);
-  stroke-width: 3;
-}
-.flow .arrow {
-  fill: none;
-  stroke: var(--c-yellow);
-  stroke-width: 4;
-  stroke-dasharray: 14 10;
-  marker-end: url(#flow-head);
-  animation: flow-march 0.6s linear infinite;
 }
 .flow .file {
   fill: none;
@@ -298,11 +257,6 @@ layout: full
 }
 .flow .from-llm.slidev-vclick-hidden {
   transform: translateX(40px);
-}
-@keyframes flow-march {
-  to {
-    stroke-dashoffset: -24;
-  }
 }
 </style>
 
@@ -326,7 +280,7 @@ layout: full
 layout: full
 ---
 
-<svg class="calc absolute inset-0 w-full h-full" viewBox="0 0 1376 768" preserveAspectRatio="xMidYMid meet">
+<svg class="calc dia absolute inset-0 w-full h-full" viewBox="0 0 1376 768" preserveAspectRatio="xMidYMid meet">
   <defs>
     <pattern id="calc-steps" width="200" height="4" patternUnits="userSpaceOnUse">
       <rect width="200" height="4" style="fill: var(--c-green)" />
@@ -350,23 +304,13 @@ layout: full
 </svg>
 
 <style>
-.calc .init {
-  fill: var(--c-red);
-}
 .calc .step,
 .calc .grow {
   fill: url(#calc-steps);
 }
 .calc text {
-  fill: white;
   font-size: 32px;
   text-anchor: start;
-  dominant-baseline: central;
-}
-.calc .bracket {
-  fill: none;
-  stroke: var(--c-yellow);
-  stroke-width: 3;
 }
 .calc .step,
 .calc .grow {
@@ -396,7 +340,7 @@ layout: full
 layout: full
 ---
 
-<svg class="sum absolute inset-0 w-full h-full" viewBox="0 0 1376 768" preserveAspectRatio="xMidYMid meet">
+<svg class="sum dia absolute inset-0 w-full h-full" viewBox="0 0 1376 768" preserveAspectRatio="xMidYMid meet">
   <g v-click="[1,4]">
     <rect class="init" x="260" y="580" width="60" height="80" />
     <text x="290" y="550">20K</text>
@@ -421,28 +365,14 @@ layout: full
 </svg>
 
 <style>
-.sum .init {
-  fill: var(--c-red);
-}
-.sum .added {
-  fill: var(--c-green);
-}
 .sum text {
-  fill: white;
   font-size: 26px;
-  text-anchor: middle;
-  dominant-baseline: central;
 }
 .sum .caption {
   font-size: 32px;
-  fill: var(--c-yellow);
 }
 .sum .total {
   font-size: 80px;
-  font-weight: bold;
-  stroke: black;
-  stroke-width: 10px;
-  paint-order: stroke;
 }
 .sum .col {
   transform-box: fill-box;
@@ -476,7 +406,7 @@ layout: bigtext
 layout: full
 ---
 
-<svg class="pc absolute inset-0 w-full h-full" viewBox="0 0 1376 768" preserveAspectRatio="xMidYMid meet">
+<svg class="pc dia absolute inset-0 w-full h-full" viewBox="0 0 1376 768" preserveAspectRatio="xMidYMid meet">
   <g class="server">
     <rect x="1110" y="268" width="150" height="64" rx="8" />
     <rect x="1110" y="340" width="150" height="64" rx="8" />
@@ -591,16 +521,9 @@ layout: full
   stroke-width: 3;
   stroke-dasharray: 10 8;
 }
-.pc .bracket {
-  fill: none;
-  stroke: var(--c-yellow);
-  stroke-width: 3;
-}
 .pc text {
   fill: var(--c-yellow);
   font-size: 26px;
-  text-anchor: middle;
-  dominant-baseline: central;
 }
 .pc .caption {
   font-size: 24px;
@@ -673,13 +596,7 @@ layout: full
 layout: full
 ---
 
-<svg class="csum absolute inset-0 w-full h-full" viewBox="0 0 1376 768" preserveAspectRatio="xMidYMid meet">
-  <defs>
-    <marker id="csum-head" viewBox="0 0 10 10" refX="8" refY="5"
-            markerWidth="5" markerHeight="5" orient="auto-start-reverse">
-      <path d="M 0 0 L 10 5 L 0 10 Z" style="fill: var(--c-yellow)" />
-    </marker>
-  </defs>
+<svg class="csum dia absolute inset-0 w-full h-full" viewBox="0 0 1376 768" preserveAspectRatio="xMidYMid meet">
   <g class="dim">
     <g v-for="i in 99" :key="i">
       <rect class="init" :x="238 + i * 9" y="580" width="7" height="80" />
@@ -708,17 +625,11 @@ layout: full
   <g v-click="2">
     <text class="caption" x="420" y="240">キャッシュ書き込み</text>
     <text class="total small" x="420" y="305">≈ 120K</text>
-    <path class="arrow" d="M 500 350 L 586 412" />
+    <path class="dia-arrow solid" d="M 500 350 L 586 412" />
   </g>
 </svg>
 
 <style>
-.csum .init {
-  fill: var(--c-red);
-}
-.csum .added {
-  fill: var(--c-green);
-}
 .csum .dim {
   opacity: 0.25;
 }
@@ -729,30 +640,16 @@ layout: full
   fill: var(--c-orange);
 }
 .csum text {
-  fill: white;
   font-size: 26px;
-  text-anchor: middle;
-  dominant-baseline: central;
 }
 .csum .caption {
   font-size: 32px;
-  fill: var(--c-yellow);
 }
 .csum .total {
   font-size: 80px;
-  font-weight: bold;
-  stroke: black;
-  stroke-width: 10px;
-  paint-order: stroke;
 }
 .csum .total.small {
   font-size: 56px;
-}
-.csum .arrow {
-  fill: none;
-  stroke: var(--c-yellow);
-  stroke-width: 4;
-  marker-end: url(#csum-head);
 }
 </style>
 

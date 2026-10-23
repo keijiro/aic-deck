@@ -4,10 +4,9 @@ video: /videos/sec2/jacquard-hq.mp4
 ---
 
 ---
-
-<div class="video-split">
-  <video src="/videos/sec2/jacquard-hq.mp4" muted autoplay loop playsinline />
-<div>
+layout: video-split
+video: /videos/sec2/jacquard-hq.mp4
+---
 
 # Jacquard
 
@@ -15,9 +14,6 @@ video: /videos/sec2/jacquard-hq.mp4
 - 「繰り返し」と「変動」を折り込んだ演奏規則を生み出す
 - FM 音源によるレトロ感と近代的なエフェクトの組み合わせ
 - マルチプラットフォーム対応： Windows, Mac, iOS, Android
-
-</div>
-</div>
 
 <!--
 この Jacquard はゲームではなくて作曲ツールですね。作曲とは言っても、楽譜やピアノロールのような一般的なインターフェースで入力するのではなく、先ほどお見せしたような機能ブロックをグリッド上に並べていくことでシーケンスを構築します。このシーケンスは単純なリニア再生だけでなく、手続き的な性質があって、それによって多彩な変動を織り込んだ演奏規則を作ることができる、というものです。
@@ -83,7 +79,7 @@ layout: bigtext
 layout: full
 ---
 
-<svg class="tvc absolute inset-0 w-full h-full" viewBox="0 0 1376 768" preserveAspectRatio="xMidYMid meet">
+<svg class="tvc dia absolute inset-0 w-full h-full" viewBox="0 0 1376 768" preserveAspectRatio="xMidYMid meet">
   <text class="caption" x="188" y="150">トークン量</text>
   <text class="total" x="360" y="150">約18億</text>
   <text class="note" x="1188" y="150">書き込み 1.4% ／ 出力 0.4%</text>
@@ -126,17 +122,14 @@ layout: full
   opacity: 0.3;
 }
 .tvc text {
-  fill: white;
   font-size: 26px;
-  dominant-baseline: central;
+  text-anchor: start;
 }
 .tvc .caption {
   font-size: 32px;
-  fill: var(--c-yellow);
 }
 .tvc .total {
   font-size: 40px;
-  font-weight: bold;
 }
 .tvc .note {
   font-size: 22px;

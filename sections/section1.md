@@ -101,7 +101,7 @@ layout: full
 clicks: 10
 ---
 
-<svg class="tl absolute inset-0 w-full h-full" viewBox="0 0 1376 768" preserveAspectRatio="xMidYMid meet">
+<svg class="tl dia absolute inset-0 w-full h-full" viewBox="0 0 1376 768" preserveAspectRatio="xMidYMid meet">
   <g v-for="(r, i) in [[230, 2024, [0, .896, 1, 1, 1, 1, 1, 1, 1, 1, 1]], [430, 2025, [0, 0, .125, .125, .274, .425, .576, .726, .877, 1, 1]], [630, 2026, [0, 0, 0, 0, 0, 0, 0, 0, 0, .245, 1]]]" :key="i" class="row" :class="{ on: r[2][Math.min($clicks, 10)] > 0, done: r[2][Math.min($clicks, 10)] >= 1 }">
     <text class="year" x="150" :y="r[0]">{{ r[1] }}</text>
     <path class="axis start" :d="'M 240 ' + (r[0] - 12) + ' V ' + (r[0] + 12)" />
@@ -181,11 +181,6 @@ clicks: 10
 .tl > g.slidev-vclick-target:not(.slidev-vclick-hidden) {
   transition-delay: 0.3s;
 }
-.tl text {
-  fill: white;
-  text-anchor: middle;
-  dominant-baseline: central;
-}
 .tl .year {
   fill: var(--c-yellow);
   font-size: 32px;
@@ -242,10 +237,9 @@ video: /videos/sec1/recent-projects-hq.mp4
 -->
 
 ---
-
-<div class="video-split">
-  <video src="/videos/sec1/salvonix-small.mp4" muted autoplay loop playsinline />
-<div>
+layout: video-split
+video: /videos/sec1/salvonix-small.mp4
+---
 
 # Salvonix
 
@@ -253,27 +247,20 @@ video: /videos/sec1/recent-projects-hq.mp4
 - アセット生成 (Unity AI Generator) xxx Cr
 - １プロンプト＋２修正プロンプト
 
-</div>
-</div>
-
 <!--
 最初は Salvonix という 3D シューティングゲームのプロトタイプです。誘導ミサイルの一斉発射で敵を倒しまくるという内容ですね。自動制御で自由軸回転しながらスペースコロニーの中を飛び回る、という複雑なセッティングを１プロンプトでちゃんと理解して実装してくれたのが嬉しかったですね。まさに、こんなのができるとは半年前には思っていなかった、という実例です。
 -->
 
 ---
-
-<div class="video-split">
-  <video src="/videos/sec1/football-small.mp4" muted autoplay loop playsinline />
-<div>
+layout: video-split
+video: /videos/sec1/football-small.mp4
+---
 
 # Totally Realistic Football
 
 - 実装 (Claude Code, Opus 5.5, xhigh) xxx Cr
 - アセット生成 (Unity AI Generator) xxx Cr
 - １プロンプト
-
-</div>
-</div>
 
 <!--
 次は Totally Realistic Football、超リアルフットボールという、とぼけた名前の、物理挙動系のシュールなゲームですね。カーソルキーの左で左足を軸とした回転、右で右足を軸とした回転を行うという、左右の足の軸回転だけで操作する激ムズゲームです。これも１プロンプトのプロトタイプなんですが、このシュールなシステムとアセットのルックが上手くマッチした形で実装できたのが嬉しかったですね。

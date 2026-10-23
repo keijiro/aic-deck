@@ -14,9 +14,21 @@ Use only the palette defined as CSS variables in `style.css`:
 
 - Full-screen video with sound: `layout: fullvideo` with `video: /videos/...` in the frontmatter
   (uses `SlidevVideo`, restarts each time the slide is entered).
-- Muted loop clips: plain `<video muted autoplay loop playsinline>` inside a shared class from `style.css`:
-  `.video-grid` (2x2 grid, edges faded) or `.video-split` (video left, text right, no fade).
-- Don't add per-slide `<style>` blocks for video layout; extend the shared classes instead.
+- Video left, text right (muted loop, no fade): `layout: video-split` with `video: /videos/...`;
+  the slide content goes to the right column.
+- Muted loop clip grid: plain `<video muted autoplay loop playsinline>` inside `.video-grid`
+  (2x2 grid, edges faded) from `style.css`.
+- Don't add per-slide `<style>` blocks for video layout; extend the shared layouts/classes instead.
+
+## Diagrams and tables
+
+- Diagram SVGs get the `dia` class for the shared base in `style.css`: centered white text,
+  `.caption` (yellow), `.total` (bold, black outline), `.bracket`, and the context roles
+  `.init` (red) / `.added` (green). Keep only font sizes and slide-specific rules per slide.
+- Arrows: `<path class="dia-arrow">` (marching yellow dashes with the shared `#arrow-head` marker
+  from `global-bottom.vue`); add `solid` for a static line. Don't define per-slide markers.
+- Cost tables: `layout: cost-table` with `table: cost-xxx` (highlight set in `style.css`, driven by
+  `$clicks`), optional `note:` footnote, and `clicks: N`; the slide content is the Markdown table.
 
 ## Visual check
 
