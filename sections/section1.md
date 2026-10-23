@@ -253,12 +253,26 @@ layout: full
 -->
 
 ---
-
-trailers.mp4
-
+layout: full
 ---
 
-trailers.mp4 (mini player)
+<SlidevVideo class="fullvideo" autoplay autoreset="slide">
+  <source src="/videos/sec1/recent-projects-hq.mp4" type="video/mp4" />
+</SlidevVideo>
+
+<style>
+.slidev-layout:has(.fullvideo) {
+  padding: 0;
+  background: black;
+}
+.fullvideo {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+</style>
+
+---
 
 <!--
 といった感じで。まあ半年前とは全く作っているものの内容というかレベルが違いますよね。無茶苦茶な進化のスピードです。
@@ -268,11 +282,31 @@ trailers.mp4 (mini player)
 
 ---
 
-Salvonix.mp4
+<div class="game-split">
+  <video src="/videos/sec1/salvonix-small.mp4" muted autoplay loop playsinline />
+<div>
+
+# Salvonix
 
 - 実装 (Claude Code, Opus 5.5, xhigh) xxx Cr
 - アセット生成 (Unity AI Generator) xxx Cr
 - １プロンプト＋２修正プロンプト
+
+</div>
+</div>
+
+<style>
+.game-split {
+  height: 100%;
+  display: grid;
+  grid-template-columns: minmax(0, 3fr) minmax(0, 2fr);
+  gap: 40px;
+  align-items: center;
+}
+.game-split video {
+  width: 100%;
+}
+</style>
 
 <!--
 最初は Salvonix という 3D シューティングゲームのプロトタイプです。誘導ミサイルの一斉発射で敵を倒しまくるという内容ですね。自動制御で自由軸回転しながらスペースコロニーの中を飛び回る、という複雑なセッティングを１プロンプトでちゃんと理解して実装してくれたのが嬉しかったですね。まさに、こんなのができるとは半年前には思っていなかった、という実例です。
@@ -280,11 +314,31 @@ Salvonix.mp4
 
 ---
 
-Totally Realistic Football
+<div class="game-split">
+  <video src="/videos/sec1/football-small.mp4" muted autoplay loop playsinline />
+<div>
+
+# Totally Realistic Football
 
 - 実装 (Claude Code, Opus 5.5, xhigh) xxx Cr
 - アセット生成 (Unity AI Generator) xxx Cr
 - １プロンプト
+
+</div>
+</div>
+
+<style>
+.game-split {
+  height: 100%;
+  display: grid;
+  grid-template-columns: minmax(0, 3fr) minmax(0, 2fr);
+  gap: 40px;
+  align-items: center;
+}
+.game-split video {
+  width: 100%;
+}
+</style>
 
 <!--
 次は Totally Realistic Football、超リアルフットボールという、とぼけた名前の、物理挙動系のシュールなゲームですね。カーソルキーの左で左足を軸とした回転、右で右足を軸とした回転を行うという、左右の足の軸回転だけで操作する激ムズゲームです。これも１プロンプトのプロトタイプなんですが、このシュールなシステムとアセットのルックが上手くマッチした形で実装できたのが嬉しかったですね。

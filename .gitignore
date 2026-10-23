@@ -13,3 +13,6 @@ components.d.ts
 # Claude Code
 .claude/settings.local.json
 .claude/skills/slidev
+
+# Large video files
+*-hq.mp4
