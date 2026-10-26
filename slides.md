@@ -40,11 +40,3 @@ src: ./sections/section6.md
 ---
 src: ./sections/section7.md
 ---
-
----
-src: ./sections/section8.md
----
-
----
-src: ./sections/section9.md
----
