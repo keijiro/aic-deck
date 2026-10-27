@@ -99,9 +99,49 @@ layout: full
 -->
 
 ---
+layout: full
+clicks: 2
+---
+
+<div class="tower-grid" :class="{ on: $clicks >= 1, many: $clicks >= 2 }">
+  <img v-for="i in 36" :key="i" src="/images/sec7/tower-ai.png"
+    :class="{ hero: i === 1 }" :style="{ '--c': (i - 1) % 6, '--r': Math.floor((i - 1) / 6) }" />
+</div>
+
+<style>
+.tower-grid {
+  position: absolute;
+  inset: 0;
+}
+.tower-grid img {
+  position: absolute;
+  width: calc(100% / 6);
+  left: calc(var(--c) * 100% / 6);
+  top: calc(var(--r) * 100% / 6);
+  opacity: 0;
+  transition: opacity 0.3s calc(0.5s + (var(--c) + var(--r)) * 0.05s);
+}
+.tower-grid img.hero {
+  width: 60%;
+  left: 20%;
+  top: 20%;
+  transition: opacity 0.3s, width 0.6s ease-in-out, left 0.6s ease-in-out, top 0.6s ease-in-out;
+}
+.tower-grid.on img.hero {
+  opacity: 1;
+}
+.tower-grid.many img {
+  opacity: 1;
+}
+.tower-grid.many img.hero {
+  width: calc(100% / 6);
+  left: 0;
+  top: 0;
+}
+</style>
 
 <!--
-これは個人的な推測なんですが、最近の LLM は１プロンプトでのプロトタイピングに関してかなり大規模なトレーニングが行われているのではないかと思います。
+これは個人的な推測なんですが、[click]最近の LLM は１プロンプトでのプロトタイピングに関して[click]かなり大規模なトレーニングが行われているのではないかと思います。
 
 僕は決して AI の専門家ではないので、本当にこれは単なる非専門家のいち推測として聞いて欲しいんですが、１プロンプトでプロトタイピングを行って、その結果を評価して、最適化する、というプロセスは、適切な評価方法さえ用意できれば、人間の介在なしにブン回すことができるはずです。
 
