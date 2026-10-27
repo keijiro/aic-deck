@@ -82,6 +82,15 @@ clicks: 8
 -->
 
 ---
+layout: full
+---
+
+<VideoDrift :srcs="[
+  '/videos/sec1/salvonix-small.mp4',
+  '/videos/sec1/football-small.mp4',
+  '/videos/sec1/alchemion-small.mp4',
+  '/videos/sec1/recent-projects-hq.mp4',
+]" />
 
 <!--
 しかしそれでも、このコスパの良さは異常です。
