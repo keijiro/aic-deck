@@ -1,3 +1,58 @@
+---
+clicks: 8
+---
+
+<div class="pts-compare">
+  <div class="pts-card" :class="{ on: $clicks >= 1 }">
+    <LoopVideo src="/videos/sec1/salvonix-small.mp4" />
+    <div class="name">Salvonix</div>
+    <div class="pts">1,800 pts.</div>
+  </div>
+  <div class="pts-card" :class="{ on: $clicks >= 2, dim: [4, 6, 8].includes($clicks) }">
+    <img src="/images/sec6/tower-defense-1.jpg" />
+    <div class="name">Tower Defense URP 移行</div>
+    <div class="pts">2,000 pts.</div>
+  </div>
+  <div class="pts-card" :class="{ on: $clicks >= 3, dim: [4, 5, 8].includes($clicks) }">
+    <img src="/images/sec4/bunny-blitz-after.png" />
+    <div class="name">Bunny Blitz 無敵アイテム</div>
+    <div class="pts">200 pts.</div>
+  </div>
+</div>
+
+<style>
+.pts-compare {
+  height: 100%;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 32px;
+  align-items: center;
+}
+.pts-card {
+  text-align: center;
+  opacity: 0;
+  transition: opacity 0.4s, filter 0.4s;
+}
+.pts-card.on { opacity: 1; }
+.pts-card.dim { filter: brightness(0.4); }
+.pts-card video,
+.pts-card img {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  border-radius: 4px;
+}
+.pts-card .name {
+  margin-top: 16px;
+  font-size: 1.3em;
+}
+.pts-card .pts {
+  font-size: 2.4em;
+  font-weight: bold;
+  color: var(--c-yellow);
+}
+</style>
+
 <!--
 さて、話を戻しましょう。いよいよ最後の話題に移ります。
 
@@ -15,7 +70,7 @@
 
 [click]たった１機能の実装に 200 ポイントかかっていますが、その 10 倍程度でプロトタイプが完成するというのも酷くアンバランスに見えます。
 
-[click]このように様々な種類のタスクのコスパを比較した時に見えてくる事実が１つあります。それは、１プロンプトで一気にプロトタイピングする、というタスクの異常なコスパの良さです。
+[click]このように様々な種類のタスクのコスパを比較した時に見えてくる事実が１つあります。それは、[click]１プロンプトで一気にプロトタイピングする、というタスクの異常なコスパの良さです。
 -->
 
 ---
