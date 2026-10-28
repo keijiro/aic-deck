@@ -30,6 +30,8 @@ they show a poster `foo-print.jpg` next to `foo.mp4`, don't autoplay, and use `p
   `ffmpeg -ss 3 -i public/videos/foo.mp4 -frames:v 1 -q:v 3 public/videos/foo-print.jpg`
 - Export with `pnpm export` (adds `--wait 1500 --wait-until load --timeout 90000`; the default
   networkidle wait times out on video loading). Extra args pass through, e.g. `pnpm export --format pptx`.
+- Every exported page (PDF/PNG/PPTX) gets a "review copy only" warning overlay from `global-top.vue`
+  (shown only in print mode; the dev server and static build are unaffected).
 
 ## Diagrams and tables
 

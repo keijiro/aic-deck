@@ -193,3 +193,37 @@ html:root {
   mask-composite: intersect;
 }
 
+
+/* Review-copy warning on exported files (global-top.vue) */
+.review-copy {
+  position: absolute;
+  inset: 0;
+  z-index: 100;
+  pointer-events: none;
+  font-family: 'Avenir Next', 'Nunito Sans', 'M PLUS Rounded 1c', sans-serif;
+}
+
+.review-copy-mark {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(-20deg);
+  font-size: 200px;
+  font-weight: bold;
+  white-space: nowrap;
+  color: var(--c-red);
+  opacity: 0.18;
+}
+
+.review-copy-banner {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 6px 0;
+  text-align: center;
+  font-size: 18px;
+  font-weight: bold;
+  color: white;
+  background: var(--c-red);
+}
