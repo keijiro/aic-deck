@@ -141,113 +141,68 @@ clicks: 6
 layout: full
 ---
 
-<svg class="ctx dia absolute inset-0 w-full h-full" viewBox="0 0 1376 768" preserveAspectRatio="xMidYMid meet">
-  <g class="init" v-click>
-    <rect x="448" y="96" width="480" height="64" rx="12" />
-    <text x="688" y="128">システムプロンプト</text>
-  </g>
-  <g class="init" v-click>
-    <rect x="448" y="172" width="480" height="64" rx="12" />
-    <text x="688" y="204">ツール定義</text>
-  </g>
-  <g class="init" v-click>
-    <rect x="448" y="248" width="480" height="64" rx="12" />
-    <text x="688" y="280">カスタム設定</text>
-  </g>
-  <g class="added" v-click>
-    <rect x="448" y="324" width="480" height="64" rx="12" />
-    <text x="688" y="356">ユーザーの指示</text>
-  </g>
-  <g class="added" v-click>
-    <rect x="448" y="400" width="480" height="64" rx="12" />
-    <text x="688" y="432">モデルの思考</text>
-  </g>
-  <g class="added" v-click>
-    <rect x="448" y="476" width="480" height="64" rx="12" />
-    <text x="688" y="508">モデルの応答</text>
-  </g>
-  <g class="added" v-click>
-    <rect x="448" y="552" width="480" height="120" rx="12" />
-    <text x="688" y="612">ツールの実行結果</text>
-  </g>
-</svg>
-
-<style>
-.ctx text {
-  font-size: 32px;
-}
-</style>
-
-<!--
-では、そのコンテキストには何が入っているんでしょうか。
-
-まず会話を開始する前の初期状態として、[click]システム側で定義されているシステムプロンプトがあります。エージェントの基本的な振る舞いを定義するものですね。
-
-そして、[click]ファイル読み書きやコマンド実行などの基本的なツールの定義があります。あとは、[click]ユーザーの定義するカスタム設定があります。CLAUDE.md とか AGENTS.md とかのカスタムインストラクションなどがここに含まれますね。
-
-コンテキストは、こんな感じの状態でスタートします。
-
-[click]そしてユーザーがプロンプトを打って指示をしますよね。[click]すると LLM 側で思考が行われて、[click]ファイルを読んだり書いたり、ツールを呼び出したりといった応答が行われます。[click]そして、ツールの実行結果を受け取ることになります。こんな感じの内容が、文脈として積み上げられていくことになります。
--->
-
----
-layout: full
----
-
 <svg class="flow dia absolute inset-0 w-full h-full" viewBox="0 0 1376 768" preserveAspectRatio="xMidYMid meet">
-  <g transform="translate(0 40)">
+  <g transform="translate(0 20)">
   <svg x="900" y="230" width="320" height="283" viewBox="300 90 700 620">
     <image href="/images/sec3/smart-ai.png" width="1376" height="768" />
   </svg>
-  <g class="init">
+  <g class="init" v-click="1">
     <rect x="150" y="100" width="400" height="50" rx="10" />
-    <text x="350" y="125">システムプロンプト</text>
+    <text x="350" y="125">ツール定義</text>
   </g>
-  <g class="init">
+  <g class="init" v-click="2">
     <rect x="150" y="158" width="400" height="50" rx="10" />
-    <text x="350" y="183">ツール定義</text>
+    <text x="350" y="183">システムプロンプト</text>
   </g>
-  <g class="init">
+  <g class="init" v-click="3">
     <rect x="150" y="216" width="400" height="50" rx="10" />
     <text x="350" y="241">カスタム設定</text>
   </g>
-  <g class="added" v-click="1">
+  <g class="added" v-click="4">
     <rect x="150" y="274" width="400" height="50" rx="10" />
     <text x="350" y="299">ユーザーの指示</text>
   </g>
-  <g class="send" v-click="[1,2]">
+  <g class="send" v-click="[4,5]">
     <path class="bracket" d="M 566 100 H 586 V 324 H 566" />
     <path class="dia-arrow" d="M 600 212 L 880 330" />
   </g>
-  <g class="added from-llm" v-click="2">
-    <rect x="150" y="332" width="400" height="50" rx="10" />
-    <text x="350" y="357">ツール呼び出し</text>
-  </g>
-  <g class="send" v-click="[2,3]">
-    <path class="dia-arrow" d="M 880 420 L 566 357" />
-  </g>
-  <g class="tool" v-click="[3,4]">
-    <path class="file" d="M 640 410 H 680 L 700 430 V 490 H 640 Z" />
-    <path class="file-line" d="M 652 440 H 688 M 652 456 H 688 M 652 472 H 678" />
-    <text class="caption" x="670" y="520">ファイル読み込み</text>
-    <path class="dia-arrow" d="M 628 445 L 566 445" />
-  </g>
-  <g class="added" v-click="3">
-    <rect x="150" y="390" width="400" height="110" rx="10" />
-    <text x="350" y="445">ツールの実行結果</text>
-  </g>
-  <g class="send" v-click="[4,5]">
-    <path class="bracket" d="M 566 100 H 586 V 500 H 566" />
-    <path class="dia-arrow" d="M 600 300 L 880 330" />
-  </g>
   <g class="added from-llm" v-click="5">
-    <rect x="150" y="508" width="400" height="50" rx="10" />
-    <text x="350" y="533">次の行動</text>
+    <rect x="150" y="332" width="400" height="50" rx="10" />
+    <text x="350" y="357">モデルの思考</text>
   </g>
-  <g class="send" v-click="5">
-    <path class="dia-arrow" d="M 880 420 L 566 533" />
+  <g class="added from-llm" v-click="5" style="transition-delay: 0.3s">
+    <rect x="150" y="390" width="400" height="50" rx="10" />
+    <text x="350" y="415">ツール呼び出し</text>
   </g>
+  <g class="send" v-click="[5,6]">
+    <path class="dia-arrow" d="M 880 420 L 566 386" />
   </g>
+  <g class="tool" v-click="[6,7]">
+    <path class="file" d="M 640 438 H 680 L 700 458 V 518 H 640 Z" />
+    <path class="file-line" d="M 652 468 H 688 M 652 484 H 688 M 652 500 H 678" />
+    <text class="caption" x="670" y="548">ファイル読み込み</text>
+    <path class="dia-arrow" d="M 628 473 L 566 473" />
+  </g>
+  <g class="added" v-click="6">
+    <rect x="150" y="448" width="400" height="50" rx="10" />
+    <text x="350" y="473">ツールの実行結果</text>
+  </g>
+  <g class="send" v-click="[7,8]">
+    <path class="bracket" d="M 566 100 H 586 V 498 H 566" />
+    <path class="dia-arrow" d="M 600 299 L 880 330" />
+  </g>
+  <g class="added from-llm" v-click="8">
+    <rect x="150" y="506" width="400" height="50" rx="10" />
+    <text x="350" y="531">モデルの思考</text>
+  </g>
+  <g class="added from-llm" v-click="8" style="transition-delay: 0.3s">
+    <rect x="150" y="564" width="400" height="50" rx="10" />
+    <text x="350" y="589">次の行動</text>
+  </g>
+  <g class="send" v-click="8">
+    <path class="dia-arrow" d="M 880 420 L 566 560" />
+  </g>
+</g>
 </svg>
 
 <style>
@@ -270,6 +225,7 @@ layout: full
 .flow .slidev-vclick-target {
   transition: opacity 0.3s ease, transform 0.3s ease;
 }
+.flow .init.slidev-vclick-hidden,
 .flow .added.slidev-vclick-hidden {
   transform: translateY(-16px);
 }
@@ -279,19 +235,25 @@ layout: full
 </style>
 
 <!--
-次に、コンテキストがどう延びていくのかを、実際の流れで見てみましょう。
+それでは、実際のコーディングエージェントにおいては、どのような情報がコンテキストに入っていくのか、実際の流れを追ってみましょう。
 
-[click]まずユーザーからプロンプトが入力されました。これはコンテキストの末尾に追加されて LLM に送られます。
+まず会話を開始する前の初期状態として、[click]ファイルの読み書きやコマンド実行などの基本的なツールの定義があります。
 
-[click]するとLLMは「このファイルを読みたい」とツール呼び出しを出力しました。
+次に、[click]システム側で定義されているシステムプロンプトがあります。エージェントの基本的な振る舞いを定義するものですね。
+
+そして、[click]ユーザーの定義するカスタム設定があります。CLAUDE.md とか AGENTS.md とかのカスタムインストラクション、あとはスキルの一覧などがここに含まれますね。コンテキストは、こんな感じの状態でスタートします。
+
+[click]そこにユーザーからプロンプトが入力されました。これはコンテキストの末尾に追加されて LLM に送られます。
+
+[click]すると LLM は、まず思考を行い、その上で「このファイルを読みたい」とツール呼び出しを出力しました。
 
 [click]エージェントはそのファイルを読み込んで、その結果をコンテキストの末尾に追加します。
 
-[click]膨らんだコンテキスト全体を、再びLLMに送ります。
+[click]膨らんだコンテキスト全体を、再び LLM に送ります。
 
-[click]そしてLLMは再び次の行動を決めます。これを作業完了まで繰り返すわけです。
+[click]そして LLM は、また思考を行なって、次の行動を決めます。このようなことを業完了まで繰り返していくわけです。
 
-このようにエージェントは、ユーザーの指示を受け取ると、その中で何十回、ときには何百回もLLMを呼び出します。そしてその度にコンテキスト全体がLLMに入力されます。しかもそのコンテキストは徐々に膨らみ続けていくわけですね。
+このようにエージェントは、ユーザーの指示を受け取ると、その中で何十回、ときには何百回も LLM を呼び出します。そしてその度にコンテキスト全体が LLM に再送信されます。しかもそのコンテキストは徐々に膨らみ続けていくわけですね。
 -->
 
 ---
@@ -349,9 +311,9 @@ layout: full
 </style>
 
 <!--
-ここで簡単な計算をしてみます。[click]システムプロンプトとツール定義で最初に2万トークン消費して、[click]ツールを1回使うごとに平均1,000トークンずつ増えていくと仮定します。[click]これで100ステップ作業すると、最終的にコンテキストは約12万トークンになります。
+ここで簡単な計算をしてみます。[click]初期状態の定義に２万トークン消費して、[click]ツールを１回使うごとに平均 1,000 トークンずつ増えていくと仮定します。[click]これで 100 ステップ作業すると、最終的にコンテキストは約 12 万トークンになります。
 
-ですが、モデルに送られた入力の合計は12万トークンではありません。
+ですが、モデルに送られた入力の合計は 12 万トークンではありません。
 -->
 
 ---
@@ -403,7 +365,7 @@ layout: full
 </style>
 
 <!--
-[click]1回目に2万、[click]2回目に2万1千、[click]3回目に2万2千……と毎回全体を送るので、[click]100回分を足し合わせると[click]約700万トークンになります。
+[click]１回目に２万、[click]２回目に２万１千、[click]３回目に２万２千……と毎回全体を送るので、[click]100 回分を足し合わせると[click]約 700 万トークンになります。
 
 コンテキストの長さはステップ数に比例して増えますが、送信量の合計はステップ数の2乗に比例して増えます。これが、コーディングエージェントにおけるトークン使用量が想像以上に大きくなる理由です。
 
