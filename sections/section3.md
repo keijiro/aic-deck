@@ -22,9 +22,12 @@ layout: full
 
 <svg v-click class="absolute inset-0 w-full h-full" viewBox="0 0 1376 768" preserveAspectRatio="xMidYMid meet">
   <g transform="translate(344 192) scale(0.5)">
-    <path d="M 1087.7 198 A 100 75 0 1 0 1043.4 167.5 L 990 220 Z"
-          fill="black" stroke="white" stroke-width="6" stroke-linejoin="round" />
-    <text x="1130" y="132" fill="white" style="font-size: 100px; font-weight: bold"
+    <g v-for="(s, k) in [{ stroke: 'white', 'stroke-width': 12 }, { fill: 'black' }]" :key="k" :fill="s.fill ?? 'none'" :stroke="s.stroke" :stroke-width="s['stroke-width']">
+      <circle v-for="([cx, cy, r], i) in [[1085, 120, 81], [1007, 137, 55], [1163, 137, 55], [1033, 68, 55], [1137, 68, 55], [1085, 42, 52], [1046, 185, 47], [1127, 185, 47]]" :key="i" :cx="cx" :cy="cy" :r="r" />
+      <circle cx="940" cy="215" r="18" />
+      <circle cx="905" cy="245" r="11" />
+    </g>
+    <text x="1085" y="120" fill="white" style="font-size: 130px; font-weight: bold"
           text-anchor="middle" dominant-baseline="central">?</text>
   </g>
 </svg>
@@ -42,7 +45,7 @@ clicks: 5
 
 <svg class="chat dia absolute inset-0 w-full h-full" viewBox="0 0 1376 768" preserveAspectRatio="xMidYMid meet">
   <image href="/images/sec3/human.png" x="150" y="400" width="320" height="320" />
-  <svg x="976" y="450" width="260" height="230" viewBox="300 90 700 620">
+  <svg x="953" y="431" width="305" height="270" viewBox="300 90 700 620">
     <image href="/images/sec3/smart-ai.png" width="1376" height="768" />
   </svg>
   <g v-if="$clicks === 1">

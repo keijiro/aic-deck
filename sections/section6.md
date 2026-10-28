@@ -318,7 +318,7 @@ clicks: 4
     <image class="shot" href="/images/sec6/stage1.jpg" x="88" y="85" width="384" height="216" />
     <path class="dia-arrow" d="M 280 395 V 316" />
     <svg x="136" y="400" width="260" height="230" viewBox="300 90 700 620">
-      <image href="/images/sec3/smart-ai.png" width="1376" height="768" />
+      <image href="/images/sec3/smart-ai.png" width="1376" height="768" transform="translate(1321 0) scale(-1 1)" />
     </svg>
   </g>
   <g class="step bubble" :class="{ on: $clicks >= 2 }">

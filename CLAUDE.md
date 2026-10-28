@@ -56,6 +56,12 @@ pnpm export --format png --range <N> --with-clicks --output <scratchpad>/shot
 - `--range` accepts lists like `3,10-12`. No dev server needed; it starts its own.
 - Animations (marching arrows) are captured as a single frame; videos show their `-print.jpg` poster.
 
+## Images
+
+- `sec3/smart-ai.png` (the LLM robot) faces left by default. Where facing right is required by the
+  scene (e.g. the robot sits on the left and acts toward the right), mirror it in place with
+  `transform="translate(1321 0) scale(-1 1)"` on the `<image>` (keeps the same position).
+
 ## Edit instructions
 
 Edit instructions are passed inside the .md files as comment blocks like this:
