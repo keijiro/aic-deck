@@ -40,7 +40,7 @@ layout: full
 
 ---
 layout: full
-clicks: 5
+clicks: 6
 ---
 
 <svg class="chat dia absolute inset-0 w-full h-full" viewBox="0 0 1376 768" preserveAspectRatio="xMidYMid meet">
@@ -55,20 +55,26 @@ clicks: 5
     </g>
   </g>
   <g v-if="$clicks === 2">
-    <g v-for="(m, i) in [['１＋１は？'], ['２です'], ['（１＋１は？）', '（２です）', '×３は？'], ['６です']]" :key="i" class="msg" :class="i % 2 ? 'to-human' : 'to-llm'" :style="{ animationDelay: i * 1.25 + 's' }">
+    <g v-for="(m, i) in [['１＋１は？'], ['２です'], ['（１＋１は？）', '（２です）', '×３は？']]" :key="i" class="msg" :class="[i % 2 ? 'to-human' : 'to-llm', { hold: i === 2 }]" :style="{ animationDelay: i * 1.25 + 's' }">
       <rect :x="-30 - Math.max(...m.map(l => l.length)) * 20" :y="-36 - (m.length - 1) * 26" :width="60 + Math.max(...m.map(l => l.length)) * 40" :height="72 + (m.length - 1) * 52" rx="20" />
       <text v-for="(l, j) in m" :key="j" :y="(j * 2 - m.length + 1) * 26" :class="{ muted: j < m.length - 1 }">{{ l }}</text>
     </g>
   </g>
-  <g v-click="[3, 5]">
+  <g v-if="$clicks === 3">
+    <g v-for="(m, i) in [['（１＋１は？）', '（２です）', '×３は？'], ['６です']]" :key="i" class="msg" :class="i ? 'to-human' : 'resume'" :style="{ animationDelay: i * 1.02 + 's' }">
+      <rect :x="-30 - Math.max(...m.map(l => l.length)) * 20" :y="-36 - (m.length - 1) * 26" :width="60 + Math.max(...m.map(l => l.length)) * 40" :height="72 + (m.length - 1) * 52" rx="20" />
+      <text v-for="(l, j) in m" :key="j" :y="(j * 2 - m.length + 1) * 26" :class="{ muted: j < m.length - 1 }">{{ l }}</text>
+    </g>
+  </g>
+  <g v-click="[4, 6]">
     <path d="M 444 310 H 616 A 24 24 0 0 1 640 334 V 366 A 24 24 0 0 1 616 390 H 490 L 420 430 L 450 390 H 444 A 24 24 0 0 1 420 366 V 334 A 24 24 0 0 1 444 310 Z" />
     <text x="530" y="350">÷２は？</text>
   </g>
-  <g v-click="[4, 5]">
+  <g v-click="[5, 6]">
     <path d="M 764 340 H 956 A 24 24 0 0 1 980 364 V 396 A 24 24 0 0 1 956 420 H 950 L 990 460 L 920 420 H 764 A 24 24 0 0 1 740 396 V 364 A 24 24 0 0 1 764 340 Z" />
     <text x="860" y="380">何を…？</text>
   </g>
-  <g v-click="5">
+  <g v-click="6">
     <path d="M 444 160 H 976 A 24 24 0 0 1 1000 184 V 366 A 24 24 0 0 1 976 390 H 490 L 420 430 L 450 390 H 444 A 24 24 0 0 1 420 366 V 184 A 24 24 0 0 1 444 160 Z" />
     <text x="710" y="210" class="muted">（１＋１は？）（２です）</text>
     <text x="710" y="275" class="muted">（×３は？）（６です）</text>
@@ -96,10 +102,21 @@ clicks: 5
 }
 .msg.to-llm { animation-name: to-llm; }
 .msg.to-human { animation-name: to-human; }
+.msg.hold { animation-name: hold; animation-duration: 0.18s; }
+.msg.resume { animation-name: resume; animation-duration: 1.02s; }
 @keyframes to-llm {
   0% { transform: translate(560px, 300px); opacity: 0; }
   15% { transform: translate(560px, 300px); opacity: 1; }
   85% { transform: translate(860px, 300px); opacity: 1; }
+  100% { transform: translate(860px, 300px); opacity: 0; }
+}
+@keyframes hold {
+  0% { transform: translate(560px, 300px); opacity: 0; }
+  100% { transform: translate(560px, 300px); opacity: 1; }
+}
+@keyframes resume {
+  0% { transform: translate(560px, 300px); opacity: 1; }
+  82% { transform: translate(860px, 300px); opacity: 1; }
   100% { transform: translate(860px, 300px); opacity: 0; }
 }
 @keyframes to-human {
@@ -113,7 +130,7 @@ clicks: 5
 <!--
 エージェントを使っていると、[click]まるで記憶を持った知能との会話を続けているように感じられますよね。
 
-でも実際には、LLMには会話の文脈を記憶する機能がありません。会話を成立させるには、[click]それまでのやり取りをすべて入力し直してやる必要があります。
+でも実際には、LLMには会話の文脈を記憶する機能がありません。会話を成立させるには、[click]それまでのやり取りをすべて入力し直してやる必要があります。[click]
 
 例えば、[click]ここから「割る２は？」とだけ送っても[click]ダメなんですね。[click]これを全部送る必要があります。
 
