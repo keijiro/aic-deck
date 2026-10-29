@@ -194,10 +194,21 @@ clicks: 2
 
 ---
 
-<div class="concept-grid">
-  <div v-for="k in ['smash-bots', 'cryptbound', 'football', 'salvonix', 'cozy-room', 'explainer']" :key="k">
-    <img :src="`/images/sec7/${k}-concept.jpg`" />
-    <img :src="`/images/sec7/${k}-game.jpg`" />
+<script setup>
+import { useNav } from '@slidev/client'
+const { isPrintMode } = useNav()
+</script>
+
+<div class="concept-grid" :class="{ shown: $nav.currentPage === $page && !isPrintMode }">
+  <div v-for="(k, n) in ['smash-bots', 'cryptbound', 'football', 'salvonix', 'cozy-room', 'explainer']" :key="k">
+    <figure
+      v-for="(s, m) in ['concept', 'game']" :key="s"
+      :style="{ '--i': n * 2 + m, '--r': `${Math.sin((n * 2 + m) * 7.3 + 1) * 2.5}deg`,
+                '--x': `${Math.sin((n * 2 + m) * 3.1 + 2) * 6}px`, '--y': `${Math.sin((n * 2 + m) * 5.7 + 3) * 5}px` }"
+    >
+      <img :src="`/images/sec7/${k}-${s}.jpg`" />
+      <figcaption>{{ m ? 'Output' : 'Concept' }}</figcaption>
+    </figure>
   </div>
 </div>
 
@@ -207,18 +218,44 @@ clicks: 2
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   align-content: center;
-  gap: 16px 24px;
+  gap: 18px 32px;
 }
 .concept-grid > div {
   display: flex;
-  gap: 6px;
+  gap: 14px;
 }
-.concept-grid img {
+/* Photo prints: white frame with a handwritten caption, slight random tilt/offset */
+.concept-grid figure {
   min-width: 0;
   flex: 1;
+  padding: 5px 5px 0;
+  background: white;
+  border-radius: 2px;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.6);
+  transform: translate(var(--x), var(--y)) rotate(var(--r));
+}
+.concept-grid img {
+  display: block;
+  width: 100%;
   aspect-ratio: 16 / 9;
   object-fit: cover;
-  border-radius: 4px;
+}
+.concept-grid figcaption {
+  padding: 0 4px;
+  font-family: 'Caveat', cursive;
+  font-weight: 600;
+  font-size: 19px;
+  line-height: 24px;
+  color: black;
+}
+.concept-grid.shown figure {
+  animation: photo-in 0.6s cubic-bezier(0.2, 0.8, 0.3, 1) calc(var(--i) * 150ms) backwards;
+}
+@keyframes photo-in {
+  from {
+    opacity: 0;
+    transform: translate(calc(var(--x) - 60px), var(--y)) rotate(calc(var(--r) - 4deg));
+  }
 }
 </style>
 
