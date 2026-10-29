@@ -261,6 +261,17 @@ html:root {
 /* Section 7: focus on the prototype (first bar + left image) or the big rework bar */
 .req-chart[data-focus="proto"] :is(.bar:not(.proto), .inset > :not(.proto), .legend),
 .req-chart[data-focus="big"] :is(.bar:not(.big), .inset > *, .legend) { opacity: 0.25; }
+/* Section 7: estimate chart (prototype bar + later bars that swap per click), 31 equal columns */
+.est-chart {
+  display: grid;
+  grid-template-columns: repeat(31, minmax(0, 1fr));
+  gap: 3px;
+  /* Shift so the --n visible columns are centered (column pitch = (100% + gap) / 31) */
+  transform: translateX(calc((31 - var(--n)) / 2 * (100% + 3px) / 31));
+  transition: transform 0.5s ease;
+}
+.est-chart .bars { display: contents; }
+.est-chart .bar { grid-row: 1; grid-column: calc(var(--i) + 1); }
 .req-chart .legend {
   display: flex;
   justify-content: flex-end;

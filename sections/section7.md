@@ -254,11 +254,61 @@ layout: bigtext
 -->
 
 ---
+clicks: 2
+---
+
+<div class="req-chart mt-20">
+  <div class="est-chart" :style="{ '--n': [1, 6, 31][$clicks] }">
+    <div class="bars proto" :class="{ shown: $nav.currentPage === $page }">
+      <div class="bar" style="--i: 0"><i class="r" style="height:50%"></i></div>
+    </div>
+    <div class="bars" :class="{ shown: $clicks === 1 }">
+      <div class="bar" style="--i: 1"><i class="r" style="height:38%"></i></div>
+      <div class="bar" style="--i: 2"><i class="r" style="height:30%"></i></div>
+      <div class="bar" style="--i: 3"><i class="r" style="height:44%"></i></div>
+      <div class="bar" style="--i: 4"><i class="r" style="height:26%"></i></div>
+      <div class="bar" style="--i: 5"><i class="r" style="height:35%"></i></div>
+    </div>
+    <div class="bars" :class="{ shown: $clicks >= 2 }">
+      <div class="bar" style="--i: 1"><i class="r" style="height:4%"></i></div>
+      <div class="bar" style="--i: 2"><i class="r" style="height:7%"></i></div>
+      <div class="bar" style="--i: 3"><i class="r" style="height:3%"></i></div>
+      <div class="bar" style="--i: 4"><i class="r" style="height:12%"></i></div>
+      <div class="bar" style="--i: 5"><i class="r" style="height:5%"></i></div>
+      <div class="bar" style="--i: 6"><i class="r" style="height:2%"></i></div>
+      <div class="bar" style="--i: 7"><i class="r" style="height:9%"></i></div>
+      <div class="bar" style="--i: 8"><i class="r" style="height:6%"></i></div>
+      <div class="bar" style="--i: 9"><i class="r" style="height:58%"></i></div>
+      <div class="bar" style="--i: 10"><i class="r" style="height:4%"></i></div>
+      <div class="bar" style="--i: 11"><i class="r" style="height:3%"></i></div>
+      <div class="bar" style="--i: 12"><i class="r" style="height:8%"></i></div>
+      <div class="bar" style="--i: 13"><i class="r" style="height:15%"></i></div>
+      <div class="bar" style="--i: 14"><i class="r" style="height:5%"></i></div>
+      <div class="bar" style="--i: 15"><i class="r" style="height:2%"></i></div>
+      <div class="bar" style="--i: 16"><i class="r" style="height:6%"></i></div>
+      <div class="bar" style="--i: 17"><i class="r" style="height:4%"></i></div>
+      <div class="bar" style="--i: 18"><i class="r" style="height:63%"></i></div>
+      <div class="bar" style="--i: 19"><i class="r" style="height:7%"></i></div>
+      <div class="bar" style="--i: 20"><i class="r" style="height:3%"></i></div>
+      <div class="bar" style="--i: 21"><i class="r" style="height:10%"></i></div>
+      <div class="bar" style="--i: 22"><i class="r" style="height:5%"></i></div>
+      <div class="bar" style="--i: 23"><i class="r" style="height:2%"></i></div>
+      <div class="bar" style="--i: 24"><i class="r" style="height:4%"></i></div>
+      <div class="bar" style="--i: 25"><i class="r" style="height:11%"></i></div>
+      <div class="bar" style="--i: 26"><i class="r" style="height:6%"></i></div>
+      <div class="bar" style="--i: 27"><i class="r" style="height:3%"></i></div>
+      <div class="bar" style="--i: 28"><i class="r" style="height:55%"></i></div>
+      <div class="bar" style="--i: 29"><i class="r" style="height:5%"></i></div>
+      <div class="bar" style="--i: 30"><i class="r" style="height:8%"></i></div>
+    </div>
+  </div>
+  <div v-click.hide="1" class="sum">2,000 pts</div>
+</div>
 
 <!--
-2,000 ポイントでこのような本格的なプロトタインピングができてしまうと、その倍とか、あるいは３〜４倍ぐらい出せば、とりあえずの完成まで持っていけるのではないか、と思ってしまうかもしれません。
+2,000 ポイントでこのような本格的なプロトタインピングができてしまうと、[click]その倍とか、あるいは３〜４倍ぐらい出せば、とりあえずの完成まで持っていけるのではないか、と思ってしまうかもしれません。
 
-しかし実際には、プロトタイプからインクリメンタルに完成に近づけていく作業は、想像以上にコストを食います。ちゃんとした形に整えるまでは 10 倍程度のコストがかかると見るべきでしょう。
+しかし実際には、[click]プロトタイプからインクリメンタルに完成に近づけていく作業は、想像以上にコストを食います。ちゃんとした形に整えるまでは、もっと多くの、例えば 10 倍程度のコストを考えるべきでしょう。
 -->
 
 ---
