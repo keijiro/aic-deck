@@ -36,7 +36,7 @@ clicks: 1
 clicks: 3
 ---
 
-<div class="req-chart mt-6">
+<div class="req-chart mt-6" style="--bars: 48">
   <div class="bars" :class="{ shown: $nav.currentPage === $page }" :data-focus="[null, 'inv', 'impl', 'check'][$clicks]">
     <div class="bar inv" style="--i: 1"><i class="r" style="height:3.1%"></i><i class="o" style="height:2.0%"></i><i class="w" style="height:94.3%"></i></div>
     <div class="bar inv" style="--i: 2"><i class="r" style="height:5.5%"></i><i class="o" style="height:3.1%"></i><i class="w" style="height:18.6%"></i></div>
@@ -100,67 +100,6 @@ clicks: 3
     <span><i class="o"></i>出力</span>
   </div>
 </div>
-
-<style>
-.req-chart .bars,
-.req-chart .phases {
-  display: flex;
-  gap: 3px;
-}
-.req-chart .bar {
-  flex: 1 1 0;
-  height: 300px;
-  display: flex;
-  flex-direction: column-reverse;
-  transform-origin: bottom;
-  transition: opacity 0.4s ease;
-}
-.req-chart .bars:not(.shown) .bar {
-  transform: scaleY(0);
-}
-.req-chart .bars.shown .bar {
-  animation: req-grow 0.4s ease calc(var(--i) * 12ms) backwards;
-}
-@keyframes req-grow {
-  from { transform: scaleY(0); }
-}
-.req-chart i { display: block; }
-.req-chart .r { background: var(--c-green); }
-.req-chart .w { background: var(--c-orange); }
-.req-chart .o { background: var(--c-red); }
-.req-chart .phases > div {
-  flex: none;
-  width: calc(var(--n) * (100% - 141px) / 48 + (var(--n) - 1) * 3px);
-  margin-top: 6px;
-  padding-top: 4px;
-  border-top: 2px solid var(--c-muted);
-  font-size: 0.8rem;
-  white-space: nowrap;
-  text-align: center;
-  color: var(--c-muted);
-  transition: opacity 0.4s ease;
-}
-.req-chart .phases[data-focus="inv"] > .inv,
-.req-chart .phases[data-focus="impl"] > .impl,
-.req-chart .phases[data-focus="check"] > .check { color: var(--c-yellow); border-color: var(--c-yellow); }
-.req-chart [data-focus="inv"] > :not(.inv),
-.req-chart [data-focus="impl"] > :not(.impl),
-.req-chart [data-focus="check"] > :not(.check) { opacity: 0.25; }
-.req-chart .legend {
-  display: flex;
-  justify-content: flex-end;
-  gap: 1.5rem;
-  margin-top: 1rem;
-  font-size: 0.8rem;
-  color: var(--c-muted);
-}
-.req-chart .legend i {
-  display: inline-block;
-  width: 0.8em;
-  height: 0.8em;
-  margin-right: 0.4em;
-}
-</style>
 
 <!--
 これは先ほど例として使った無敵アイテムの実装タスクをステップ単位で分析したものです。今度はちゃんと動作検証も含めて実行してもらいました。このタスクでは 48 回の API リクエストが発生しています。このグラフは、そのコストを棒グラフで表したものです。

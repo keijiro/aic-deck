@@ -169,6 +169,113 @@ html:root {
   color: var(--c-yellow);
 }
 
+/* Stacked request/session cost bars (sections 5, 7); set --bars to the bar count.
+   Bars grow in sequence when the slide is entered; a <b> after the segments is a value caption. */
+.req-chart {
+  position: relative;
+}
+/* Inset images/clips in the chart's top-right corner (over the low bars), in a row */
+.req-chart .inset {
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.req-chart .inset :is(img, video) {
+  width: 280px;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+}
+.req-chart .inset > * {
+  transition: opacity 0.4s ease, transform 0.5s ease;
+}
+/* Zoom the left inset image to the slide center (2.7x) */
+.req-chart .inset > .zoom {
+  position: relative;
+  z-index: 1;
+  transform: translate(74px, 113px) scale(2.7);
+}
+/* Value total shown under the bars */
+.req-chart .sum {
+  margin-top: 0.6rem;
+  text-align: center;
+  font-size: 1.4rem;
+  font-weight: bold;
+  color: var(--c-yellow);
+}
+.req-chart .bars,
+.req-chart .phases {
+  display: flex;
+  gap: 3px;
+}
+.req-chart .bar {
+  flex: 1 1 0;
+  min-width: 0;
+  height: 300px;
+  display: flex;
+  flex-direction: column-reverse;
+  transform-origin: bottom;
+  transition: opacity 0.4s ease;
+}
+.req-chart .bars:not(.shown) .bar {
+  transform: scaleY(0);
+}
+.req-chart .bars.shown .bar {
+  animation: req-grow 0.4s ease calc(var(--i) * 12ms) backwards;
+}
+@keyframes req-grow {
+  from { transform: scaleY(0); }
+}
+.req-chart i { display: block; }
+.req-chart .r { background: var(--c-green); }
+.req-chart .w { background: var(--c-orange); }
+.req-chart .o { background: var(--c-red); }
+.req-chart .bar b {
+  align-self: center;
+  padding-bottom: 2px;
+  font-size: 0.75rem;
+  white-space: nowrap;
+  color: var(--c-yellow);
+}
+.req-chart .phases > div {
+  flex: none;
+  width: calc(var(--n) * (100% - (var(--bars) - 1) * 3px) / var(--bars) + (var(--n) - 1) * 3px);
+  margin-top: 6px;
+  padding-top: 4px;
+  border-top: 2px solid var(--c-muted);
+  font-size: 0.8rem;
+  white-space: nowrap;
+  text-align: center;
+  color: var(--c-muted);
+  transition: opacity 0.4s ease;
+}
+.req-chart .phases[data-focus="inv"] > .inv,
+.req-chart .phases[data-focus="impl"] > .impl,
+.req-chart .phases[data-focus="check"] > .check { color: var(--c-yellow); border-color: var(--c-yellow); }
+.req-chart [data-focus="inv"] > :not(.inv),
+.req-chart [data-focus="impl"] > :not(.impl),
+.req-chart [data-focus="check"] > :not(.check) { opacity: 0.25; }
+/* Section 7: focus on the prototype (first bar + left image) or the big rework bar */
+.req-chart[data-focus="proto"] :is(.bar:not(.proto), .inset > :not(.proto), .legend),
+.req-chart[data-focus="big"] :is(.bar:not(.big), .inset > *, .legend) { opacity: 0.25; }
+.req-chart .legend {
+  display: flex;
+  justify-content: flex-end;
+  gap: 1.5rem;
+  margin-top: 1rem;
+  font-size: 0.8rem;
+  color: var(--c-muted);
+}
+.req-chart .legend i {
+  display: inline-block;
+  width: 0.8em;
+  height: 0.8em;
+  margin-right: 0.4em;
+}
+
 /* Video grid: muted loop clips in a 2x2 grid, edges faded into the background */
 .video-grid {
   box-sizing: border-box;

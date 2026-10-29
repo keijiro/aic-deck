@@ -262,17 +262,75 @@ layout: bigtext
 -->
 
 ---
-
-<!--
-これは冒頭で紹介した Alchemion プロジェクトの分析です。このグラフからも分かるように、最初のプロトタイプは 2,200 ポイント程度で生成されています。
--->
-
+clicks: 6
 ---
 
-<!--
-この時点でゲームの骨格となる仕組みは出来上がってしましたが、このスクリーンショットからも分かるように、不十分な点は沢山残されていました。
+<div class="req-chart mt-11" :data-focus="[null, 'proto', 'proto', null, 'big'][$clicks]">
+  <div class="inset">
+    <img class="proto" :class="{ zoom: $clicks === 2 }" src="/images/sec7/alchemion-prototype.jpg" />
+    <svg class="dia" width="72" height="20"><path class="dia-arrow solid" d="M 4 10 L 62 10" /></svg>
+    <img src="/images/sec7/alchemion-released.jpg" />
+  </div>
+  <div class="bars" :class="{ shown: $nav.currentPage === $page }">
+    <div class="bar proto" style="--i: 1"><i class="r" style="height:22.3%"></i><i class="o" style="height:12.8%"></i><i class="w" style="height:9.1%"></i><b>2,206</b></div>
+    <div class="bar" style="--i: 2"><i class="r" style="height:0.1%"></i><i class="o" style="height:0.1%"></i><i class="w" style="height:0.6%"></i></div>
+    <div class="bar big" style="--i: 3"><i class="r" style="height:55.9%"></i><i class="o" style="height:14.2%"></i><i class="w" style="height:18.6%"></i><b>4,434</b></div>
+    <div class="bar" style="--i: 4"><i class="r" style="height:0.7%"></i><i class="o" style="height:0.7%"></i><i class="w" style="height:0.8%"></i></div>
+    <div class="bar" style="--i: 5"><i class="r" style="height:0.0%"></i><i class="o" style="height:0.1%"></i><i class="w" style="height:0.4%"></i></div>
+    <div class="bar" style="--i: 6"><i class="r" style="height:4.1%"></i><i class="o" style="height:2.5%"></i><i class="w" style="height:2.6%"></i></div>
+    <div class="bar" style="--i: 7"><i class="r" style="height:1.1%"></i><i class="o" style="height:0.6%"></i><i class="w" style="height:1.1%"></i></div>
+    <div class="bar" style="--i: 8"><i class="r" style="height:3.4%"></i><i class="o" style="height:1.9%"></i><i class="w" style="height:2.9%"></i></div>
+    <div class="bar" style="--i: 9"><i class="r" style="height:2.8%"></i><i class="o" style="height:1.8%"></i><i class="w" style="height:1.9%"></i></div>
+    <div class="bar" style="--i: 10"><i class="r" style="height:0.1%"></i><i class="o" style="height:0.1%"></i><i class="w" style="height:0.3%"></i></div>
+    <div class="bar" style="--i: 11"><i class="r" style="height:0.6%"></i><i class="o" style="height:0.4%"></i><i class="w" style="height:0.8%"></i></div>
+    <div class="bar" style="--i: 12"><i class="r" style="height:4.0%"></i><i class="o" style="height:1.5%"></i><i class="w" style="height:2.9%"></i></div>
+    <div class="bar" style="--i: 13"><i class="r" style="height:0.9%"></i><i class="o" style="height:0.8%"></i><i class="w" style="height:1.4%"></i></div>
+    <div class="bar" style="--i: 14"><i class="r" style="height:5.1%"></i><i class="o" style="height:2.8%"></i><i class="w" style="height:5.7%"></i></div>
+    <div class="bar" style="--i: 15"><i class="r" style="height:0.3%"></i><i class="o" style="height:0.3%"></i><i class="w" style="height:0.7%"></i></div>
+    <div class="bar" style="--i: 16"><i class="r" style="height:4.0%"></i><i class="o" style="height:2.2%"></i><i class="w" style="height:4.6%"></i></div>
+    <div class="bar" style="--i: 17"><i class="r" style="height:0.1%"></i><i class="o" style="height:0.0%"></i><i class="w" style="height:0.3%"></i></div>
+    <div class="bar" style="--i: 18"><i class="r" style="height:16.8%"></i><i class="o" style="height:7.6%"></i><i class="w" style="height:7.7%"></i><b>1,604</b></div>
+    <div class="bar" style="--i: 19"><i class="r" style="height:3.7%"></i><i class="o" style="height:1.2%"></i><i class="w" style="height:2.6%"></i></div>
+    <div class="bar" style="--i: 20"><i class="r" style="height:0.5%"></i><i class="o" style="height:0.3%"></i><i class="w" style="height:0.8%"></i></div>
+    <div class="bar" style="--i: 21"><i class="r" style="height:3.4%"></i><i class="o" style="height:1.7%"></i><i class="w" style="height:2.3%"></i></div>
+    <div class="bar" style="--i: 22"><i class="r" style="height:1.7%"></i><i class="o" style="height:1.0%"></i><i class="w" style="height:1.3%"></i></div>
+    <div class="bar" style="--i: 23"><i class="r" style="height:2.5%"></i><i class="o" style="height:1.3%"></i><i class="w" style="height:1.6%"></i></div>
+    <div class="bar" style="--i: 24"><i class="r" style="height:0.3%"></i><i class="o" style="height:0.2%"></i><i class="w" style="height:0.4%"></i></div>
+    <div class="bar" style="--i: 25"><i class="r" style="height:0.3%"></i><i class="o" style="height:0.2%"></i><i class="w" style="height:0.5%"></i></div>
+    <div class="bar" style="--i: 26"><i class="r" style="height:10.6%"></i><i class="o" style="height:7.6%"></i><i class="w" style="height:5.6%"></i><b>1,187</b></div>
+    <div class="bar" style="--i: 27"><i class="r" style="height:2.0%"></i><i class="o" style="height:1.0%"></i><i class="w" style="height:1.7%"></i></div>
+    <div class="bar" style="--i: 28"><i class="r" style="height:2.6%"></i><i class="o" style="height:2.4%"></i><i class="w" style="height:3.0%"></i></div>
+    <div class="bar" style="--i: 29"><i class="r" style="height:2.2%"></i><i class="o" style="height:1.6%"></i><i class="w" style="height:1.8%"></i></div>
+    <div class="bar" style="--i: 30"><i class="r" style="height:6.3%"></i><i class="o" style="height:3.2%"></i><i class="w" style="height:3.1%"></i></div>
+    <div class="bar" style="--i: 31"><i class="r" style="height:1.5%"></i><i class="o" style="height:0.7%"></i><i class="w" style="height:1.1%"></i></div>
+    <div class="bar" style="--i: 32"><i class="r" style="height:3.8%"></i><i class="o" style="height:2.7%"></i><i class="w" style="height:2.5%"></i></div>
+    <div class="bar" style="--i: 33"><i class="r" style="height:2.8%"></i><i class="o" style="height:1.4%"></i><i class="w" style="height:2.0%"></i></div>
+    <div class="bar" style="--i: 34"><i class="r" style="height:1.5%"></i><i class="o" style="height:1.5%"></i><i class="w" style="height:2.6%"></i></div>
+    <div class="bar" style="--i: 35"><i class="r" style="height:1.0%"></i><i class="o" style="height:0.8%"></i><i class="w" style="height:1.3%"></i></div>
+    <div class="bar" style="--i: 36"><i class="r" style="height:0.1%"></i><i class="o" style="height:0.1%"></i><i class="w" style="height:0.6%"></i></div>
+    <div class="bar" style="--i: 37"><i class="r" style="height:5.8%"></i><i class="o" style="height:3.0%"></i><i class="w" style="height:3.1%"></i></div>
+    <div class="bar" style="--i: 38"><i class="r" style="height:2.3%"></i><i class="o" style="height:1.0%"></i><i class="w" style="height:1.4%"></i></div>
+    <div class="bar" style="--i: 39"><i class="r" style="height:1.2%"></i><i class="o" style="height:1.0%"></i><i class="w" style="height:1.2%"></i></div>
+    <div class="bar" style="--i: 40"><i class="r" style="height:2.9%"></i><i class="o" style="height:1.9%"></i><i class="w" style="height:2.2%"></i></div>
+    <div class="bar" style="--i: 41"><i class="r" style="height:1.3%"></i><i class="o" style="height:0.7%"></i><i class="w" style="height:1.3%"></i></div>
+    <div class="bar" style="--i: 42"><i class="r" style="height:0.9%"></i><i class="o" style="height:0.6%"></i><i class="w" style="height:1.0%"></i></div>
+    <div class="bar" style="--i: 43"><i class="r" style="height:1.7%"></i><i class="o" style="height:1.6%"></i><i class="w" style="height:1.4%"></i></div>
+    <div class="bar" style="--i: 44"><i class="r" style="height:0.3%"></i><i class="o" style="height:0.2%"></i><i class="w" style="height:0.6%"></i></div>
+  </div>
+  <div v-click="6" class="sum">合計 19,231 pts.</div>
+  <div class="legend">
+    <span><i class="r"></i>キャッシュ読み取り</span>
+    <span><i class="w"></i>キャッシュ書き込み</span>
+    <span><i class="o"></i>出力</span>
+  </div>
+</div>
 
-これを細かなインクリメンタル作業で完成に近づけていくわけですが、その過程で17,000 ポイントほど使うことになりました。結局、合計で約 19,200 ポイントとなっています。当初の９倍ぐらいにまで膨れ上がったということでしょうか。
+<!--
+これは冒頭で紹介した Alchemion プロジェクトの分析です。このグラフからも分かるように、[click]最初のプロトタイプは約 2,200 ポイントで生成されています。
+
+[click]この時点でゲームの骨格となる仕組みは出来上がっていましたが、このスクリーンショットからも分かるように、不十分な点は沢山残されていました。
+
+[click]これを細かなインクリメンタル作業で完成に近づけていくわけですが、[click]最初の大規模改修で 4,400 ポイントも使用し、[click]その後も細かくコストを払い続けました。結局、[click]合計で約 19,200 ポイントとなっています。当初の９倍ぐらいにまで膨れ上がったということですね。
 
 これでも、最初に紹介した Jacquard プロジェクトの例と比較すると安めで済んでいますが、プロトタイプのコスパの良さからすると、だいぶ膨れ上がったなという感があります。
 
