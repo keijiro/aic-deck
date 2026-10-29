@@ -194,7 +194,33 @@ clicks: 2
 
 ---
 
-- Visual reference examples
+<div class="concept-grid">
+  <div v-for="k in ['smash-bots', 'cryptbound', 'football', 'salvonix', 'cozy-room', 'explainer']" :key="k">
+    <img :src="`/images/sec7/${k}-concept.jpg`" />
+    <img :src="`/images/sec7/${k}-game.jpg`" />
+  </div>
+</div>
+
+<style>
+.concept-grid {
+  height: 100%;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  align-content: center;
+  gap: 16px 24px;
+}
+.concept-grid > div {
+  display: flex;
+  gap: 6px;
+}
+.concept-grid img {
+  min-width: 0;
+  flex: 1;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  border-radius: 4px;
+}
+</style>
 
 <!--
 実はこれまでに紹介したプロジェクトも、１プロンプトとは言ってきましたが、そのプロンプトでは必ずコンセプトアートを与えるようにしていました。
