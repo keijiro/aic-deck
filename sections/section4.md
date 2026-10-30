@@ -65,7 +65,7 @@ layout: full
 <svg class="merc absolute inset-0 w-full h-full" viewBox="0 0 1376 768" preserveAspectRatio="xMidYMid meet">
   <image href="/images/sec3/human.png" x="260" y="330" width="300" height="300" />
   <g v-click="[1,2]">
-    <image href="/images/sec4/butler.png" x="820" y="330" width="300" height="300" transform="translate(1940 0) scale(-1 1)" />
+    <image href="/images/sec4/business.png" x="820" y="330" width="300" height="300" transform="translate(1940 0) scale(-1 1)" />
     <g class="bubble" transform="translate(120 70)">
       <path d="M 404 150 H 516 A 24 24 0 0 1 540 174 V 206 A 24 24 0 0 1 516 230 H 440 L 380 262 L 400 230 A 24 24 0 0 1 380 206 V 174 A 24 24 0 0 1 404 150 Z" />
       <circle cx="430" cy="190" r="7" /><circle cx="460" cy="190" r="7" /><circle cx="490" cy="190" r="7" />
@@ -77,7 +77,7 @@ layout: full
   </g>
   <g class="enter" v-click="2">
     <g class="leave" v-click.hide="4">
-      <image href="/images/sec4/warrior1.png" x="820" y="330" width="300" height="300" />
+      <image class="face" href="/images/sec4/merc-knight.png" x="820" y="330" width="300" height="300" />
       <g class="quest" v-click="3">
         <image href="/images/sec4/quest.png" x="602" y="420" width="160" height="123" />
       </g>
@@ -88,11 +88,11 @@ layout: full
       <image href="/images/sec4/quest.png" x="602" y="420" width="160" height="123" />
     </g>
     <g class="enter" v-click="6">
-      <image href="/images/sec4/warrior2.png" x="820" y="330" width="300" height="300" />
+      <image class="face" href="/images/sec4/merc-rogue.png" x="820" y="330" width="300" height="300" />
     </g>
   </g>
   <g class="enter" v-click="8">
-    <image href="/images/sec4/warrior1.png" x="820" y="330" width="300" height="300" />
+    <image class="face" href="/images/sec4/merc-horned.png" x="820" y="330" width="300" height="300" />
   </g>
 </svg>
 
@@ -114,6 +114,19 @@ layout: full
 .merc .leave {
   transition: opacity 0.4s ease, transform 0.6s ease;
 }
+.merc .leave {
+  transition-delay: 0.25s;
+}
+/* Mercenaries face left (toward the human) and turn right when leaving */
+.merc .face {
+  transform-box: fill-box;
+  transform-origin: center;
+  transform: scaleX(-1);
+  transition: transform 0.25s ease;
+}
+.merc .leave.slidev-vclick-hidden .face {
+  transform: none;
+}
 .merc .slidev-vclick-hidden .bubble.later {
   opacity: 0;
 }
@@ -126,7 +139,7 @@ layout: full
 }
 .merc .enter.slidev-vclick-hidden,
 .merc .slidev-vclick-hidden > .enter {
-  transform: translateX(-80px);
+  transform: translateX(160px);
 }
 </style>
 
