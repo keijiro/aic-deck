@@ -1,10 +1,13 @@
 <!--
 Video split layout: muted loop clip `video` (frontmatter) on the left (3/5),
 slide content on the right (2/5), no fade. Uses <LoopVideo> for print posters.
+Optional `qr` (image path) is pinned to the bottom-right corner of the slide,
+out of the text flow.
 -->
 <script setup>
 defineProps({
   video: { type: String, required: true },
+  qr: { type: String, default: null },
 })
 </script>
 
@@ -12,6 +15,7 @@ defineProps({
   <div class="slidev-layout video-split">
     <LoopVideo :src="video" />
     <div><slot /></div>
+    <img v-if="qr" :src="qr" class="video-split-qr" alt="QR code" />
   </div>
 </template>
 
@@ -25,5 +29,12 @@ defineProps({
 
 .video-split video {
   width: 100%;
+}
+
+.video-split-qr {
+  position: absolute;
+  right: 1.5rem;
+  bottom: 1.5rem;
+  width: 6rem;
 }
 </style>

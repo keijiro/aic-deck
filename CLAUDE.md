@@ -15,7 +15,8 @@ Use only the palette defined as CSS variables in `style.css`:
 - Full-screen video with sound: `layout: fullvideo` with `video: /videos/...` in the frontmatter
   (uses `SlidevVideo`, restarts each time the slide is entered).
 - Video left, text right (muted loop, no fade): `layout: video-split` with `video: /videos/...`;
-  the slide content goes to the right column.
+  the slide content goes to the right column. Optional `qr: /images/...-qr.svg` pins a QR code
+  to the bottom-right corner of the slide, without affecting the text layout.
 - Muted loop clip grid: `<LoopVideo src="/videos/..." />` inside `.video-grid`
   (2x2 grid, edges faded) from `style.css`. Use `LoopVideo` for any muted loop clip, not plain `<video>`.
 - Don't add per-slide `<style>` blocks for video layout; extend the shared layouts/classes instead.

@@ -189,6 +189,7 @@ video: /videos/sec1/recent-projects-hq.mp4
 ---
 layout: video-split
 video: /videos/sec1/salvonix-small.mp4
+qr: /images/sec1/salvonix-qr.svg
 ---
 
 # Salvonix
@@ -207,6 +208,7 @@ video: /videos/sec1/salvonix-small.mp4
 ---
 layout: video-split
 video: /videos/sec1/football-small.mp4
+qr: /images/sec1/football-qr.svg
 ---
 
 # Totally Realistic Football
@@ -223,6 +225,7 @@ video: /videos/sec1/football-small.mp4
 ---
 layout: video-split
 video: /videos/sec1/alchemion-small.mp4
+qr: /images/sec1/alchemion-qr.svg
 ---
 
 # Alchemion

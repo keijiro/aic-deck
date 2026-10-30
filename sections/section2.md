@@ -6,13 +6,14 @@ video: /videos/sec2/jacquard-hq.mp4
 ---
 layout: video-split
 video: /videos/sec2/jacquard-hq.mp4
+qr: /images/sec2/jacquard-qr.svg
 ---
 
 # Jacquard
 
 - 独自のグリッドシステムによる<br/>手続き的作曲ツール
 - 「繰り返し」と「変動」を折り込んだ演奏規則を生み出す
-- <img src="/images/sec2/jacquard-qr.svg" class="float-right w-24 ml-4" alt="QR code: github.com/keijiro/Jacquard" />マルチプラットフォーム対応： Windows, Mac, iOS, Android
+- マルチプラットフォーム対応： Windows, Mac, iOS, Android
 
 <!--
 この Jacquard はゲームではなくて作曲ツールですね。作曲とは言っても、楽譜やピアノロールのような一般的なインターフェースで入力するのではなく、このような機能ブロックをグリッド上に並べていくことでシーケンスを構築します。このシーケンスは単純なリニア再生だけでなく、手続き的な性質があって、それによって多彩な変動を織り込んだ演奏規則を作ることができる、というものです。
