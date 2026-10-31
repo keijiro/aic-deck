@@ -322,6 +322,15 @@ html:root {
   mask-image: none;
 }
 
+/* QR code pinned to the bottom-right corner of the slide, out of the text flow
+   (`qr` option of video-split, or `<img class="slide-qr">` directly in a slide) */
+.slide-qr {
+  position: absolute;
+  right: 1.5rem;
+  bottom: 1.5rem;
+  width: 6rem;
+}
+
 
 /* Review-copy warning on exported files (global-top.vue) */
 .review-copy {

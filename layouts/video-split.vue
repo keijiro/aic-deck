@@ -15,7 +15,7 @@ defineProps({
   <div class="slidev-layout video-split">
     <LoopVideo :src="video" />
     <div><slot /></div>
-    <img v-if="qr" :src="qr" class="video-split-qr" alt="QR code" />
+    <img v-if="qr" :src="qr" class="slide-qr" alt="QR code" />
   </div>
 </template>
 
@@ -31,10 +31,4 @@ defineProps({
   width: 100%;
 }
 
-.video-split-qr {
-  position: absolute;
-  right: 1.5rem;
-  bottom: 1.5rem;
-  width: 6rem;
-}
 </style>
