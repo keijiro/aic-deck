@@ -1,2 +1,0 @@
-- Anime OP 及び MV ページ編集
-- QR Code を色々と埋め込む
