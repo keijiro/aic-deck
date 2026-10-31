@@ -18,7 +18,8 @@ Use only the palette defined as CSS variables in `style.css`:
   the slide content goes to the right column. Optional `qr: /images/...-qr.svg` pins a QR code
   to the bottom-right corner of the slide, without affecting the text layout.
 - Muted loop clip grid: `<LoopVideo src="/videos/..." />` inside `.video-grid`
-  (2x2 grid, edges faded) from `style.css`. Use `LoopVideo` for any muted loop clip, not plain `<video>`.
+  (2x2 grid, edges faded) from `style.css`. Modifiers: `titled` (fits below a slide heading),
+  `sharp` (no edge fade). Use `LoopVideo` for any muted loop clip, not plain `<video>`.
 - Don't add per-slide `<style>` blocks for video layout; extend the shared layouts/classes instead.
 
 ### Video in print/export

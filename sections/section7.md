@@ -161,7 +161,14 @@ clicks: 2
 
 # 「アニメのオープニング映像」
 
-<PopupVideo src="/videos/sec1/recent-projects-hq.mp4" />
+<div class="video-grid titled sharp">
+  <LoopVideo src="/videos/sec7/anime-op-1.mp4" />
+  <LoopVideo src="/videos/sec7/anime-op-2.mp4" />
+  <LoopVideo src="/videos/sec7/anime-op-3.mp4" />
+  <LoopVideo src="/videos/sec7/anime-op-4.mp4" />
+</div>
+
+<PopupVideo src="/videos/sec7/anime-op-hq.mp4" />
 
 <!--
 これは、今の最新モデルならアニメのオープニング映像みたいなものも作れるんじゃないか、と思って、試しに丸投げしてみた例です。ちょっとダイジェストで観てみますね。
@@ -179,7 +186,14 @@ clicks: 2
 
 # 改良版
 
-<PopupVideo src="/videos/sec1/recent-projects-hq.mp4" />
+<div class="video-grid titled sharp">
+  <LoopVideo src="/videos/sec7/music-video-1.mp4" />
+  <LoopVideo src="/videos/sec7/music-video-2.mp4" />
+  <LoopVideo src="/videos/sec7/music-video-3.mp4" />
+  <LoopVideo src="/videos/sec7/music-video-4.mp4" />
+</div>
+
+<PopupVideo src="/videos/sec7/music-video-hq.mp4" />
 
 <!--
 こちらがその結果です。またちょっとダイジェストで観てみます。

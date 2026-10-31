@@ -298,6 +298,12 @@ html:root {
   gap: 24px;
 }
 
+/* Grid placed below a slide title: fill only the space under the heading */
+.video-grid.titled {
+  height: calc(100% - 5rem);
+  padding: 8px 40px 0;
+}
+
 .video-grid video {
   justify-self: center;
   height: 100%;
@@ -309,6 +315,11 @@ html:root {
     linear-gradient(to right, transparent, black var(--fade), black calc(100% - var(--fade)), transparent),
     linear-gradient(to bottom, transparent, black var(--fade), black calc(100% - var(--fade)), transparent);
   mask-composite: intersect;
+}
+
+/* Grid without the edge fade */
+.video-grid.sharp video {
+  mask-image: none;
 }
 
 
