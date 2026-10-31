@@ -168,7 +168,7 @@ clicks: 2
   <LoopVideo src="/videos/sec7/anime-op-4.mp4" />
 </div>
 
-<img src="/images/sec2/jacquard-qr.svg" class="slide-qr" alt="QR code" />
+<img src="/images/sec7/anime-op-qr.svg" class="slide-qr" alt="QR code" />
 
 <PopupVideo src="/videos/sec7/anime-op-hq.mp4" />
 
@@ -195,7 +195,7 @@ clicks: 2
   <LoopVideo src="/videos/sec7/music-video-4.mp4" />
 </div>
 
-<img src="/images/sec2/jacquard-qr.svg" class="slide-qr" alt="QR code" />
+<img src="/images/sec7/music-video-qr.svg" class="slide-qr" alt="QR code" />
 
 <PopupVideo src="/videos/sec7/music-video-hq.mp4" />
 
