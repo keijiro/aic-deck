@@ -159,7 +159,7 @@ clicks: 2
 clicks: 2
 ---
 
-# anime op sample
+# 「アニメのオープニング映像」
 
 <PopupVideo src="/videos/sec1/recent-projects-hq.mp4" />
 
@@ -177,7 +177,7 @@ clicks: 2
 clicks: 2
 ---
 
-# music video sample
+# 改良版
 
 <PopupVideo src="/videos/sec1/recent-projects-hq.mp4" />
 
