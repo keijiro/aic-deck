@@ -722,7 +722,7 @@ layout: full
 
 # 余談：キャッシュ読み込みの廉価化
 
-<svg class="ratio w-full" viewBox="0 0 1000 460">
+<svg class="ratio w-full h-[330px]" viewBox="0 0 1000 460">
   <g class="grid">
     <line v-for="i in 6" :key="i" x1="110" x2="900" :y1="400 - (i - 1) * 70" :y2="400 - (i - 1) * 70" />
   </g>

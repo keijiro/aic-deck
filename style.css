@@ -28,6 +28,37 @@ html:root {
   transition: opacity 0.25s ease;
 }
 
+/* Default layout, following the Unite 2026 template (title + body text slide).
+   Template placeholders converted to the 980px canvas (9144000 EMU = 980px):
+   - left edge: 68.6px (title and body)
+   - title: top 88.2px, width 516.7px, 18pt / weight 800
+   - body: top 147px, width 714.2px, 12pt / weight 400
+   Body size stays at the Slidev default (1.1rem); the title keeps the template's
+   18:12 ratio to it. Line heights stay at the Slidev defaults.
+   Applied only to slides with a title; title-less visual slides keep the default
+   padding. The body width limits text only, so figures can still span the slide. */
+.slidev-layout.default:has(> h1) {
+  --default-left: 68.6px;
+  --default-title-top: 88.2px;
+  --default-body-top: 147px;
+  --default-title-lh: 1.111; /* Slidev's h1 ratio (2.5rem / 2.25rem) */
+  padding: var(--default-body-top) var(--default-left) 40px;
+}
+
+.slidev-layout.default:has(> h1) :is(p, ul, ol):not(:has(img, svg, video)) {
+  max-width: 714.2px;
+}
+
+.slidev-layout.default:has(> h1) > h1 {
+  max-width: 516.7px;
+  font-size: calc(1.1rem * 18 / 12);
+  font-weight: 800;
+  line-height: var(--default-title-lh);
+  /* Pull the title up to the title area; content after it starts at the body area */
+  margin-top: calc(var(--default-title-top) - var(--default-body-top));
+  margin-bottom: calc(var(--default-body-top) - var(--default-title-top) - 1.1rem * 18 / 12 * var(--default-title-lh));
+}
+
 /* Diagram text: Latin glyphs from the deck font, Japanese from M PLUS Rounded 1c */
 .slidev-layout svg text {
   font-family: 'Avenir Next', 'Nunito Sans', 'M PLUS Rounded 1c', sans-serif;
@@ -105,6 +136,12 @@ html:root {
 .cost-hl td,
 .cost-hl li {
   transition: color 0.3s, background-color 0.3s;
+}
+
+/* Before/after comparison: keep each "A → B (±C)" cell on one line */
+.cost-compare td,
+.cost-compare2 td {
+  white-space: nowrap;
 }
 
 /* Single session: 1 total cost / 3 context / 4 130K / 5 cache read (columns exclude the total row) */

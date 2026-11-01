@@ -185,10 +185,10 @@ layout: bigtext
 
 ※ただし動作検証は省略する
 
-<div class="flex items-center gap-4 mt-8">
-  <img src="/images/sec4/bunny-blitz-before.png" class="w-[45%] rounded" />
+<div class="flex items-center justify-center gap-4 mt-4">
+  <img src="/images/sec4/bunny-blitz-before.png" class="w-[40%] rounded" />
   <div class="text-4xl" style="color: var(--c-yellow)">→</div>
-  <img src="/images/sec4/bunny-blitz-after.png" class="w-[45%] rounded" />
+  <img src="/images/sec4/bunny-blitz-after.png" class="w-[40%] rounded" />
 </div>
 
 <!--

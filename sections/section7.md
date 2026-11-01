@@ -224,7 +224,7 @@ clicks: 2
 
 </v-clicks>
 
-<div v-click="3" class="absolute inset-x-0 top-[40%] bottom-0 flex items-center justify-center">
+<div v-click="3" class="absolute inset-x-0 top-[50%] bottom-0 flex items-center justify-center">
   <img src="/images/sec7/schoolgirl-trio.png" class="h-[80%] rounded" />
 </div>
 <!--
@@ -429,8 +429,8 @@ clicks: 2
 clicks: 6
 ---
 
-<div class="req-chart mt-11" :data-focus="[null, 'proto', 'proto', null, 'big'][$clicks]">
-  <div class="inset">
+<div class="req-chart mt-17" :data-focus="[null, 'proto', 'proto', null, 'big'][$clicks]">
+  <div class="inset" style="top: -24px">
     <img class="proto" :class="{ zoom: $clicks === 2 }" src="/images/sec7/alchemion-prototype.jpg" />
     <svg class="dia" width="72" height="20"><path class="dia-arrow solid" d="M 4 10 L 62 10" /></svg>
     <img src="/images/sec7/alchemion-released.jpg" />

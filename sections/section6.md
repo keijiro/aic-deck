@@ -313,7 +313,7 @@ layout: full
 clicks: 4
 ---
 
-<svg class="hz absolute inset-0 w-full h-full" viewBox="0 0 1376 768" preserveAspectRatio="xMidYMid meet">
+<svg class="hz absolute inset-0 w-full h-full" viewBox="0 -30 1376 768" preserveAspectRatio="xMidYMid meet">
   <g class="step" :class="{ on: $clicks >= 1 }">
     <image class="shot" href="/images/sec6/stage1.jpg" x="88" y="85" width="384" height="216" />
     <path class="dia-arrow" d="M 280 395 V 316" />

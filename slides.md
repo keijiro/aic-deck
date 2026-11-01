@@ -7,11 +7,12 @@ drawings:
 transition: fade-out
 comark: true
 fonts:
-  sans: Avenir Next,Nunito Sans,Noto Serif JP
+  sans: Inter,Noto Sans JP
+  weights: '400,600,700,800'
 duration: 45min
 ---
 
-# コストを意識した<br/>Unity エージェンティック開発
+（講演タイトル）
 
 ---
 src: ./sections/section1.md

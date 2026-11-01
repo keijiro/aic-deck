@@ -36,7 +36,7 @@ clicks: 1
 clicks: 3
 ---
 
-<div class="req-chart mt-6" style="--bars: 48">
+<div class="req-chart mt-13" style="--bars: 48">
   <div class="bars" :class="{ shown: $nav.currentPage === $page }" :data-focus="[null, 'inv', 'impl', 'check'][$clicks]">
     <div class="bar inv" style="--i: 1"><i class="r" style="height:3.1%"></i><i class="o" style="height:2.0%"></i><i class="w" style="height:94.3%"></i></div>
     <div class="bar inv" style="--i: 2"><i class="r" style="height:5.5%"></i><i class="o" style="height:3.1%"></i><i class="w" style="height:18.6%"></i></div>
