@@ -4,27 +4,27 @@ layout: bigtext
 
 <div v-click="1" class="relative">
 
-動作検証は人力でやる
+Verify behavior by hand
 
 <div v-click="2" class="absolute pointer-events-none" style="left: -4%; right: -4%; top: 50%; height: 0.12em; transform: translateY(-50%); border-radius: 0.06em; background: var(--c-red);" />
 </div>
 
 <!--
-さて、どうやらコスト改善の鍵は動作検証をいかに効率化するか、にかかっているようだ、と言うことが分かってきました。
+So it's becoming clear that the key to cutting costs is how efficiently we can handle behavior verification.
 
-これを改善する何かいい案は無いでしょうか？まず思いつくのは、[click]動作検証は人力でやる、と言うものですが、[click]これは余りにも悲し過ぎるので考えないことにしましょう。ちゃんと自動化の方向で考えます。
+Are there any good ideas for improving this? The first thing that comes to mind is [click]just verifying behavior by hand, but [click]that's way too sad, so let's not even go there. We'll stick with automation.
 -->
 
 ---
 layout: bigtext
 ---
 
-動作検証は別セッションで
+Why not verify behavior
 
-行えばよいのでは？
+in a separate session?
 
 <!--
-もう１つ、簡易的なアイデアとして考えられるのは、動作検証は別セッションで行えばよいのでは？というものです。
+Another simple idea: why not do the behavior verification in a separate session?
 -->
 
 ---
@@ -70,7 +70,7 @@ clicks: 2
 </style>
 
 <!--
-今まで１タスク１セッションという話をしてきましたが、[click]更にそれを細分化して、１タスクの実装作業までを１セッションで、[click]そして動作検証は新規の別のセッションで行おうという算段です。
+So far I've been talking about one task per session. The idea here is to [click]split that further: one session for the implementation part of a task, [click]and a fresh, separate session for the verification.
 -->
 
 ---
@@ -84,8 +84,8 @@ clicks: 1
        :style="{ height: ($clicks > 0 && i >= 16 ? h - 33 : h) + '%' }"></div>
 </div>
 <div class="phases">
-  <div>実装</div>
-  <div class="late">検証</div>
+  <div>Implementation</div>
+  <div class="late">Verification</div>
 </div>
 </div>
 
@@ -125,26 +125,26 @@ clicks: 1
 </style>
 
 <!--
-新たに作成したセッションなら、[click]コンパクトなコンテキストで作業を行うことができます。ツールコールが多くなってしまっても、これでコストを絞ることができるのではないか、ということですね。
+With a freshly created session, [click]you can work with a compact context. Even if there are a lot of tool calls, this should keep the cost down, right?
 
-これは一見うまく行きそうに見えますし、実際効果を発揮することもあるんですが、イマイチ効果的ではない、というのが正直な所です。
+It looks like it should work, and sometimes it actually does help, but honestly, it's not all that effective.
 -->
 
 ---
 
-# 動作検証はコンテキストを分離しにくい
+# Verification is hard to isolate from context
 
 <v-click>
 
-1. 動作検証の手順自体が、それまでの文脈を必要とする場合がある。
+1. The verification steps themselves may need the prior context.
 
 </v-click>
   
 <!--
-この分割アプローチがうまく行かない理由は主に２つあると考えています。
+I think there are two main reasons this split approach doesn't work well.
 
 [click]
-ひとつは、動作検証の手順自体が、それまでの文脈を必要としている場合が多いためです。
+The first is that the verification procedure itself often needs the context from the earlier work.
 -->
 
 ---
@@ -153,35 +153,35 @@ layout: bigtext
 
 <v-click>
 
-単体テスト総なめ → 文脈無しでもできる
+Run all unit tests → no context needed
 
 </v-click>
 <v-click>
 
-Editor を操作して検証 → 知識が無いとできない
+Verify via the Editor → needs project knowledge
 
 </v-click>
 
 <!--
-例えば単に[click]Test Runner を動かして単体テストを総なめするだけだったら、文脈は必要無いですよね。簡単に実行できます。
+For example, if you're just [click]running the Test Runner and going through all the unit tests, you don't need any context. That's easy.
 
-でも例えば、先ほどの Bunny Blitz の無敵アイテムのように、[click]Unity Editor を操作して検証手順を実行していくような場合、そのプロジェクトの内容を知っていないと実行できないですよね。シーン構造とかプレイヤーの実装内容とか、そういった情報がコンテキストに必要になってしまうわけです。
+But take the invincibility item in Bunny Blitz from earlier. When [click]the verification means operating the Unity Editor step by step, you can't do it without knowing the project. The scene structure, how the player is implemented — that kind of information has to be in the context.
 -->
 
 ---
 
-# 動作検証はコンテキストを分離しにくい
+# Verification is hard to isolate from context
 
-1. 動作検証の手順自体が、それまでの文脈を必要とする場合がある。
+1. The verification steps themselves may need the prior context.
 
 <v-click>
 
-2. 修正作業において、それまでの文脈を必要とする場合がある。
+2. Fixing issues may need the prior context.
 
 </v-click>
 
 <!--
-そしてもう一つの理由は、[click]修正作業において文脈が必要になる、というものです。
+And the second reason is that [click]fixing things needs context.
 -->
 
 ---
@@ -199,9 +199,9 @@ clicks: 1
        :style="{ height: ($clicks > 0 ? h : 0) + '%', transitionDelay: i * 0.05 + 's' }"></div>
 </div>
 <div class="phases">
-  <div class="impl" style="--n: 12">実装</div>
-  <div class="check" style="--n: 8">検証</div>
-  <div class="check fix" style="--n: 12">修正・再検証</div>
+  <div class="impl" style="--n: 12">Implementation</div>
+  <div class="check" style="--n: 8">Verification</div>
+  <div class="check fix" style="--n: 12">Fix & re-verify</div>
 </div>
 </div>
 
@@ -245,43 +245,43 @@ clicks: 1
 </style>
 
 <!--
-動作検証によって不具合が見つかった場合、[click]エージェントはそれを直すための修正作業を行います。ここではほぼ実装作業と同じ文脈が必要とされるので、結局コンテキストは膨張してしまうわけですね。
+When verification finds a bug, [click]the agent goes on to fix it. That needs pretty much the same context as the implementation, so the context ends up bloating anyway.
 -->
 
 ---
 layout: bigtext
 ---
 
-小規模作業なら
+For small tasks, just
 
-そのままやった方が得
+keep going in one session
 
 <!--
-このような理由があって、結局、動作検証もコンテキストを引きずったまま行ってしまった方がいい、というケースが多いです。先ほどの Bunny Blitz の無敵アイテムのような、単発の小機能であれば……まあここまで色々長々と説明してきたのに何ですが、結局のところ、結論として、１セッションにまとめてしまった方が、大抵安上がりに済むと思います。
+For these reasons, in many cases you're better off just doing the verification while still carrying the context. For a small, one-off feature like the Bunny Blitz invincibility item... well, after all that long explanation, I hate to say it, but the bottom line is that keeping it all in one session is usually cheaper.
 
-では、こうではなく……
+So instead, what about...
 -->
 
 ---
 layout: bigtext
 ---
 
-大規模作業の
+What about
 
-場合はどうする？
+large-scale tasks?
 
 <!--
-プロジェクト全体を横断するような大規模な作業の場合はどうでしょうか。これだと流石にコストが膨らみそうで怖いですね。
+What about large-scale work that cuts across the whole project? That sounds like the cost could really balloon, which is a bit scary.
 
-ここはちょっと具体例で考えてみたいと思います。
+Let's think about this with a concrete example.
 -->
 
 ---
 
-# 事例：Tower Defense サンプル
+# Case study: Tower Defense sample
 
-- 例：Tower Defense Template の URP 移行作業
-- "/migrate-birp-to-urp" スキルを使用
+- Example: migrating the Tower Defense Template to URP
+- Using the "/migrate-birp-to-urp" skill
 
 <div class="flex items-center gap-4 mt-8">
   <img src="/images/sec6/tower-defense-1.jpg" class="w-[48%] rounded" />
@@ -289,9 +289,9 @@ layout: bigtext
 </div>
 
 <!--
-ここでは例として、Unity の公式サンプルにある Tower Defense Template プロジェクトを URP に移行させるという作業を行ってみました。これは比較的古いサンプルなので、Built-in Render Pipeline で作られているんですよね。
+As an example, I tried migrating the Tower Defense Template project, one of Unity's official samples, to URP. It's a relatively old sample, so it's built on the Built-in Render Pipeline.
 
-移行作業には、Unity 公式スキルに含まれている "migrate-birp-to-urp" スキルを使いました。
+For the migration, I used the "migrate-birp-to-urp" skill that comes with Unity's official skills.
 -->
 
 ---
@@ -300,12 +300,12 @@ layout: bigtext
 
 <v-click>
 
-「部分検証＆横展開」戦略
+"Verify one, then roll out" strategy
 
 </v-click>
 
 <!--
-そして、この作業を行うにあたって使ってみたのが、[click]部分検証と横展開の組み合わせです。
+And what I tried for this job was [click]a combination of partial verification and rolling it out horizontally.
 -->
 
 ---
@@ -413,11 +413,11 @@ clicks: 4
 </style>
 
 <!--
-これはどういうことかというと、まず最初に、[click]ステージ１だけを対象として、移行と動作検証、そして修正の作業を済ませてしまいます。
+Here's how it works. First, [click]we take just Stage 1 and get the migration, verification, and fixes all done for it.
 
-この作業が完了した段階で、[click]このゲームの URP 移行作業には何が必要か、そしてどこが問題になるのか、という知見がコンテキストに蓄積されているはずです。[click]それらを洗い出して、指示書にまとめます。
+Once that's finished, [click]the context should have accumulated the know-how: what this game's URP migration needs, and where the problems are. [click]We pull all of that out and write it up as an instruction document.
 
-[click]そしたら新規セッションを開いて、この指示書に従って残りのステージを作業していきます。ここでは難しい問題解決などは必要とされないので、安価な軽量モデルを使うことができます。
+[click]Then we open a new session and work through the remaining stages following those instructions. No hard problem-solving is needed at this point, so we can use a cheap, lightweight model.
 -->
 
 ---
@@ -498,7 +498,7 @@ clicks: 4
 </style>
 
 <!--
-このようなアプローチは、同じような類型のアセットがたくさん存在するゲームにおいて有効に働くのではないかと思います。例えば[click]キャラクターとか、[click]ステージとか、[click]アイテムとか、ひとつの「型」があって、[click]それのバリエーションが横展開されていく、という構造が、どのゲームにも大抵あると思うんですよね。それを前提に最適化を狙うわけです。
+I think this approach works well for games that have lots of assets of the same kind. Like [click]characters, [click]stages, [click]items — there's one "template," and [click]variations of it get rolled out. Most games have that kind of structure, I think. So we optimize on that assumption.
 -->
 
 ---
@@ -508,9 +508,9 @@ layout: center
 <div class="cost-tables flex justify-center items-start gap-10">
 <v-click>
 <div>
-<div class="mb-1" style="color: var(--c-yellow)">単一方式</div>
+<div class="mb-1" style="color: var(--c-yellow)">Single session</div>
 
-| 合計 |
+| Total |
 |---:|
 | 1,696 pts. |
 | 2,231 pts. |
@@ -520,9 +520,9 @@ layout: center
 </v-click>
 <v-click>
 <div>
-<div class="mb-1" style="color: var(--c-yellow)">分離方式</div>
+<div class="mb-1" style="color: var(--c-yellow)">Split</div>
 
-| 親コスト | 子コスト | 合計 |
+| Parent | Child | Total |
 |---:|---:|---:|
 | 1,345 pts. | 534 pts. | 1,879 pts. |
 | 978 pts. | 410 pts. | 1,388 pts. |
@@ -532,9 +532,9 @@ layout: center
 </v-click>
 <v-click>
 <div>
-<div class="mb-1" style="color: var(--c-yellow)">横展開方式</div>
+<div class="mb-1" style="color: var(--c-yellow)">Roll-out</div>
 
-| 親コスト | 子コスト | 合計 |
+| Parent | Child | Total |
 |---:|---:|---:|
 | 1,341 pts. | 61 pts. | 1,402 pts. |
 | 1,924 pts. | 180 pts. | 2,104 pts. |
@@ -550,31 +550,31 @@ layout: center
 </style>
 
 <!--
-それで実際に移行作業を何回か行なって、コストを測ってみました。
+So I actually ran the migration several times and measured the cost.
 
-まず最初は[click]単一セッションで全部実行したケース、次は[click]動作検証だけ別セッションに移してみたケース、そして[click]先ほどの「横展開方式」を試してみたものですね。
+First is [click]the case where everything ran in a single session, next is [click]the case where only the verification was moved to a separate session, and then [click]the "roll-out" approach I just described.
 
-それで、計測はしてみたものの、残念ながら、値のブレが大き過ぎて、これを参考にするのは難しいかもしれません。結局、どこまで細かく検証を行うか、というのが、エージェントの気まぐれで変化してしまうので、計測データを安定させるのが難しいんですよね。
+That said, even though I measured it, unfortunately the numbers vary so much that it may be hard to rely on them. In the end, how thoroughly the agent verifies things depends on its mood, so it's hard to get stable measurements.
 
-それでも、何となく傾向は掴めるかもしれません。一応、今回の計測結果のうえでは、横展開方式は比較的良い結果を収めているように思えます。少なくとも、この方式を使ったことで大きく効率が悪化する、ということは無さそうです。
+Still, you might get a rough sense of the trend. At least in these measurements, the roll-out approach seems to do relatively well. At the very least, it doesn't look like using it makes efficiency much worse.
 
-そして、このサンプルは高々５ステージしかありませんから、ステージ数がもっと増えたら、つまり、横展開の幅がもっと増えたら、この方式のメリットは増すと思います。
+And this sample only has five stages. With more stages — in other words, a wider roll-out — I think the benefits of this approach would grow.
 -->
 
 ---
 
-# 余談：サブエージェントは使わないの？
+# Side note: why not use subagents?
 
 <v-click>
 
-- 追加コストが確認されたため、敢えて使わなかった。
+- Skipped on purpose: they showed extra cost.
 
 </v-click>
 
 <!--
-ここでまたちょっと余談なんですが、こういったコンテキストの分離のためにサブエージェントを使うという考え方もあると思います。サブエージェントは基本的に親のコンテキストを引き継がないので、今回のようにコンテキストを分離したい場合に使えるわけです。
+Another quick side note: you might think of using subagents for this kind of context separation. Subagents basically don't inherit the parent's context, so they're useful when you want to separate context like this.
 
-なのですが、今回コスト調査を行っていて、[click]サブエージェント側で追加コストが発生するという挙動が確認されたので、敢えて外しました。
+However, while doing this cost investigation, [click]I saw behavior where extra cost was incurred on the subagent side, so I deliberately left them out.
 
-本当はサブエージェントを使うと、今回やっているようなことを自動化できるので、非常に便利です。皆さんが実務を考える上では、ぜひ選択肢として考えてみてください。
+Actually, subagents let you automate the kind of thing I'm doing here, so they're really handy. When you think about your own work, please do consider them as an option.
 -->

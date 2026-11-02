@@ -2,12 +2,12 @@
 layout: bigtext
 ---
 
-コンテキスト
+Context
 
 <!--
-まずコーディングエージェントにおけるコンテキストの概念を把握する必要があります。
+First, we need to understand the concept of context in coding agents.
 
-コーディングエージェントにおける「コンテキスト」とは何なのか。
+What exactly is "context" in a coding agent?
 -->
 
 ---
@@ -33,9 +33,9 @@ layout: full
 </svg>
 
 <!--
-みなさんが利用しているコーディングエージェントの中にいるLLM、とても賢い存在ですが、ひとつ重要な制約があります。
+The LLM inside the coding agent you're using is a very smart entity, but it has one important limitation.
 
-[click] LLMそのものには、記憶という概念がありません。
+[click] The LLM itself has no concept of memory.
 -->
 
 ---
@@ -49,36 +49,36 @@ clicks: 6
     <image href="/images/sec3/smart-ai.png" width="1376" height="768" />
   </svg>
   <g v-if="$clicks === 1">
-    <g v-for="(m, i) in [['１＋１は？'], ['２です'], ['×３は？'], ['６です']]" :key="i" class="msg" :class="i % 2 ? 'to-human' : 'to-llm'" :style="{ animationDelay: i * 1.25 + 's' }">
-      <rect :x="-30 - Math.max(...m.map(l => l.length)) * 20" :y="-36 - (m.length - 1) * 26" :width="60 + Math.max(...m.map(l => l.length)) * 40" :height="72 + (m.length - 1) * 52" rx="20" />
+    <g v-for="(m, i) in [['1+1?'], ['It’s 2'], ['×3?'], ['It’s 6']]" :key="i" class="msg" :class="i % 2 ? 'to-human' : 'to-llm'" :style="{ animationDelay: i * 1.25 + 's' }">
+      <rect :x="-30 - Math.max(...m.map(l => l.length)) * 12" :y="-36 - (m.length - 1) * 26" :width="60 + Math.max(...m.map(l => l.length)) * 24" :height="72 + (m.length - 1) * 52" rx="20" />
       <text v-for="(l, j) in m" :key="j" :y="(j * 2 - m.length + 1) * 26" :class="{ muted: j < m.length - 1 }">{{ l }}</text>
     </g>
   </g>
   <g v-if="$clicks === 2">
-    <g v-for="(m, i) in [['１＋１は？'], ['２です'], ['（１＋１は？）', '（２です）', '×３は？']]" :key="i" class="msg" :class="[i % 2 ? 'to-human' : 'to-llm', { hold: i === 2 }]" :style="{ animationDelay: i * 1.25 + 's' }">
-      <rect :x="-30 - Math.max(...m.map(l => l.length)) * 20" :y="-36 - (m.length - 1) * 26" :width="60 + Math.max(...m.map(l => l.length)) * 40" :height="72 + (m.length - 1) * 52" rx="20" />
+    <g v-for="(m, i) in [['1+1?'], ['It’s 2'], ['(1+1?)', '(It’s 2)', '×3?']]" :key="i" class="msg" :class="[i % 2 ? 'to-human' : 'to-llm', { hold: i === 2 }]" :style="{ animationDelay: i * 1.25 + 's' }">
+      <rect :x="-30 - Math.max(...m.map(l => l.length)) * 12" :y="-36 - (m.length - 1) * 26" :width="60 + Math.max(...m.map(l => l.length)) * 24" :height="72 + (m.length - 1) * 52" rx="20" />
       <text v-for="(l, j) in m" :key="j" :y="(j * 2 - m.length + 1) * 26" :class="{ muted: j < m.length - 1 }">{{ l }}</text>
     </g>
   </g>
   <g v-if="$clicks === 3">
-    <g v-for="(m, i) in [['（１＋１は？）', '（２です）', '×３は？'], ['６です']]" :key="i" class="msg" :class="i ? 'to-human' : 'resume'" :style="{ animationDelay: i * 1.02 + 's' }">
-      <rect :x="-30 - Math.max(...m.map(l => l.length)) * 20" :y="-36 - (m.length - 1) * 26" :width="60 + Math.max(...m.map(l => l.length)) * 40" :height="72 + (m.length - 1) * 52" rx="20" />
+    <g v-for="(m, i) in [['(1+1?)', '(It’s 2)', '×3?'], ['It’s 6']]" :key="i" class="msg" :class="i ? 'to-human' : 'resume'" :style="{ animationDelay: i * 1.02 + 's' }">
+      <rect :x="-30 - Math.max(...m.map(l => l.length)) * 12" :y="-36 - (m.length - 1) * 26" :width="60 + Math.max(...m.map(l => l.length)) * 24" :height="72 + (m.length - 1) * 52" rx="20" />
       <text v-for="(l, j) in m" :key="j" :y="(j * 2 - m.length + 1) * 26" :class="{ muted: j < m.length - 1 }">{{ l }}</text>
     </g>
   </g>
   <g v-click="[4, 6]">
     <path d="M 444 310 H 616 A 24 24 0 0 1 640 334 V 366 A 24 24 0 0 1 616 390 H 490 L 420 430 L 450 390 H 444 A 24 24 0 0 1 420 366 V 334 A 24 24 0 0 1 444 310 Z" />
-    <text x="530" y="350">÷２は？</text>
+    <text x="530" y="350">÷2?</text>
   </g>
   <g v-click="[5, 6]">
     <path d="M 764 340 H 956 A 24 24 0 0 1 980 364 V 396 A 24 24 0 0 1 956 420 H 950 L 990 460 L 920 420 H 764 A 24 24 0 0 1 740 396 V 364 A 24 24 0 0 1 764 340 Z" />
-    <text x="860" y="380">何を…？</text>
+    <text x="860" y="380">What…?</text>
   </g>
   <g v-click="6">
     <path d="M 444 160 H 976 A 24 24 0 0 1 1000 184 V 366 A 24 24 0 0 1 976 390 H 490 L 420 430 L 450 390 H 444 A 24 24 0 0 1 420 366 V 184 A 24 24 0 0 1 444 160 Z" />
-    <text x="710" y="210" class="muted">（１＋１は？）（２です）</text>
-    <text x="710" y="275" class="muted">（×３は？）（６です）</text>
-    <text x="710" y="340">÷２は？</text>
+    <text x="710" y="210" class="muted">(1+1?) (It’s 2)</text>
+    <text x="710" y="275" class="muted">(×3?) (It’s 6)</text>
+    <text x="710" y="340">÷2?</text>
   </g>
 </svg>
 
@@ -128,13 +128,13 @@ clicks: 6
 </style>
 
 <!--
-エージェントを使っていると、[click]まるで記憶を持った知能との会話を続けているように感じられますよね。
+When you use an agent, [click]it feels like you're having an ongoing conversation with an intelligence that has memory, right?
 
-でも実際には、LLMには会話の文脈を記憶する機能がありません。会話を成立させるには、[click]それまでのやり取りをすべて入力し直してやる必要があります。[click]
+But in reality, the LLM has no ability to remember the flow of a conversation. To keep a conversation going, [click]you have to feed it the entire exchange so far, every single time. [click]
 
-例えば、[click]ここから「割る２は？」とだけ送っても[click]ダメなんですね。[click]これを全部送る必要があります。
+For example, [click]if you just send "divided by 2?" from here, [click]it won't work. [click]You have to send all of this.
 
-これこそが、このやり取りにおける文脈、コンテキストです。
+And this is exactly what context is: the context of this exchange.
 -->
 
 ---
@@ -148,19 +148,19 @@ layout: full
   </svg>
   <g class="init" v-click="1">
     <rect x="150" y="100" width="400" height="50" rx="10" />
-    <text x="350" y="125">ツール定義</text>
+    <text x="350" y="125">Tool definitions</text>
   </g>
   <g class="init" v-click="2">
     <rect x="150" y="158" width="400" height="50" rx="10" />
-    <text x="350" y="183">システムプロンプト</text>
+    <text x="350" y="183">System prompt</text>
   </g>
   <g class="init" v-click="3">
     <rect x="150" y="216" width="400" height="50" rx="10" />
-    <text x="350" y="241">カスタム設定</text>
+    <text x="350" y="241">Custom settings</text>
   </g>
   <g class="added" v-click="4">
     <rect x="150" y="274" width="400" height="50" rx="10" />
-    <text x="350" y="299">ユーザーの指示</text>
+    <text x="350" y="299">User instructions</text>
   </g>
   <g class="send" v-click="[4,5]">
     <path class="bracket" d="M 566 100 H 586 V 324 H 566" />
@@ -168,11 +168,11 @@ layout: full
   </g>
   <g class="added from-llm" v-click="5">
     <rect x="150" y="332" width="400" height="50" rx="10" />
-    <text x="350" y="357">モデルの思考</text>
+    <text x="350" y="357">Model thinking</text>
   </g>
   <g class="added from-llm" v-click="5" style="transition-delay: 0.3s">
     <rect x="150" y="390" width="400" height="50" rx="10" />
-    <text x="350" y="415">ツール呼び出し</text>
+    <text x="350" y="415">Tool call</text>
   </g>
   <g class="send" v-click="[5,6]">
     <path class="dia-arrow" d="M 880 420 L 566 386" />
@@ -180,12 +180,12 @@ layout: full
   <g class="tool" v-click="[6,7]">
     <path class="file" d="M 640 438 H 680 L 700 458 V 518 H 640 Z" />
     <path class="file-line" d="M 652 468 H 688 M 652 484 H 688 M 652 500 H 678" />
-    <text class="caption" x="670" y="548">ファイル読み込み</text>
+    <text class="caption" x="670" y="548">Read file</text>
     <path class="dia-arrow" d="M 628 473 L 566 473" />
   </g>
   <g class="added" v-click="6">
     <rect x="150" y="448" width="400" height="50" rx="10" />
-    <text x="350" y="473">ツールの実行結果</text>
+    <text x="350" y="473">Tool result</text>
   </g>
   <g class="send" v-click="[7,8]">
     <path class="bracket" d="M 566 100 H 586 V 498 H 566" />
@@ -193,11 +193,11 @@ layout: full
   </g>
   <g class="added from-llm" v-click="8">
     <rect x="150" y="506" width="400" height="50" rx="10" />
-    <text x="350" y="531">モデルの思考</text>
+    <text x="350" y="531">Model thinking</text>
   </g>
   <g class="added from-llm" v-click="8" style="transition-delay: 0.3s">
     <rect x="150" y="564" width="400" height="50" rx="10" />
-    <text x="350" y="589">次の行動</text>
+    <text x="350" y="589">Next action</text>
   </g>
   <g class="send" v-click="8">
     <path class="dia-arrow" d="M 880 420 L 566 560" />
@@ -235,25 +235,25 @@ layout: full
 </style>
 
 <!--
-それでは、実際のコーディングエージェントにおいては、どのような情報がコンテキストに入っていくのか、実際の流れを追ってみましょう。
+So, in an actual coding agent, what kind of information goes into the context? Let's follow the actual flow.
 
-まず会話を開始する前の初期状態として、[click]ファイルの読み書きやコマンド実行などの基本的なツールの定義があります。
+First, in the initial state before the conversation starts, there are [click]definitions of basic tools, like reading and writing files and running commands.
 
-次に、[click]システム側で定義されているシステムプロンプトがあります。エージェントの基本的な振る舞いを定義するものですね。
+Next, [click]there's the system prompt defined on the system side. It defines the agent's basic behavior.
 
-そして、[click]ユーザーの定義するカスタム設定があります。CLAUDE.md とか AGENTS.md とかのカスタムインストラクション、あとはスキルの一覧などがここに含まれますね。コンテキストは、こんな感じの状態でスタートします。
+Then [click]there are the custom settings defined by the user. Custom instructions like CLAUDE.md or AGENTS.md, plus things like the list of skills, go here. The context starts out in a state like this.
 
-[click]そこにユーザーからプロンプトが入力されました。これはコンテキストの末尾に追加されて LLM に送られます。
+[click]Then the user enters a prompt. It's appended to the end of the context and sent to the LLM.
 
-[click]すると LLM は、まず思考を行い、その上で「このファイルを読みたい」とツール呼び出しを出力しました。
+[click]The LLM first thinks, and then outputs a tool call saying "I want to read this file."
 
-[click]エージェントはそのファイルを読み込んで、その結果をコンテキストの末尾に追加します。
+[click]The agent reads that file and appends the result to the end of the context.
 
-[click]膨らんだコンテキスト全体を、再び LLM に送ります。
+[click]Then it sends the entire, now larger, context to the LLM again.
 
-[click]そして LLM は、また思考を行なって、次の行動を決めます。このようなことを作業完了まで繰り返していくわけです。
+[click]And the LLM thinks again and decides on the next action. This repeats until the task is done.
 
-このようにエージェントは、ユーザーの指示を受け取ると、その中で何十回、ときには何百回も LLM を呼び出します。そしてその度にコンテキスト全体が LLM に再送信されます。しかもそのコンテキストは徐々に膨らみ続けていくわけですね。
+So once an agent receives a user instruction, it calls the LLM dozens, sometimes hundreds of times. And every time, the entire context is re-sent to the LLM. On top of that, the context keeps growing bit by bit.
 -->
 
 ---
@@ -311,9 +311,9 @@ layout: full
 </style>
 
 <!--
-ここで簡単な計算をしてみます。[click]初期状態の定義に２万トークン消費して、[click]ツールを１回使うごとに平均 1,000 トークンずつ増えていくと仮定します。[click]これで 100 ステップ作業すると、最終的にコンテキストは約 12 万トークンになります。
+Let's do a quick calculation. [click]Say the initial definitions take up 20,000 tokens, [click]and each tool use adds 1,000 tokens on average. [click]After 100 steps of work, the context ends up at about 120,000 tokens.
 
-ですが、モデルに送られた入力の合計は 12 万トークンではありません。
+But the total input sent to the model isn't 120,000 tokens.
 -->
 
 ---
@@ -340,7 +340,7 @@ layout: full
     <rect class="init" :x="229 + i * 9" y="580" width="7" height="80" />
     <rect class="added" :x="229 + i * 9" :y="584 - i * 4" width="7" :height="i * 4 - 4" />
   </g>
-  <text class="caption" v-click="4" x="687" y="700">100 回</text>
+  <text class="caption" v-click="4" x="687" y="700">100 steps</text>
   <text class="total" v-click="5" x="780" y="470">≈ 7M</text>
 </svg>
 
@@ -365,21 +365,21 @@ layout: full
 </style>
 
 <!--
-[click]１回目に２万、[click]２回目に２万１千、[click]３回目に２万２千……と毎回全体を送るので、[click]100 回分を足し合わせると[click]約 700 万トークンになります。
+Since the whole thing is sent every time, [click]20,000 the first time, [click]21,000 the second time, [click]22,000 the third time... [click]add up all 100 calls and [click]you get about 7 million tokens.
 
-コンテキストの長さはステップ数に比例して増えますが、送信量の合計はステップ数の2乗に比例して増えます。これが、コーディングエージェントにおけるトークン使用量が想像以上に大きくなる理由です。
+The context length grows linearly with the number of steps, but the total amount sent grows with the square of the number of steps. That's why token usage in coding agents gets so much bigger than you'd imagine.
 
-しかし、このような入力を毎回まともに処理していたら、時間もコストも大変なことになってしまいます。そこで使われるのが……
+But if all that input were fully processed every single time, it would be terrible for both time and cost. So what's used here is...
 -->
 
 ---
 layout: bigtext
 ---
 
-プロンプトキャッシュ
+Prompt caching
 
 <!--
-プロンプトキャッシュです。
+Prompt caching.
 -->
 
 ---
@@ -422,7 +422,7 @@ layout: full
   </g>
   <g v-click="4">
     <rect class="frame" x="804" y="214" width="252" height="302" rx="14" />
-    <text class="label" x="930" y="186">キャッシュ</text>
+    <text class="label" x="930" y="186">Cache</text>
     <rect class="ghost late init" v-click="5" x="820" y="230" width="220" height="60" rx="10" />
     <rect class="ghost late added" v-click="5" x="820" y="300" width="220" height="60" rx="10" />
     <rect class="ghost late added" v-click="6" x="820" y="370" width="220" height="60" rx="10" />
@@ -437,7 +437,7 @@ layout: full
     </g>
     <g class="late" v-click="[5,6]">
       <path class="bracket" d="M 796 230 H 780 V 360 H 796" />
-      <text class="caption write" x="766" y="295">キャッシュ書き込み</text>
+      <text class="caption write" x="766" y="295">Cache write</text>
     </g>
     <g class="fly dock" v-click="[6,7]">
       <rect class="init hit" x="180" y="230" width="220" height="60" rx="10" />
@@ -446,9 +446,9 @@ layout: full
     </g>
     <g class="late" v-click="[6,7]">
       <path class="bracket" d="M 796 230 H 780 V 356 H 796" />
-      <text class="caption read" x="766" y="293">キャッシュ読み込み</text>
+      <text class="caption read" x="766" y="293">Cache read</text>
       <path class="bracket" d="M 796 374 H 780 V 430 H 796" />
-      <text class="caption write" x="766" y="402">キャッシュ書き込み</text>
+      <text class="caption write" x="766" y="402">Cache write</text>
     </g>
     <g class="fly dock" v-click="7">
       <rect class="init hit" x="180" y="230" width="220" height="60" rx="10" />
@@ -458,9 +458,9 @@ layout: full
     </g>
     <g class="late" v-click="7">
       <path class="bracket" d="M 796 230 H 780 V 426 H 796" />
-      <text class="caption read" x="766" y="328">キャッシュ読み込み</text>
+      <text class="caption read" x="766" y="328">Cache read</text>
       <path class="bracket" d="M 796 444 H 780 V 500 H 796" />
-      <text class="caption write" x="766" y="472">キャッシュ書き込み</text>
+      <text class="caption write" x="766" y="472">Cache write</text>
     </g>
   </g>
 </svg>
@@ -567,7 +567,7 @@ layout: full
 </style>
 
 <!--
-先ほど、[click]コンテキストは徐々に伸びていく、[click]そして毎回入力し直す[click]という話をしましたが、実はLLMサーバーには、[click]前回までの計算結果を[click]サーバー側にキャッシュしておく機能が備わっています。[click]そしてこのキャッシュを使用した場合は、[click]通常と比べてずっと安いキャッシュ読み込み価格というのが適用されることになっています。
+I just said that [click]the context grows bit by bit, [click]and gets re-sent every time. [click]But actually, LLM servers have a feature that [click]caches the results of previous computations [click]on the server side. [click]And when this cache is used, [click]a cache read price applies, which is much cheaper than the normal price.
 -->
 
 ---
@@ -597,11 +597,11 @@ layout: full
   </g>
   <text class="total" v-click.hide="1" x="780" y="470">≈ 7M</text>
   <g v-click="1">
-    <text class="caption" x="820" y="410">キャッシュ読み込み</text>
+    <text class="caption" x="820" y="410">Cache read</text>
     <text class="total" x="820" y="480">≈ 6.8M</text>
   </g>
   <g v-click="2">
-    <text class="caption" x="420" y="240">キャッシュ書き込み</text>
+    <text class="caption" x="420" y="240">Cache write</text>
     <text class="total small" x="420" y="305">≈ 120K</text>
     <path class="dia-arrow solid" d="M 500 350 L 586 412" />
   </g>
@@ -632,7 +632,7 @@ layout: full
 </style>
 
 <!--
-先ほどの例では約 700 万トークンが入力されるという結果になっていましたが、[click]ここではそのほとんどがキャッシュ読み込みになります。つまり、この約 680 万トークンは格安価格になって、[click]この上っ面の約 12 万トークンだけが、通常入力＋キャッシュ書き込みの価格が適用される、ということですね。
+In the earlier example, about 7 million tokens were input, [click]but here most of that becomes cache reads. So these roughly 6.8 million tokens get the bargain price, [click]and only this top layer of about 120,000 tokens is charged at the normal input plus cache write price.
 -->
 
 ---
@@ -641,28 +641,28 @@ layout: bigtext
 
 <v-click>
 
-ありがちな
+A common cause
 
-キャッシュミスの原因
+of cache misses
 
 </v-click>
 
 <!--
-さて、次の話に入る前に、[click]この入力キャッシュが無効化されてしまう、非常によくある原因について触れておきたいと思います。
+Now, before moving on, [click]I want to touch on a very common reason this input cache gets invalidated.
 
-それが……
+And that is...
 -->
 
 ---
 layout: bigtext
 ---
 
-生存期間 (TTL) 切れ
+Time-to-live (TTL) expiry
 
 <!--
-生存期間切れですね。入力キャッシュはサーバー側のリソースを食うので、無限に保持されるわけではなくて、たいてい限られた生存期間が設定されています。この辺りの仕様はサービスの内容によって異なるんですが、まあ代表的なところで言うと、Claude Code と Opus 5.5 の組み合わせであれば、デフォルトは１時間に設定されています。
+TTL expiry. The input cache consumes server-side resources, so it isn't kept forever; usually it has a limited time to live. The details vary by service, but to give a typical example, with Claude Code and Opus 5.5, the default is one hour.
 
-この生存期間を超えてしまうと、キャッシュは破棄されてしまいます。
+Once that time to live is exceeded, the cache is discarded.
 -->
 
 ---
@@ -683,7 +683,7 @@ layout: full
     <path class="dia-arrow" d="M 959 305 L 1019 305" />
     <image href="/images/sec3/ttl-work.png" x="1035" y="190" width="230" height="230" />
   </g>
-  <text v-click="5" class="miss" x="688" y="580">フルキャッシュミス発生</text>
+  <text v-click="5" class="miss" x="688" y="580">Full cache miss!</text>
 </svg>
 
 <style>
@@ -695,32 +695,32 @@ layout: full
 </style>
 
 <!--
-なので例えば、[click]コーディングエージェントを起動して、ガッツリ作業して、コンテキストが膨らみきったところで、[click]あ、会議だ、と言って[click]１時間作業を中断する。そして戻ってきて、[click]作業再開だ、と言ってプロンプトを入力すると、キャッシュの生存期間を既に過ぎてしまっているので、[click]全コンテキストがキャッシュ書き込み価格になってしまいます。
+So for example, [click]you launch your coding agent, do a big chunk of work, and just when the context is fully swollen, [click]"oh, I have a meeting," and [click]you step away for an hour. Then you come back, [click]say "OK, back to work," and enter a prompt. But the cache's time to live has already passed, so [click]the entire context gets charged at the cache write price.
 
-これは、ものすごく分かりやすい形で、コストが発生するポイントですね。
+This is a very obvious example of where costs come from.
 -->
 
 ---
 
-# キャッシュミスを気にするなら……
+# If you care about cache misses...
 
 <v-clicks>
 
-- 長時間離席したらセッションは作り直す
-- レジュームを使って翌日に持ち越すのは避ける
-- どこまで気にするか次第
+- Start a new session after a long break
+- Avoid resuming sessions into the next day
+- It depends on how much you care
 
 </v-clicks>
 
 <!--
-なので、もし、こういったキャッシュミスを気にする場合は、[click]離席したらセッションは作り直す、とか、[click]レジュームを使ったセッションの持ち越しは避ける、とか、そういったことが基本的な対策になります。
+So if you care about these cache misses, the basic countermeasures are things like [click]starting a new session after you've been away, or [click]avoiding carrying sessions over with resume.
 
-もちろん、[click]そこまでムキになってケチケチする必要は無いんですけど、基本的な考えとして理解しておくのは大切だと思います。
+Of course, [click]you don't need to get obsessive about penny-pinching, but I think it's important to understand the basic idea.
 -->
 
 ---
 
-# 余談：キャッシュ読み込みの廉価化
+# Aside: Cache reads are getting cheaper
 
 <svg class="ratio w-full h-[330px]" viewBox="0 0 1000 460">
   <g class="grid">
@@ -760,11 +760,11 @@ layout: full
 </style>
 
 <!--
-ここでちょっと余談として、キャッシュ読み込み価格が年々安くなっている、という話をしておきたいと思います。
+As a quick aside, I want to mention that cache read prices have been getting cheaper year by year.
 
-ここまでの話から、エージェントにおいては入力キャッシュが非常に重要な働きをするというのが分かると思いますが、これをより使いやすくするために、キャッシュヒット時の価格を安くする方向に競争が働いています。昔は 25% とかあったのが、10%、つまり９割引が常識になって、最新世代では 5% が標準になりつつあります。
+From what I've said so far, you can see that the input cache plays a crucial role in agents. To make it even more usable, competition is pushing cache hit prices down. It used to be something like 25%, then 10%, a 90% discount, became the norm, and in the latest generation 5% is becoming standard.
 
-この進化がこのまま続けば、今日話しているような、コンテキストを節約してコストを下げましょう、みたいな話も気にしなくてよくなるのかもしれません。
+If this trend continues, maybe we won't need to worry about things like what I'm talking about today, saving context to lower costs.
 
-ということで、このキャッシュ価格をいかに安くするか、というのは、評価ポイントとして、とてもアツい指標になっています。最新モデルがリリースされた時には、ここに注目してみると面白いと思います。
+So how cheap a provider can make cache pricing has become a really hot metric to evaluate. When a new model is released, it's interesting to keep an eye on this.
 -->

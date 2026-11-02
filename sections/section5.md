@@ -27,9 +27,9 @@ clicks: 1
 </style>
 
 <!--
-さて、基本的に１タスクを１セッションでやっていこう、という話をしてきました。次に焦点となるのは、それら１セッション１セッションのコストを[click]いかに減らすかという話です。
+So far, we've talked about basically doing one task per session. The next focus is [click]how to reduce the cost of each of those sessions.
 
-早速、１セッションのコスト構造をブレークダウンしてみましょう。
+Let's jump right in and break down the cost structure of a single session.
 -->
 
 ---
@@ -88,27 +88,27 @@ clicks: 3
     <div class="bar" style="--i: 48"><i class="r" style="height:14.6%"></i><i class="o" style="height:12.0%"></i><i class="w" style="height:3.8%"></i></div>
   </div>
   <div class="phases" :data-focus="[null, 'inv', 'impl', 'check'][$clicks]">
-    <div class="inv" style="--n: 15">調査</div>
-    <div class="impl" style="--n: 1">実装</div>
-    <div style="--n: 6">セットアップ</div>
-    <div class="check" style="--n: 23">動作検証</div>
-    <div style="--n: 3">後片付け</div>
+    <div class="inv" style="--n: 15">Investigation</div>
+    <div class="impl" style="--n: 1">Impl.</div>
+    <div style="--n: 6">Setup</div>
+    <div class="check" style="--n: 23">Verification</div>
+    <div style="--n: 3">Cleanup</div>
   </div>
   <div class="legend">
-    <span><i class="r"></i>キャッシュ読み取り</span>
-    <span><i class="w"></i>キャッシュ書き込み</span>
-    <span><i class="o"></i>出力</span>
+    <span><i class="r"></i>Cache Read</span>
+    <span><i class="w"></i>Cache Write</span>
+    <span><i class="o"></i>Output</span>
   </div>
 </div>
 
 <!--
-これは先ほど例として使った無敵アイテムの実装タスクをステップ単位で分析したものです。今度はちゃんと動作検証も含めて実行してもらいました。このタスクでは 48 回の API リクエストが発生しています。このグラフは、そのコストを棒グラフで表したものです。
+This is a step-by-step analysis of the invincibility item task I used as an example earlier. This time I had it run properly, including runtime verification. This task made 48 API requests, and this bar chart shows the cost of each one.
 
-[click]前半はプロジェクトの調査ですね。スクリプトを読み込んでいくので、キャッシュ書き込みのコストが目立ちます。
+[click]The first part is investigating the project. It's reading in scripts, so the cache write cost stands out.
 
-[click]その次に１本だけ大量の出力を行なっている棒があります。これがコードを書いているステップです。実装そのものは、たった１ステップで終わっているんですね。
+[click]Next, there's a single bar with a huge amount of output. That's the step where it writes the code. The implementation itself is done in just one step.
 
-そして注目してほしいのは[click]ここです。ここはプレイモードに入って、実装がちゃんと動いているかを検証しているフェーズです。目立って重いステップは無いんですが、ある程度膨らんでしまったコンテキストの再送信によってコストが拡大していますね。ステップ数も非常に多いです。
+And what I want you to look at is [click]this part. This is the phase where it enters Play mode and verifies that the implementation actually works. There's no single step that's especially heavy, but the cost adds up from resending a context that has grown fairly large. And there are a lot of steps.
 -->
 
 ---
@@ -117,38 +117,38 @@ table: cost-phase
 clicks: 6
 ---
 
-| フェーズ | リクエスト | ツール呼び出し | キャッシュ読込 | コスト |
+| Phase | Requests | Tool Calls | Cache Read | Cost |
 | --- | ---: | ---: | ---: | ---: |
-| 調査 | 15 | 16 | 19 pts. | 77 pts. (38%) |
-| 実装 | 1 | 1 | 2 pts. | 8 pts. (4%) |
-| セットアップ | 6 | 6 | 11 pts. | 23 pts. (11%) |
-| 動作検証 | 23 | 33 | 47 pts. | 83 pts. (41%) |
-| 後片付け | 3 | 4 | 7 pts. | 13 pts. (6%) |
+| Investigation | 15 | 16 | 19 pts. | 77 pts. (38%) |
+| Implementation | 1 | 1 | 2 pts. | 8 pts. (4%) |
+| Setup | 6 | 6 | 11 pts. | 23 pts. (11%) |
+| Verification | 23 | 33 | 47 pts. | 83 pts. (41%) |
+| Cleanup | 3 | 4 | 7 pts. | 13 pts. (6%) |
 
 <!--
-フェーズ毎に集計してみました。
+I totaled it up by phase.
 
-一番コストがかかっているのは、調査でも実装でもなく、[click]動作検証のフェーズでした。[click]全体コストの 41% がここにあります。これに対して[click]実装は 4% で済んでますから、その 10 倍のコストが検証で費やされている格好ですね。
+The most expensive phase wasn't investigation or implementation — it was [click]verification. [click]41% of the total cost is here. Meanwhile, [click]implementation only takes 4%, so verification costs about 10 times as much.
 
-[click]リクエストは 23 回、ツール呼び出しは 33 回。全体の半分近くのやり取りが、このフェーズに集中しています。[click]キャッシュ読み込みのコストも顕著に大きいです。膨らんだコンテキストの中でステップ数を重ねている影響が、ここに現れていますね。[click]
+[click]23 requests and 33 tool calls. Nearly half of all the back-and-forth is concentrated in this phase. [click]The cache read cost is also noticeably large. That's the effect of piling up steps on top of a bloated context. [click]
 
-ということで、ここで Unity 開発、というか恐らくはゲーム開発全般に言えることだと思うんですが、問題になるコスト構造が見えてきます。それは……
+So here we can see a cost structure that's a problem for Unity development — and probably for game development in general. And that is...
 -->
 
 ---
 layout: bigtext
 ---
 
-動作検証の
+Verification
 
-コストが高い
+is expensive
 
 <!--
-動作検証のコストが高い、ということです。
+Verification is expensive.
 
-先ほどの計測結果にもあったように、実装作業そのものよりも、動作検証の方がコストがかかっている、というケースがざらにあるわけです。もしコスト構造を改善したいと思ったら、この動作検証のプロセスを見直すのが良さそうです。
+As the measurements we just saw show, it's really common for verification to cost more than the implementation work itself. If you want to improve the cost structure, revisiting this verification process looks like a good place to start.
 
-それではまず、この動作検証フェーズの中で、一体どのようなことが行われているのか、さらに詳細にブレークダウンしていきましょう。
+So first, let's break down in more detail what's actually going on in this verification phase.
 -->
 
 ---
@@ -160,22 +160,22 @@ clicks: 10
 
 <div>
 
-- シーンを開いて再生
-- アイテムを生成して撮影
-- 見た目を調整して撮影
-- プレイヤーを動かして取得させる
-- ダメージが無効か HP を確認
-- 敵にぶつけて撮影
-- コンソールを確認
-- ……
+- Open the scene and play
+- Spawn the item, take a capture
+- Tweak the look, capture again
+- Move the player to pick it up
+- Check HP to confirm no damage
+- Hit an enemy, take a capture
+- Check the console
+- ...
 
 </div>
 
 <div>
 
-| ツール | 回数 |
+| Tool | Count |
 | --- | ---: |
-| eval (C# 実行) | 14 |
+| eval (run C#) | 14 |
 | capture_game_view | 9 |
 | Bash | 5 |
 | editor_play / stop | 3 |
@@ -186,33 +186,33 @@ clicks: 10
 </div>
 
 <!--
-これは先ほどの無敵アイテムの動作検証フェーズの中身を分析したものです。
+This is an analysis of what goes on inside the verification phase of that invincibility item task.
 
-[click]シーンを開いて再生、[click]アイテムを生成して撮影して、[click]見た目がおかしいので調整してまた撮る、[click]プレイヤーを移動してアイテムを取らせて、[click]ダメージが入っていないことを確認、[click]敵にぶつけて確認して……[click]というように、まあ要するに、人間が Unity エディタでやっているような動作検証を、エージェントが１ステップずつツール呼び出しを使って再現しているわけですね。
+[click]Open the scene and hit play, [click]spawn the item and take a capture, [click]the look is off so tweak it and capture again, [click]move the player to pick up the item, [click]confirm it isn't taking damage, [click]bump into an enemy and check... [click]So basically, the agent is reproducing the kind of verification a human would do in the Unity Editor, one step at a time, using tool calls.
 
-ツールとしては、[click]C# を実行する eval コマンドが 14 回、[click]画面の撮影が 9 回、とか、[click]小さな操作を細切れに、何回も呼び出しています。
+As for tools, [click]the eval command that runs C# was called 14 times, [click]screen captures 9 times, and so on — [click]it calls small operations in tiny pieces, over and over.
 -->
 
 ---
 layout: bigtext
 ---
 
-ツール呼び出し多い
+Many tool calls
 <v-click>
 
-≒ リクエスト回数多い
+≈ Many requests
 
 </v-click>
 <v-click>
 
-≒ 高コスト体質
+≈ Prone to high cost
 
 </v-click>
 
 <!--
-このようにツール呼び出しの回数が多い作業というのは、[click]どうしても API リクエスト回数が増えて、コンテキストの入力回数が増えがちです。そして、[click]それが故に高コスト体質になりがちです。
+Work with lots of tool calls like this [click]inevitably increases the number of API requests, which means the context gets sent as input more often. And [click]because of that, it tends to be expensive.
 
-ツール呼び出しは同時実行もできるので、この回数って必ずしもイコールにはならないんですが、動作検証みたいな場面では、結果を確認しながら順番にツールを呼び出す処理になるので、どうしても同時実行はできない、つまりリクエスト回数が増える傾向にあります。
+Tool calls can also run in parallel, so the two counts aren't necessarily equal. But in something like verification, the agent calls tools one after another while checking each result, so it can't really run them in parallel — which means the number of requests tends to go up.
 -->
 
 ---

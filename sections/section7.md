@@ -10,12 +10,12 @@ clicks: 8
   </div>
   <div class="pts-card" :class="{ on: $clicks >= 2, dim: [4, 6, 8].includes($clicks) }">
     <img src="/images/sec6/tower-defense-1.jpg" />
-    <div class="name">Tower Defense URP 移行</div>
+    <div class="name">Tower Defense URP migration</div>
     <div class="pts">2,000 pts.</div>
   </div>
   <div class="pts-card" :class="{ on: $clicks >= 3, dim: [4, 5, 8].includes($clicks) }">
     <img src="/images/sec4/bunny-blitz-after.png" />
-    <div class="name">Bunny Blitz 無敵アイテム</div>
+    <div class="name">Bunny Blitz invincibility item</div>
     <div class="pts">200 pts.</div>
   </div>
 </div>
@@ -54,31 +54,31 @@ clicks: 8
 </style>
 
 <!--
-さて、話を戻しましょう。いよいよ最後の話題に移ります。
+OK, let's get back on track. We're finally moving on to the last topic.
 
-ここまでコストについて色々お話ししてきたわけですが、もしかしたら、ここでちょっとした疑問に当たるかもしれません。
+I've talked a lot about cost so far, and maybe at this point you've run into a little question.
 
-[click]最初に紹介したこのプロジェクト、１プロンプトで実装が完了して、コーディングエージェント側のコストは 1,800 ポイント程度でした。
+[click]This project I showed at the beginning was implemented with a single prompt, and the cost on the coding agent side was around 1,800 points.
 
-[click]Tower Defense プロジェクトの URP 移行は、2,000 ポイントぐらいかかりましたよね。
+[click]The URP migration of the Tower Defense project cost about 2,000 points.
 
-[click]そして Bunny Blitz に無敵アイテムを実装するのは、200 ポイントかかっていました。
+[click]And implementing the invincibility item in Bunny Blitz cost 200 points.
 
-こうして比較すると……[click]このサンプル、コスパがあまりにも良過ぎですよね？
+When you compare them like this... [click]isn't this sample just way too cost-effective?
 
-[click]既存のプロジェクトを URP 移行させるという、半ば機械的な作業と、プロトタイプをゼロイチで作るという創造的作業が、ほぼ同程度のコストになっています。
+[click]The semi-mechanical job of migrating an existing project to URP and the creative job of building a prototype from scratch cost about the same.
 
-[click]たった１機能の実装に 200 ポイントかかっていますが、その 10 倍程度でプロトタイプが完成するというのも酷くアンバランスに見えます。
+[click]A single feature cost 200 points, yet a whole prototype was done for only about ten times that. That looks badly unbalanced.
 
-[click]このように様々な種類のタスクのコスパを比較した時に見えてくる事実が１つあります。それは、[click]１プロンプトで一気にプロトタイピングする、というタスクの異常なコスパの良さです。
+[click]When you compare the cost-effectiveness of different kinds of tasks like this, one fact stands out: [click]prototyping in one go with a single prompt is abnormally cost-effective.
 -->
 
 ---
 
 <!--
-しかしなぜここまで１プロンプトでのプロトタイピングが得意なんでしょうか。
+But why are they so good at single-prompt prototyping?
 
-理由はいくつか考えられると思います。プロトタイピングはコンテキストを殆ど持たない状態から始められるので効率が良い、とか、プロトタイプに関しては大量の学習ソースが存在していたから、とか、まあ、色々あり得ますよね。
+I can think of a few reasons. Prototyping starts from almost no context, so it's efficient. Or there was a huge amount of training material for prototypes. Lots of possibilities.
 -->
 
 ---
@@ -93,9 +93,9 @@ layout: full
 ]" />
 
 <!--
-しかしそれでも、このコスパの良さは異常だと思います。
+Even so, I think this level of cost-effectiveness is abnormal.
 
-これは恐らく皆さんも最新のモデルが発表される度に感じていることだと思いますが、非常に高度で複雑なプロトタイプを、少ないプロンプトで簡単に生成できるようになってきていますよね。特に Fable 5 以降、GPT-6 Astra や Opus 5.5 などにおいてその傾向が非常に強くなっていると感じています。
+You've probably felt this every time a new model is released: it's become easy to generate very sophisticated, complex prototypes with just a few prompts. Especially since Fable 5, and with GPT-6 Astra, Opus 5.5 and so on, I feel this trend has become really strong.
 -->
 
 ---
@@ -144,22 +144,22 @@ clicks: 2
 </style>
 
 <!--
-僕は決して AI の専門家ではないので、本当にこれは単なる非専門家のいち推測として聞いて欲しいんですが、[click]最近の LLM は１プロンプトでのプロトタイピングに関して[click]かなり大規模なトレーニングが行われていると思います。
+I'm by no means an AI expert, so please take this purely as a non-expert's guess, but I think [click]recent LLMs have gone through [click]very large-scale training specifically on single-prompt prototyping.
 
-具体的にどのような進化があったのか分かりませんが、現在の最新世代と、一つ前の世代の間には、単純な言語モデルとしての進化では説明しきれない、大きな跳躍があると感じます。皆さんもそれは感じていませんかね？ 恐らくは、大規模に強化学習をブン回すような仕組みが整えられているんじゃないでしょうか。
+I don't know exactly what changed, but between the latest generation and the one before it, I feel there's a big leap that can't be explained just by progress as a language model. Don't you feel that too? My guess is they've set up some system to crank through reinforcement learning at massive scale.
 -->
 
 ---
 
 <!--
-さてここで、上手くいった例ばかりを紹介するのもフェアではないので、失敗した例も挙げておきましょうか。
+Now, it wouldn't be fair to only show the examples that went well, so let me show you a failure too.
 -->
 
 ---
 clicks: 2
 ---
 
-# 「アニメのオープニング映像」
+# "Anime opening sequence"
 
 <div class="video-grid titled sharp">
   <LoopVideo src="/videos/sec7/anime-op-1.mp4" />
@@ -173,20 +173,20 @@ clicks: 2
 <PopupVideo src="/videos/sec7/anime-op-hq.mp4" />
 
 <!--
-これは、今の最新モデルならアニメのオープニング映像みたいなものも作れるんじゃないか、と思って、試しに丸投げしてみた例です。ちょっとダイジェストで観てみますね。
+This is one where I thought, "The latest models can probably make something like an anime opening sequence," and just handed the whole thing over to try it. Let's watch a quick digest.
 
-[click]（再生）[click]
+[click](play)[click]
 
-結果はご覧の通りで、こう言ってはなんですが、まるで素人が作ったような、要するに、やろうとしている事に対して実力が伴っていないような、稚拙なものが出来上がってしまいました。
+As you can see, and I hate to say it, it came out looking amateurish — basically, its ambition far outran its skill. A pretty clumsy result.
 
-でもここで僕は、最新のフロンティアモデルの実力がこの程度であるはずはない、と考えたんですよね。そこでちょっとした調整を加えて、再びトライしてみました。
+But at this point I thought, there's no way the latest frontier model is only this good. So I made a few adjustments and tried again.
 -->
 
 ---
 clicks: 2
 ---
 
-# 改良版
+# Improved version
 
 <div class="video-grid titled sharp">
   <LoopVideo src="/videos/sec7/music-video-1.mp4" />
@@ -200,27 +200,27 @@ clicks: 2
 <PopupVideo src="/videos/sec7/music-video-hq.mp4" />
 
 <!--
-こちらがその結果です。またちょっとダイジェストで観てみます。
+Here's the result. Again, let's watch a quick digest.
 
-[click]（再生）[click]
+[click](play)[click]
 
-かなり見れるものになったんじゃないでしょうか？
+Pretty watchable now, don't you think?
 
-細かい所を見れば、もちろんまだ欠点はあります。展開はやや凡庸ですし、作画の破綻している部分もあります。でも相対的に見れば、格段に出来は良くなっています。
+If you look closely, of course there are still flaws. The progression is a bit generic, and some of the drawings fall apart. But relatively speaking, it's dramatically better.
 
-さて、それでは一体どのような調整を加えたのでしょうか。
+So what kind of adjustments did I make?
 -->
 
 ---
 
-# 変更点
+# What changed
 
 <v-clicks>
 
-- ゴールの変更<br/>
-  「アニメのOP」→「リリックビデオ」
-- ビジュアルリファレンスの付与<br/>
-  （コンセプトアート／イメージボード）
+- Changed the goal<br/>
+  "Anime OP" → "Lyric video"
+- Provided a visual reference<br/>
+  (concept art / image board)
 
 </v-clicks>
 
@@ -228,13 +228,13 @@ clicks: 2
   <img src="/images/sec7/schoolgirl-trio.png" class="h-[80%] rounded" />
 </div>
 <!--
-大きな違いは２点あります。
+There are two big differences.
 
-[click]１つは「アニメのオープニング」ではなく「リリックビデオ」と指定を変えたことです。「アニメのオープニング」は、流石に現状のモデル及びハーネスの能力を大幅に超えてしまっている気がしたんですよね。そこで、もうちょっと簡単なゴールを着地点にしました。
+[click]First, I changed the request from an "anime opening" to a "lyric video." I felt an anime opening was just way beyond what the current models and harnesses can do. So I set a somewhat easier goal as the landing point.
 
-[click]もう１つは、ビジュアルリファレンスを与えたことです。[click]このようなコンセプトアートを与えたうえで、これをベースとして作成するように指示したわけです。
+[click]Second, I gave it a visual reference. [click]I provided concept art like this and told it to build on top of that.
 
-この「ビジュアルリファレンスを与える」というのは、現状のフロンティアモデルを使ってプロトタイピングを行う際に、非常に重要なファクターになると考えています。
+I think this "giving a visual reference" is a really important factor when prototyping with today's frontier models.
 -->
 
 ---
@@ -305,13 +305,13 @@ const { isPrintMode } = useNav()
 </style>
 
 <!--
-実はこれまでに紹介したプロジェクトも、１プロンプトとは言ってきましたが、そのプロンプトでは必ずコンセプトアートを与えるようにしていました。
+Actually, for the projects I've shown so far too — I've been calling them "one prompt," but I always made sure to include concept art in that prompt.
 
-エージェントは、その画像から、新たなデザインを起こしたり、3D シーンを構築したり、世界観を補完したり、ストーリーを書いたり……本当に様々な情報を引き出していきます。その能力の高さというか「察しの良さ」には目を見張るものがあります。
+From those images, the agent draws out all kinds of things: it comes up with new designs, builds 3D scenes, fills in the world-building, writes stories... Its ability, or how well it "reads between the lines," is really striking.
 
-そしてこれもやはり大規模トレーニングの賜物ではないかと思います。最近の LLM には、リファレンス画像から 3D シーンを構築したり、アプリの UI を構築したりする能力が備わっているわけですが、そのような「ビジュアルリファレンスから何かを構築する」というタスクに関して、想像以上に高い能力を持っているようです。
+And I think this, too, is a product of large-scale training. Recent LLMs can build 3D scenes or app UIs from reference images, and when it comes to this kind of "build something from a visual reference" task, they seem far more capable than you'd imagine.
 
-現にこのように、画像から非常に多くのことを読み取ってくれますし、また、画像を与えることで、LLM の中にある何か特別な能力が覚醒するような印象さえ覚えます。
+As you can see, they read an enormous amount from an image. I even get the impression that giving it an image awakens some special ability inside the LLM.
 -->
 
 ---
@@ -338,9 +338,9 @@ layout: bigtext
 ---
 
 <v-click>
-重要：適切なビジュアル
+Key: provide good
 
-リファレンスを与える
+visual references
 </v-click>
 
 <!--
@@ -348,9 +348,9 @@ layout: bigtext
 -->
 
 <!--
-ということで、現状のフロンティアモデルをゲームのプロトタイピングに使用する場合、[click]適切なビジュアルリファレンスを与えることには大きなメリットがあるらしい、そしてそれは、クオリティの高い結果を得るために……つまり、プロトタイピングにおけるコスパを最大化するのに適した手段であるらしい、ということです。
+So, when using today's frontier models for game prototyping, [click]giving them a good visual reference seems to bring a big advantage. It seems to be a great way to get high-quality results... in other words, to maximize cost-effectiveness in prototyping.
 
-プロトタイピングには、ぜひ適切なビジュアルリファレンスを与えていくようにしましょう。
+So when you prototype, be sure to give it good visual references.
 -->
 
 ---
@@ -358,13 +358,13 @@ layout: bigtext
 ---
 
 <v-click>
-注意：コスパの良さは
+Caution: the cost-effectiveness
 
-長く続かない
+doesn't last
 </v-click>
 
 <!--
-そしてもう一つ意識すべきは、恐らくこのコスパの良さは、[click]プロトタイピングの後は長く続かないだろうということです。
+And one more thing to keep in mind: this cost-effectiveness probably [click]won't last long once you're past prototyping.
 -->
 
 ---
@@ -420,9 +420,9 @@ clicks: 2
 </div>
 
 <!--
-2,000 ポイントでこのような本格的なプロトタインピングができてしまうと、[click]その倍とか、あるいは３〜４倍ぐらい出せば、とりあえずの完成まで持っていけるのではないか、と思ってしまうかもしれません。
+When you can get a prototype this serious for 2,000 points, [click]you might think that paying double that, or maybe three or four times, would get you to something roughly finished.
 
-しかし実際には、[click]プロトタイプからインクリメンタルに完成に近づけていく作業は、想像以上にコストを食います。ちゃんとした形に整えるまでは、もっと多くの、例えば 10 倍程度のコストを考えておくべきでしょう。
+But in reality, [click]incrementally bringing a prototype toward completion eats up far more cost than you'd imagine. Until it's in proper shape, you should budget for a lot more — something like ten times the cost.
 -->
 
 ---
@@ -481,22 +481,22 @@ clicks: 6
     <div class="bar" style="--i: 43"><i class="r" style="height:1.7%"></i><i class="o" style="height:1.6%"></i><i class="w" style="height:1.4%"></i></div>
     <div class="bar" style="--i: 44"><i class="r" style="height:0.3%"></i><i class="o" style="height:0.2%"></i><i class="w" style="height:0.6%"></i></div>
   </div>
-  <div v-click="6" class="sum">合計 19,231 pts.</div>
+  <div v-click="6" class="sum">Total 19,231 pts.</div>
   <div class="legend">
-    <span><i class="r"></i>キャッシュ読み取り</span>
-    <span><i class="w"></i>キャッシュ書き込み</span>
-    <span><i class="o"></i>出力</span>
+    <span><i class="r"></i>Cache read</span>
+    <span><i class="w"></i>Cache write</span>
+    <span><i class="o"></i>Output</span>
   </div>
 </div>
 
 <!--
-これは冒頭で紹介した Alchemion プロジェクトの分析です。このグラフからも分かるように、[click]最初のプロトタイプは約 2,200 ポイントで生成されています。
+This is a breakdown of the Alchemion project I showed at the start. As you can see from this graph, [click]the first prototype was generated for about 2,200 points.
 
-[click]この時点でゲームの骨格となる仕組みは出来上がっていましたが、このスクリーンショットからも分かるように、不十分な点は沢山残されていました。
+[click]At this point the core systems of the game were in place, but as you can see in this screenshot, there were still plenty of gaps.
 
-[click]これを細かなインクリメンタル作業で完成に近づけていくわけですが、[click]最初の大規模改修で 4,400 ポイントも使用し、[click]その後も細かくコストを払い続けました。結局、[click]合計で約 19,200 ポイントとなっています。当初の９倍ぐらいにまで膨れ上がったということですね。
+[click]I brought it toward completion through small incremental tasks, but [click]the first big overhaul alone used 4,400 points, [click]and after that I kept paying in small amounts. In the end, [click]it came to about 19,200 points in total. So it ballooned to roughly nine times the original.
 
-これでも、最初に紹介した Jacquard プロジェクトの例と比較すると安めで済んでいますが、プロトタイプのコスパの良さからすると、だいぶ膨れ上がったなという感があります。
+That's still cheaper than the Jacquard project I showed at the beginning, but compared with how cost-effective the prototype was, it feels like it really ballooned.
 
-やはり、他人に見せられるぐらいのクオリティまで引き上げるには、大雑把に 10 倍ぐらいのコストは見積もっておいた方がいいということでしょう。
+So, to bring something up to a quality you can show to other people, you should roughly budget for about ten times the cost.
 -->

@@ -12,7 +12,7 @@ const { isPrintMode } = useNav()
 <template>
   <BrandOverlay />
   <div v-if="isPrintMode" class="review-copy">
-    <div class="review-copy-mark">確認用</div>
-    <div class="review-copy-banner">このファイルは確認用です。本番での使用を禁止します。</div>
+    <div class="review-copy-mark">REVIEW COPY</div>
+    <div class="review-copy-banner">This file is a review copy only. Do not use it in the actual presentation.</div>
   </div>
 </template>

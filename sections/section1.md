@@ -1,49 +1,49 @@
-# この講演の前提
+# Ground Rules for This Talk
 
 <v-clicks depth="2">
 
-- API 従量課金が前提
-  - 定額サブスクだと少し違和感あるかも？
-- リアル金額ではなく「ポイント」(pts.) で解説
+- Assumes pay-as-you-go API pricing
+  - May feel a bit off if you're on a flat-rate subscription
+- Costs shown in "points" (pts.), not real money
 
 </v-clicks>
 
 <!--
-まず最初に、この講演を始める前に、前提となる設定をお伝えしておきたいと思います。
+Before we get started, I'd like to lay out a few ground rules for this talk.
 
-この講演ではコーディングエージェントを使用する際のコストについて解説するわけですが、これは[click]API 従量課金の場合のコストがいくらか、という話を軸にしています。[click]個人でサブスクリプションでコーディングエージェントを使っていると、基本的に定額制なので、それぞれの作業にどれくらいコストがかかっているか、というのは意識していない場合も多いと思います。
+Today I'm going to talk about the cost of using coding agents, and the whole discussion is built around [click]how much things cost under pay-as-you-go API pricing. [click]If you use a coding agent on a personal subscription, it's basically flat-rate, so you probably don't think much about how much each task actually costs.
 
-ですが、企業で導入すると API 従量課金のプランになるケースが多いですし、たとえ定額制で使っていたとしても、使用量、usage を減らす工夫というのは、利用枠を有効活用するうえで大切なことになってきます。
+But when a company adopts these tools, it's very often on a pay-as-you-go API plan. And even on a flat-rate plan, finding ways to reduce your usage matters a lot if you want to make the most of your quota.
 
-なので、たとえサブスクで使っていたとしても、ここら辺は重要なんだよ、ということで、今日のお話にはお付き合いいただければと思います。
+So even if you're on a subscription, this stuff matters, and I hope you'll bear with me for today's talk.
 
-もう一点はですね、そのコストについて、[click]リアルなドルとか円ではなく「ポイント」という仮想的な単位でお話ししたいと思います。
+One more thing: I'm going to talk about cost not in real dollars or yen, but in [click]a virtual unit I'll call "points."
 
-これはですね、一旦はリアルな金額でスライドを作ったんですが、ちょっと余りにもお金の話過ぎて生々しいなと、自分でも引いてしまったんですよね。
+I actually made the slides with real amounts at first, but it all felt a bit too much about money, a bit too raw, and honestly it put even me off.
 
-今日の話は、絶対的な金額でいくらかかる、みたいな話をしたいんじゃなくて、工夫次第でコストが半分になりましたよ、みたいな、そういう相対的な変化を導く話をしたいんですよね。なので、仮想的な単位で評価しても問題無かろうということで、ちょっと違和感あるかもしれませんが、何卒よろしくお願いします。
+What I want to talk about today isn't how much something costs in absolute terms. It's about relative changes, like "with a bit of ingenuity, the cost dropped by half." So I figured a virtual unit would work just fine. It may feel a little odd, but please bear with me.
 -->
 
 ---
 
 <!--
-さて、前程のお話も済んだところで、本編に入りましょう。
+Now that we've covered the ground rules, let's get into the main part.
 -->
 
 ---
 layout: bigtext
 ---
 
-これまでの
+The Story
 
-あらすじ
+So Far
 
 <!--
-これまでのあらすじ……
+The story so far...
 
-皆さん、コーディングエージェント、使っている方多いですよね。ていうか、今日このセッションに来ている方は、ほぼ 100% 使っているものかなと考えています。
+A lot of you are using coding agents, right? Actually, I'd guess pretty much 100% of the people in this session are.
 
-ところで、最初にコーディングエージェントを使い始めたのっていつ頃でしょうかね。ちょっと軽く歴史を振り返ってみましょうか。
+By the way, when did you first start using a coding agent? Let's take a quick look back at the history.
 -->
 
 ---
@@ -149,7 +149,7 @@ clicks: 10
 </style>
 
 <!--
-コード補完よりも高度な機能を持ったコーディングエージェントが登場したのは[click]2024 年の年末辺りでしたね。[click]2025 年の初めに Claude Code も登場し、ちょうど同時期に[click]Vibe Coding という言葉も生まれて、いわゆるエージェンティック・コーディングが最初のブームを迎えます。その後、[click]流行してしばらくすると[click]停滞して、[click]新しいモデルがでて進化すると[click]また流行して、[click]停滞して、というようなループを繰り返しながら急速に進化を続けてきました。[click]2026 年の春には Unity も AI Assistant という形でエージェンティックな開発環境を実装して、[click]ベータテストを行いました。
+Coding agents that could do more than code completion showed up [click]around the end of 2024. [click]Claude Code arrived in early 2025, and right around the same time [click]the term "vibe coding" was born, and agentic coding had its first boom. After that, it went through a loop: [click]it gets popular, then after a while [click]it stalls, [click]a new model comes out and things evolve, [click]it gets popular again, [click]then it stalls again. And it's kept evolving rapidly that way. [click]In spring 2026, Unity also shipped an agentic development environment in the form of AI Assistant, [click]and ran a beta test.
 -->
 
 ---
@@ -164,13 +164,13 @@ layout: full
 </div>
 
 <!--
-そこで僕も Unity AI Assistant を使って色々とゲームを開発してみました。この辺りの体験は CEDEC とか Unite Seoul でもお話ししたのですが……今やこんなのはお話にならないぐらい、最先端のモデルは進化を遂げていますよね。半年前のものがすっかり陳腐化してしまうという、恐ろしいスピードの中で生きていることを実感します。
+So I used Unity AI Assistant to build all sorts of games. I talked about that experience at CEDEC and Unite Seoul... but today's cutting-edge models have evolved so much that these look like nothing now. Stuff from six months ago is already completely outdated. It really makes you feel like we're living at a terrifying speed.
 -->
 
 ---
 
 <!--
-というわけで、最近はまた最新の環境を使って、新たにサンプルプロジェクトを作ってみています。ちょっと紹介動画をまとめてみたので、ご覧ください。
+So recently I've been building new sample projects with the latest setup. I put together a short video showing them, so please take a look.
 -->
 
 ---
@@ -181,9 +181,9 @@ video: /videos/sec1/recent-projects-hq.mp4
 ---
 
 <!--
-といった感じで、まあ半年前とは全く作っているものの内容というかレベルが違いますよね。無茶苦茶な進化のスピードです。
+As you can see, what I'm making is on a completely different level from six months ago. The pace of progress is just insane.
 
-ところで、今日はコストの話ですので、この中からいくつかピックアップして、そのコストを紹介してみたいと思います。
+Anyway, today's topic is cost, so let me pick a few of these and show you what they cost.
 -->
 
 ---
@@ -194,15 +194,15 @@ qr: /images/sec1/salvonix-qr.svg
 
 # Salvonix
 
-- 実装： 1780 pts.
-- アセット生成： 258 pts.
-- 制作時間： 59 分
-- １プロンプト ＋ １修正プロンプト
+- Implementation: 1780 pts.
+- Asset generation: 258 pts.
+- Production time: 59 min
+- 1 prompt + 1 fix-up prompt
 
 <!--
-最初は Salvonix という 3D シューティングゲームのプロトタイプです。誘導ミサイルの一斉発射で敵を倒しまくるという内容ですね。
+First up is Salvonix, a prototype 3D shooter. You take out tons of enemies with salvos of homing missiles.
 
-自動制御で自由軸回転しながらスペースコロニーの中を飛び回る、という、結構複雑なセッティングだと思うんですけど、それを１プロンプトでちゃんと理解して実装してくれたのが嬉しかったですね。まさに、こんなのができるとは半年前には思っていなかった、という実例です。
+You fly around inside a space colony while the ship automatically rotates freely on every axis. That's a pretty complicated setup, and I was really happy it understood and implemented it properly from a single prompt. It's a perfect example of something I wouldn't have thought possible six months ago.
 -->
 
 ---
@@ -213,13 +213,13 @@ qr: /images/sec1/football-qr.svg
 
 # Totally Realistic Football
 
-- 実装： 2219 pts.
-- アセット生成： 382 pts.
-- 制作時間： 84 分
-- １プロンプト
+- Implementation: 2219 pts.
+- Asset generation: 382 pts.
+- Production time: 84 min
+- 1 prompt
 
 <!--
-次は Totally Realistic Football、超リアルフットボールという、ふざけた名前の、物理挙動系のシュールなゲームですね。カーソルキーの左で左足を軸とした回転、右で右足を軸とした回転を行うという、左右の足の軸回転だけで操作する激ムズ物理ゲームです。これも１プロンプトのプロトタイプなんですが、このシュールなシステムとアセットのルックが上手くマッチした形で実装できたのが嬉しかったですね。
+Next is Totally Realistic Football, a surreal physics game with a silly name. The left arrow key spins you around your left foot, and the right arrow key spins you around your right foot. You control everything just by pivoting on your feet, so it's ridiculously hard. This is also a one-prompt prototype, and I was happy with how well the surreal mechanics and the look of the assets came together.
 -->
 
 ---
@@ -230,20 +230,20 @@ qr: /images/sec1/alchemion-qr.svg
 
 # Alchemion
 
-- 実装： ??? pts.
-- アセット生成： ??? pts.
-- 制作時間： ???
+- Implementation: ??? pts.
+- Asset generation: ??? pts.
+- Production time: ???
 
 <!--
-次は Alchemion というデッキビルディングタイプのゲームです。主人公はこのパーティーを直接操作するのではなく、薬の素材カードを調合してパーティーを助ける、そして地下３６階に控えているレッドドラゴンを倒す、というのが目的のゲームです。
+Next is Alchemion, a deck-building game. You don't control the party directly. Instead, you mix ingredient cards into potions to support the party, with the goal of defeating the red dragon waiting on the 36th basement floor.
 
-これは先ほどまでの１プロンプトのプロトタイピングとは違って、完成まで制作してみた例です。だいたい１周１時間ぐらいのボリュームがあって、ちゃんとリプレイバリューのあるゲームとして仕上げたつもりです。unityroom および Unity Play で遊べますので、興味がありましたらぜひ遊んでみて下さい。
+Unlike the one-prompt prototypes so far, this is one I took all the way to a finished game. A single playthrough takes about an hour, and I tried to make it a proper game with replay value. You can play it on unityroom and Unity Play, so please give it a try if you're interested.
 
-このプロジェクトのコストについては、ここではネタバレになってしまうので隠しておきます。また後で言及します。
+I'll keep the cost of this project hidden for now, since it would be a spoiler. I'll come back to it later.
 -->
 
 ---
 
 <!--
-とまあ、こんな感じで色々作ってみているわけですが、これらを作る前に取り組んでいたプロジェクトが、もう１つあります。それを紹介させてください。
+So that's the kind of stuff I've been making. But before these, there was one more project I was working on. Let me introduce it.
 -->

@@ -1,7 +1,7 @@
 ---
 theme: default
 colorSchema: dark
-title: コンテキストエンジニアリング
+title: Context Engineering
 drawings:
   persist: false
 transition: fade-out
@@ -12,7 +12,7 @@ fonts:
 duration: 45min
 ---
 
-（講演タイトル）
+(Talk title)
 
 ---
 src: ./sections/section1.md
