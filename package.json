@@ -5,7 +5,7 @@
   "scripts": {
     "build": "slidev build",
     "dev": "slidev --open",
-    "export": "slidev export --wait 1500 --wait-until load --timeout 90000"
+    "export": "slidev export --no-with-clicks --wait 1500 --wait-until load --timeout 90000 --format pptx"
   },
   "dependencies": {
     "@slidev/cli": "53.0.0",
