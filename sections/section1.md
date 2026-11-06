@@ -4,7 +4,7 @@
 
 - API 従量課金が前提
   - 定額サブスクだと少し違和感あるかも？
-- リアル金額ではなく「ポイント」(pts.) で解説
+- リアル金額ではなく「ポイント」(pts) で解説
 
 </v-clicks>
 
@@ -194,8 +194,8 @@ qr: /images/sec1/salvonix-qr.svg
 
 # Salvonix
 
-- 実装： 1780 pts.
-- アセット生成： 258 pts.
+- 実装： 1780 pts
+- アセット生成： 258 pts
 - 制作時間： 59 分
 - １プロンプト ＋ １修正プロンプト
 
@@ -213,8 +213,8 @@ qr: /images/sec1/football-qr.svg
 
 # Totally Realistic Football
 
-- 実装： 2219 pts.
-- アセット生成： 382 pts.
+- 実装： 2219 pts
+- アセット生成： 382 pts
 - 制作時間： 84 分
 - １プロンプト
 
@@ -230,8 +230,8 @@ qr: /images/sec1/alchemion-qr.svg
 
 # Alchemion
 
-- 実装： ??? pts.
-- アセット生成： ??? pts.
+- 実装： ??? pts
+- アセット生成： ??? pts
 - 制作時間： ???
 
 <!--

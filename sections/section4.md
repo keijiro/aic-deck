@@ -212,13 +212,13 @@ clicks: 6
 
 | タスク | コンテキスト | 出力 | キャッシュ<br>読み取り | キャッシュ<br>書き込み | コスト |
 | --- | ---: | ---: | ---: | ---: | ---: |
-| 無敵アイテム | 65K | 18 pts. | 15 pts. | 39 pts. | 72 pts. |
-| 白黒２値化 | 98K | 28 pts. | 28 pts. | 26 pts. | 83 pts. |
-| UI和訳 | 130K | 20 pts. | 35 pts. | 25 pts. | 80 pts. |
-| 合計 | | 66 pts. | 77 pts. | 91 pts. | 235 pts. |
+| 無敵アイテム | 65K | 18 pts | 15 pts | 39 pts | 72 pts |
+| 白黒２値化 | 98K | 28 pts | 28 pts | 26 pts | 83 pts |
+| UI和訳 | 130K | 20 pts | 35 pts | 25 pts | 80 pts |
+| 合計 | | 66 pts | 77 pts | 91 pts | 235 pts |
 
 <!--
-最終的な合計コストは[click]235 pts. ですね。[click]細かくデータを見ていくと、[click]コンテキストはクリアしていないので、単純増加していっていますね。最終的に [click]130K トークンにまで膨らんでいます。それに伴って、[click]キャッシュ読み取りのコストも増加していってます。
+最終的な合計コストは[click]235 pts ですね。[click]細かくデータを見ていくと、[click]コンテキストはクリアしていないので、単純増加していっていますね。最終的に [click]130K トークンにまで膨らんでいます。それに伴って、[click]キャッシュ読み取りのコストも増加していってます。
 
 キャッシュ読み取りってかなり格安なはずなんですが、それでもやはり、膨らんだコンテキストの負荷っていうのは無視できないんだなというのを感じさせます。[click]
 
@@ -234,13 +234,13 @@ clicks: 2
 
 | タスク | コンテキスト | 出力 | キャッシュ<br>読み取り | キャッシュ<br>書き込み | コスト |
 | --- | ---: | ---: | ---: | ---: | ---: |
-| 無敵アイテム | 62K | 17 pts. | 12 pts. | 35 pts. | 63 pts. |
-| 白黒２値化 | 47K | 23 pts. | 8 pts. | 28 pts. | 59 pts. |
-| UI和訳 | 60K | 18 pts. | 13 pts. | 40 pts. | 71 pts. |
-| 合計 | | 58 pts. | 33 pts. | 102 pts. | 194 pts. |
+| 無敵アイテム | 62K | 17 pts | 12 pts | 35 pts | 63 pts |
+| 白黒２値化 | 47K | 23 pts | 8 pts | 28 pts | 59 pts |
+| UI和訳 | 60K | 18 pts | 13 pts | 40 pts | 71 pts |
+| 合計 | | 58 pts | 33 pts | 102 pts | 194 pts |
 
 <!--
-こんな感じです。合計コストは[click]194 pts.ということで、少し安くなっています。[click]コンテキストのサイズとかキャッシュ読み取りのコストが増加せず安定しているのがさっきとの違いですね。
+こんな感じです。合計コストは[click]194 ptsということで、少し安くなっています。[click]コンテキストのサイズとかキャッシュ読み取りのコストが増加せず安定しているのがさっきとの違いですね。
 
 ２つのデータを並べて比較してみましょう。
 -->
@@ -253,10 +253,10 @@ clicks: 10
 
 | タスク | キャッシュ読込 | キャッシュ書込 | コスト |
 | --- | ---: | ---: | ---: |
-| 無敵アイテム | 15 pts. → 12 pts. <span style="color: var(--c-green)">(-3 pts.)</span> | 39 pts. → 35 pts. <span style="color: var(--c-green)">(-4 pts.)</span> | 72 pts. → 63 pts. <span style="color: var(--c-green)">(-9 pts.)</span> |
-| 白黒２値化 | 28 pts. → 8 pts. <span style="color: var(--c-green)">(-20 pts.)</span> | 26 pts. → 28 pts. <span style="color: var(--c-red)">(+2 pts.)</span> | 83 pts. → 59 pts. <span style="color: var(--c-green)">(-24 pts.)</span> |
-| UI和訳 | 35 pts. → 13 pts. <span style="color: var(--c-green)">(-22 pts.)</span> | 25 pts. → 40 pts. <span style="color: var(--c-red)">(+15 pts.)</span> | 80 pts. → 71 pts. <span style="color: var(--c-green)">(-9 pts.)</span> |
-| 合計 | 77 pts. → 33 pts. <span style="color: var(--c-green)">(-44 pts.)</span> | 91 pts. → 102 pts. <span style="color: var(--c-red)">(+11 pts.)</span> | 235 pts. → 194 pts. <span style="color: var(--c-green)">(-41 pts.)</span> |
+| 無敵アイテム | 15 pts → 12 pts <span style="color: var(--c-green)">(-3 pts)</span> | 39 pts → 35 pts <span style="color: var(--c-green)">(-4 pts)</span> | 72 pts → 63 pts <span style="color: var(--c-green)">(-9 pts)</span> |
+| 白黒２値化 | 28 pts → 8 pts <span style="color: var(--c-green)">(-20 pts)</span> | 26 pts → 28 pts <span style="color: var(--c-red)">(+2 pts)</span> | 83 pts → 59 pts <span style="color: var(--c-green)">(-24 pts)</span> |
+| UI和訳 | 35 pts → 13 pts <span style="color: var(--c-green)">(-22 pts)</span> | 25 pts → 40 pts <span style="color: var(--c-red)">(+15 pts)</span> | 80 pts → 71 pts <span style="color: var(--c-green)">(-9 pts)</span> |
+| 合計 | 77 pts → 33 pts <span style="color: var(--c-green)">(-44 pts)</span> | 91 pts → 102 pts <span style="color: var(--c-red)">(+11 pts)</span> | 235 pts → 194 pts <span style="color: var(--c-green)">(-41 pts)</span> |
 
 <!--
 タスク毎に見てみると、[click]最初のタスクは条件が同じなので差は誤差の範囲内ですね。[click]２つ目はちょっと安くなりました。[click]３つ目はあんまり安くならなかったようです。[click]
@@ -399,15 +399,15 @@ clicks: 2
 
 | タスク | コンテキスト | 出力 | キャッシュ<br>読み取り | キャッシュ<br>書き込み | コスト |
 | --- | ---: | ---: | ---: | ---: | ---: |
-| 無敵アイテム | 71K | 21 pts. | 16 pts. | 40 pts. | 77 pts. |
-| ジャンプ力増加 | 85K | 11 pts. | 11 pts. | 11 pts. | 33 pts. |
-| 移動速度増加 | 96K | 8 pts. | 8 pts. | 9 pts. | 26 pts. |
-| 合計 | | 40 pts. | 35 pts. | 60 pts. | 135 pts. |
+| 無敵アイテム | 71K | 21 pts | 16 pts | 40 pts | 77 pts |
+| ジャンプ力増加 | 85K | 11 pts | 11 pts | 11 pts | 33 pts |
+| 移動速度増加 | 96K | 8 pts | 8 pts | 9 pts | 26 pts |
+| 合計 | | 40 pts | 35 pts | 60 pts | 135 pts |
 
 <!--
 単一セッションでの実行結果はこんな感じです。
 
-先ほどと比べると、[click]コンテキストの増加速度はかなり緩やかになっているようです。最初に 71K をガツンと積み上げていますが、それ以降の増加は非常に緩やかです。つまり、最初のタスクと同じような知識でできる事が多い、文脈をそのまま使い回せているので、コンテキストを膨張させずに済んでいるのだと推測できます。総コストは[click]135 pts. でした。
+先ほどと比べると、[click]コンテキストの増加速度はかなり緩やかになっているようです。最初に 71K をガツンと積み上げていますが、それ以降の増加は非常に緩やかです。つまり、最初のタスクと同じような知識でできる事が多い、文脈をそのまま使い回せているので、コンテキストを膨張させずに済んでいるのだと推測できます。総コストは[click]135 pts でした。
 -->
 
 ---
@@ -419,13 +419,13 @@ clicks: 3
 
 | タスク | コンテキスト | 出力 | キャッシュ<br>読み取り | キャッシュ<br>書き込み | コスト |
 | --- | ---: | ---: | ---: | ---: | ---: |
-| 無敵アイテム | 72K | 23 pts. | 22 pts. | 43 pts. | 88 pts. |
-| ジャンプ力増加 | 59K | 17 pts. | 15 pts. | 39 pts. | 71 pts. |
-| 移動速度増加 | 51K | 12 pts. | 7 pts. | 32 pts. | 52 pts. |
-| 合計 | | 52 pts. | 44 pts. | 114 pts. | 211 pts. |
+| 無敵アイテム | 72K | 23 pts | 22 pts | 43 pts | 88 pts |
+| ジャンプ力増加 | 59K | 17 pts | 15 pts | 39 pts | 71 pts |
+| 移動速度増加 | 51K | 12 pts | 7 pts | 32 pts | 52 pts |
+| 合計 | | 52 pts | 44 pts | 114 pts | 211 pts |
 
 <!--
-次にセッションをクリアした場合の結果です。[click]こちらはタスク毎に 50K 以上のコンテキストをゼロから積み上げています。これのせいで、[click]キャッシュ書き込みがだいぶ嵩んでしまっていますね。総コストは[click]211 pts. に増えてしまいました。
+次にセッションをクリアした場合の結果です。[click]こちらはタスク毎に 50K 以上のコンテキストをゼロから積み上げています。これのせいで、[click]キャッシュ書き込みがだいぶ嵩んでしまっていますね。総コストは[click]211 pts に増えてしまいました。
 -->
 
 ---
@@ -436,10 +436,10 @@ clicks: 4
 
 | タスク | キャッシュ読込 | キャッシュ書込 | コスト |
 | --- | ---: | ---: | ---: |
-| 無敵アイテム | 16 pts. → 22 pts. <span style="color: var(--c-red)">(+6 pts.)</span> | 40 pts. → 43 pts. <span style="color: var(--c-red)">(+3 pts.)</span> | 77 pts. → 88 pts. <span style="color: var(--c-red)">(+11 pts.)</span> |
-| ジャンプ力増加 | 11 pts. → 15 pts. <span style="color: var(--c-red)">(+4 pts.)</span> | 11 pts. → 39 pts. <span style="color: var(--c-red)">(+28 pts.)</span> | 33 pts. → 71 pts. <span style="color: var(--c-red)">(+38 pts.)</span> |
-| 移動速度増加 | 8 pts. → 7 pts. <span style="color: var(--c-green)">(-1 pts.)</span> | 9 pts. → 32 pts. <span style="color: var(--c-red)">(+23 pts.)</span> | 26 pts. → 52 pts. <span style="color: var(--c-red)">(+26 pts.)</span> |
-| 合計 | 35 pts. → 44 pts. <span style="color: var(--c-red)">(+9 pts.)</span> | 60 pts. → 114 pts. <span style="color: var(--c-red)">(+54 pts.)</span> | 135 pts. → 211 pts. <span style="color: var(--c-red)">(+76 pts.)</span> |
+| 無敵アイテム | 16 pts → 22 pts <span style="color: var(--c-red)">(+6 pts)</span> | 40 pts → 43 pts <span style="color: var(--c-red)">(+3 pts)</span> | 77 pts → 88 pts <span style="color: var(--c-red)">(+11 pts)</span> |
+| ジャンプ力増加 | 11 pts → 15 pts <span style="color: var(--c-red)">(+4 pts)</span> | 11 pts → 39 pts <span style="color: var(--c-red)">(+28 pts)</span> | 33 pts → 71 pts <span style="color: var(--c-red)">(+38 pts)</span> |
+| 移動速度増加 | 8 pts → 7 pts <span style="color: var(--c-green)">(-1 pts)</span> | 9 pts → 32 pts <span style="color: var(--c-red)">(+23 pts)</span> | 26 pts → 52 pts <span style="color: var(--c-red)">(+26 pts)</span> |
+| 合計 | 35 pts → 44 pts <span style="color: var(--c-red)">(+9 pts)</span> | 60 pts → 114 pts <span style="color: var(--c-red)">(+54 pts)</span> | 135 pts → 211 pts <span style="color: var(--c-red)">(+76 pts)</span> |
 
 <!--
 比較してみましょう。今回は[click]キャッシュ読み込みについても効果は薄く、[click]書き込みの方では明らかな赤字になっています。[click]トータルでは大幅な負けですね。
@@ -541,13 +541,13 @@ hide: true
 
 | スキル量 | 書き込み (x1) | 読み取り (x199) | 合計 |
 | ---: | ---: | ---: | ---: |
-| 10K | 8 pts. | 40 pts. | **48 pts.** |
-| 3.9K | 3 pts. | 16 pts. | **19 pts.** |
+| 10K | 8 pts | 40 pts | **48 pts** |
+| 3.9K | 3 pts | 16 pts | **19 pts** |
 
 <p class="text-sm text-right" style="color: var(--c-muted)">Opus 5.5, 1h TTL</p>
 
 <!--
-この２つのケースで200回コンテキストを送信した場合に、どれだけコストに差が出てくるかを計算しました。約30 pts.の違いということで、まあ案外気にするほどではないかもしれませんね。でも確実に差は出ます。
+この２つのケースで200回コンテキストを送信した場合に、どれだけコストに差が出てくるかを計算しました。約30 ptsの違いということで、まあ案外気にするほどではないかもしれませんね。でも確実に差は出ます。
 
 これがもし、プロジェクトと関係のある、使う可能性が少なからず存在するスキルであれば、まあ許容できるコストなんじゃないかなと思います。そこまでケチになる必要は無いかなと思います。でも、もしこれが、何かの気まぐれで入れたような、全くもって使うあての無いようなスキルだったら、やっぱりそれは削除すべきだと思いますね。意味のないものに着実にお金を吸われているわけですから、シンプルに勿体無いです。
 -->

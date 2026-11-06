@@ -6,17 +6,17 @@ clicks: 8
   <div class="pts-card" :class="{ on: $clicks >= 1 }">
     <LoopVideo src="/videos/sec1/salvonix-small.mp4" />
     <div class="name">Salvonix</div>
-    <div class="pts">1,800 pts.</div>
+    <div class="pts">1,800 pts</div>
   </div>
   <div class="pts-card" :class="{ on: $clicks >= 2, dim: [4, 6, 8].includes($clicks) }">
     <img src="/images/sec6/tower-defense-1.jpg" />
     <div class="name">Tower Defense URP 移行</div>
-    <div class="pts">2,000 pts.</div>
+    <div class="pts">2,000 pts</div>
   </div>
   <div class="pts-card" :class="{ on: $clicks >= 3, dim: [4, 5, 8].includes($clicks) }">
     <img src="/images/sec4/bunny-blitz-after.png" />
     <div class="name">Bunny Blitz 無敵アイテム</div>
-    <div class="pts">200 pts.</div>
+    <div class="pts">200 pts</div>
   </div>
 </div>
 
@@ -483,7 +483,7 @@ clicks: 6
     <div class="bar" style="--i: 43"><i class="r" style="height:1.7%"></i><i class="o" style="height:1.6%"></i><i class="w" style="height:1.4%"></i></div>
     <div class="bar" style="--i: 44"><i class="r" style="height:0.3%"></i><i class="o" style="height:0.2%"></i><i class="w" style="height:0.6%"></i></div>
   </div>
-  <div v-click="6" class="sum">合計 19,231 pts.</div>
+  <div v-click="6" class="sum">合計 19,231 pts</div>
   <div class="legend">
     <span><i class="r"></i>キャッシュ読み取り</span>
     <span><i class="w"></i>キャッシュ書き込み</span>

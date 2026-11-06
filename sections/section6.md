@@ -512,9 +512,9 @@ layout: center
 
 | 合計 |
 |---:|
-| 1,696 pts. |
-| 2,231 pts. |
-| 1,846 pts. |
+| 1,696 pts |
+| 2,231 pts |
+| 1,846 pts |
 
 </div>
 </v-click>
@@ -524,9 +524,9 @@ layout: center
 
 | 親コスト | 子コスト | 合計 |
 |---:|---:|---:|
-| 1,345 pts. | 534 pts. | 1,879 pts. |
-| 978 pts. | 410 pts. | 1,388 pts. |
-| 1,601 pts. | 587 pts. | 2,188 pts. |
+| 1,345 pts | 534 pts | 1,879 pts |
+| 978 pts | 410 pts | 1,388 pts |
+| 1,601 pts | 587 pts | 2,188 pts |
 
 </div>
 </v-click>
@@ -536,9 +536,9 @@ layout: center
 
 | 親コスト | 子コスト | 合計 |
 |---:|---:|---:|
-| 1,341 pts. | 61 pts. | 1,402 pts. |
-| 1,924 pts. | 180 pts. | 2,104 pts. |
-| 980 pts. | 95 pts. | 1,075 pts. |
+| 1,341 pts | 61 pts | 1,402 pts |
+| 1,924 pts | 180 pts | 2,104 pts |
+| 980 pts | 95 pts | 1,075 pts |
 
 </div>
 </v-click>
