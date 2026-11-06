@@ -1,4 +1,3 @@
-- Jacquard の動画を更新
 - recent-projects-hq を更新
 - 最初と最後のページを作成
 
