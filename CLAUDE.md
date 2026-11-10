@@ -35,6 +35,13 @@ they show a poster `foo-print.jpg` next to `foo.mp4`, don't autoplay, and use `p
 - Every exported page (PDF/PNG/PPTX) gets a "review copy only" warning overlay from `global-top.vue`
   (shown only in print mode; the dev server and static build are unaffected).
 
+## Cover and end slides
+
+Follow the Unite 2026 template (backgrounds in `public/images/unite/`; logos come from `BrandOverlay`).
+
+- `layout: cover` (first slide): a single `# Title`, centered in the template's title box.
+- `layout: end` (last slide): `# Thank you`, left side over the template's background.
+
 ## Diagrams and tables
 
 - Diagram SVGs get the `dia` class for the shared base in `style.css`: centered white text,
