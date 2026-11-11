@@ -100,12 +100,19 @@ layout: full
 
 ---
 layout: full
-clicks: 2
+clicks: 3
 ---
 
 <div class="tower-grid" :class="{ on: $clicks >= 1, many: $clicks >= 2 }">
   <img v-for="i in 66" :key="i" src="/images/sec7/tower-ai.png"
     :class="{ hero: i === 1 }" :style="{ '--c': (i - 1) % 11, '--r': Math.floor((i - 1) / 11) }" />
+</div>
+
+<div class="paper-ref" :class="{ on: $clicks >= 3 }">
+  <div class="paper-cite">
+    Xiaomi LLM-Core Team, "MiMo-V2.6: Scaling Reinforcement Learning Towards Self-Improvement," arXiv:2610.11959, 2026.
+  </div>
+  <img src="/images/sec7/mimo-paper-qr.svg" class="slide-qr" alt="QR code" />
 </div>
 
 <style>
@@ -141,6 +148,25 @@ clicks: 2
   left: var(--x0);
   top: 0;
 }
+/* Paper citation (black backing over the full-bleed grid) + QR, on the last click */
+.paper-ref {
+  opacity: 0;
+  transition: opacity 0.4s;
+}
+.paper-ref.on {
+  opacity: 1;
+}
+.paper-cite {
+  position: absolute;
+  left: 1.5rem;
+  right: 9rem;
+  bottom: 1.5rem;
+  padding: 0.6rem 1rem;
+  background: black;
+  color: white;
+  font-size: 1rem;
+  line-height: 1.4;
+}
 </style>
 
 <!--
@@ -148,7 +174,7 @@ clicks: 2
 
 具体的にどのような進化があったのか分かりませんが、最新世代と、一つ前の世代の間には、単純な言語モデルとしての進化では説明しきれない、大きな跳躍があると感じます。恐らくは、大規模に強化学習をブン回すような仕組みが整えられているんじゃないでしょうか。
 
-……という風に一旦このスライドを書いたんですけど、実はその後に関連した公開資料を見つけました。Xiaomi の MiMo-V2.6 っていうオープンウェイトモデルがあるんですけど、それの強化学習の過程を解説した論文が発表されていて、その中では、ゲーム開発のような複雑な能力を、直接強化学習によって獲得するのは難しくて、複数の教師モデルを作ってから、蒸留によって能力を移した、というような訓練過程が解説されていました。興味がありましたら是非ググって調べてみて下さい。
+……という風に一旦このスライドを書いたんですけど、実はその後に関連した公開資料を見つけました。[click]Xiaomi の MiMo-V2.6 っていうオープンウェイトモデルがあるんですけど、それの強化学習の過程を解説した論文が発表されていて、その中では、ゲーム開発のような評価の難しいタスクを、直接強化学習によって訓練するのは難しくて、複数の教師モデルを作ってから、蒸留によって能力を獲得した、というような訓練過程が解説されていました。興味がありましたら是非チェックしてみて下さい。
 -->
 
 ---
