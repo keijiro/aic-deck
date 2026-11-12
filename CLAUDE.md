@@ -17,6 +17,9 @@ Use only the palette defined as CSS variables in `style.css`:
 - Video left, text right (muted loop, no fade): `layout: video-split` with `video: /videos/...`;
   the slide content goes to the right column. Optional `qr: /images/...-qr.svg` pins a QR code
   to the bottom-right corner of the slide, without affecting the text layout.
+- Two projects stacked (video left, text right, per row): `layout: video-pair` with
+  `videos: [top, bottom]` and optional `qrs: [top, bottom]`; text goes in `::top::` / `::bottom::`.
+  Each QR code sits at the right end of its row, at the same size as `.slide-qr`.
 - Muted loop clip grid: `<LoopVideo src="/videos/..." />` inside `.video-grid`
   (2x2 grid, edges faded) from `style.css`. Modifiers: `titled` (fits below a slide heading),
   `sharp` (no edge fade). Use `LoopVideo` for any muted loop clip, not plain `<video>`.
