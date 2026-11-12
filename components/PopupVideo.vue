@@ -1,6 +1,6 @@
 <!--
-Pop-up video player: appears at click `at` covering the slide (inset by 1rem, enough
-to hide a `.slide-qr` in the corner) and plays
+Pop-up video player: appears at click `at` covering the whole slide (full-screen fit,
+no margin) and plays
 `src` once with sound; the next click hides it (stopping playback if still running).
 The slide needs `clicks:` in its frontmatter to cover `at + 1`.
 In print/export it shows the `-print.jpg` poster (see utils/printVideo.ts).
@@ -39,11 +39,10 @@ const { noPlay, poster, preload } = usePrintVideo(() => props.src)
 }
 
 .popup-video video {
-  width: calc(100% - 2rem);
-  height: calc(100% - 2rem);
+  width: 100%;
+  height: 100%;
   object-fit: contain;
   background: black;
-  box-shadow: 0 0 40px rgba(0, 0, 0, 0.8);
 }
 
 .popup-video-enter-active,
