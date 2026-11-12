@@ -39,7 +39,7 @@ they show a poster `foo-print.jpg` next to `foo.mp4`, don't autoplay, and use `p
 
 Follow the Unite 2026 template (backgrounds in `public/images/unite/`; logos come from `BrandOverlay`).
 
-- `layout: cover` (first slide): a single `# Title`, centered in the template's title box.
+- `layout: cover` (first slide): a single `# Title`, left-aligned and vertically centered in the template's title box.
 - `layout: end` (last slide): `# Thank you`, left side over the template's background.
 
 ## Diagrams and tables
