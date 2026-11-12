@@ -88,8 +88,10 @@ layout: full
 <VideoDrift :srcs="[
   '/videos/sec1/salvonix-small.mp4',
   '/videos/sec1/football-small.mp4',
-  '/videos/sec1/alchemion-small.mp4',
-  '/videos/sec1/recent-projects-hq.mp4',
+  '/videos/sec1/smashbots-small.mp4',
+  '/videos/sec1/cryptbound-small.mp4',
+  '/videos/sec1/austerlitz-small.mp4',
+  '/videos/sec1/explainer-small.mp4',
 ]" />
 
 <!--
