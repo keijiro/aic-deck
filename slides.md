@@ -13,7 +13,7 @@ duration: 45min
 layout: cover
 ---
 
-# 常<span class="kana">に</span>俺<span class="kana">だけ</span>トークン<span class="kana">が</span>足<span class="kana">りないのは</span>何故!?<span class="cover-main">コスト<span class="kana">を</span>意識<span class="kana">した</span><br/><span class="latin">Unity</span> エージェンティック開発<span class="kana">の</span>すすめ</span>
+# 常<span class="kana">に</span>俺<span class="kana">だけ</span>トークン<span class="kana">が</span>足<span class="kana">りないのは</span>何故!?<span class="cover-main"><span class="cover-line2">コスト<span class="kana">を</span>意識<span class="kana">した</span></span><br/><span class="latin">Unity</span> エージェンティック開発<span class="kana">の</span>すすめ</span>
 
 ---
 src: ./sections/section1.md

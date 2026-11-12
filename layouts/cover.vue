@@ -3,7 +3,7 @@ Cover layout, following the Unite 2026 template ("Cover + Title").
 Background: public/images/unite/cover.jpg. The slide content (normally a single
 `# Title`) is left-aligned and vertically centered in the template's title box,
 converted to the 980px canvas: left 132.9px, top 145.7px, 714.2 x 223.8px, weight 600. The template's 40pt (54.4px)
-is reduced to 37px (1st line) / 43px (2nd and 3rd lines) to fit the long Japanese title
+is reduced to 37px (1st line) / 53px (2nd line) / 43px (3rd line) to fit the long Japanese title
 to the box width.
 -->
 <template>
@@ -49,6 +49,11 @@ to the box width.
   font-size: 43px;
   line-height: 1.3;
   letter-spacing: -0.06em;
+}
+
+/* The 2nd line alone is a bit larger still (`<span class="cover-line2">`) */
+.slidev-layout .cover-title h1 .cover-line2 {
+  font-size: 1.24em;
 }
 
 /* Latin words keep the base tracking (-0.03em, same ratio as the 1st line) */
