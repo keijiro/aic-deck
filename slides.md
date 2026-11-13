@@ -8,6 +8,7 @@ transition: fade-out
 comark: true
 fonts:
   sans: Inter,Noto Sans JP
+  provider: none
   weights: '400,500,600,700,800'
 duration: 45min
 layout: conntest
