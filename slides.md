@@ -10,6 +10,15 @@ fonts:
   sans: Inter,Noto Sans JP
   weights: '400,500,600,700,800'
 duration: 45min
+layout: conntest
+video: /videos/test/test-video.mp4
+---
+
+これは接続テスト用のページです。音楽付きの動画が再生されていることを確認してください。<br/>再生されていない場合は、プロジェクター側の画面を一度クリックしてください。
+
+This is a connection test page. Please check that the video is playing with music.<br/>If it is not playing, click once on the projector screen.
+
+---
 layout: cover
 ---
 

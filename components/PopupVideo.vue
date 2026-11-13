@@ -15,7 +15,8 @@ const props = defineProps({
   at: { type: Number, default: 1 },
 })
 
-const { $clicks } = useSlideContext()
+// Audio only in the play-mode window; presenter view shows the video muted.
+const { $clicks, $renderContext } = useSlideContext()
 const shown = computed(() => $clicks.value === props.at)
 const { noPlay, poster, preload } = usePrintVideo(() => props.src)
 </script>
@@ -23,7 +24,8 @@ const { noPlay, poster, preload } = usePrintVideo(() => props.src)
 <template>
   <Transition name="popup-video">
     <div v-if="shown" class="popup-video">
-      <video :src="src" :poster="poster" :preload="preload" :autoplay="!noPlay" playsinline />
+      <video :src="src" :poster="poster" :preload="preload" :autoplay="!noPlay"
+             :muted="$renderContext !== 'slide'" playsinline />
     </div>
   </Transition>
 </template>

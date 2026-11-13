@@ -12,8 +12,12 @@ Use only the palette defined as CSS variables in `style.css`:
 
 ## Video
 
+- Audio plays only in the play-mode window: `fullvideo`, `conntest` and `PopupVideo` set
+  `:muted="$renderContext !== 'slide'"` so presenter view stays silent. Do the same for any new video with sound.
 - Full-screen video with sound: `layout: fullvideo` with `video: /videos/...` in the frontmatter
   (uses `SlidevVideo`, restarts each time the slide is entered).
+- Connection test (first slide, venue check): `layout: conntest` with `video: /videos/...`;
+  the video plays with sound, autoplay and loop, and the slide content (red notice) goes below it.
 - Video left, text right (muted loop, no fade): `layout: video-split` with `video: /videos/...`;
   the slide content goes to the right column. Optional `qr: /images/...-qr.svg` pins a QR code
   to the bottom-right corner of the slide, without affecting the text layout.
