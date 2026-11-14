@@ -5,7 +5,8 @@
   "scripts": {
     "build": "slidev build --base /aic-deck-web/",
     "dev": "slidev --open",
-    "export": "slidev export --no-with-clicks --wait 1500 --wait-until load --timeout 90000"
+    "export": "slidev export --no-with-clicks --wait 1500 --wait-until load --timeout 90000",
+    "deploy:web": "scripts/deploy.sh"
   },
   "dependencies": {
     "@fontsource/caveat": "^5.3.0",

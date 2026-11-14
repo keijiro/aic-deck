@@ -16,3 +16,6 @@ components.d.ts
 
 # Large video files
 *-hq.mp4
+
+# Deploy repository (scripts/deploy.sh)
+aic-deck-web/
