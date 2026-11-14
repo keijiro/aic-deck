@@ -483,6 +483,18 @@ clicks: 5
 -->
 
 ---
+
+# 余談：ステータスライン
+
+<div class="flex items-center justify-center h-[75%]">
+  <img src="/images/sec4/statusline.png" class="w-[90%] rounded shadow-2xl" />
+</div>
+
+<!--
+次の話題に移る前に、またちょっと余談です。個人的には Claude Code のステータスラインをカスタマイズして、こんな風に現在のコンテキストサイズや消費コストを表示するようにしています。これをやっておくと、このプロジェクトではどんな作業でコンテキストが膨らみがちなのか、っていう傾向が掴めるようになるのでオススメです。Codex などでも同様のカスタマイズができるので、ぜひ試してみて下さい。
+-->
+
+---
 layout: bigtext
 hide: true
 ---
