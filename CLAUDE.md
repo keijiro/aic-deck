@@ -42,6 +42,13 @@ they show a poster `foo-print.jpg` next to `foo.mp4`, don't autoplay, and use `p
 - Every exported page (PDF/PNG/PPTX) gets a "review copy only" warning overlay from `global-top.vue`
   (shown only in print mode; the dev server and static build are unaffected).
 
+## Deploy base path
+
+The deck is deployed under a subdirectory (`pnpm build` passes `--base /aic-deck-web/`).
+Vite prefixes the base to static `src`/`href` in templates and `url()` in CSS, but not to
+paths supplied at runtime (frontmatter `video:`/`qr:`, component props, `:src` bindings).
+Pass those through `withBase()` from `utils/base.ts`; the shared video layouts/components already do.
+
 ## Cover and end slides
 
 Follow the Unite 2026 template (backgrounds in `public/images/unite/`; logos come from `BrandOverlay`).

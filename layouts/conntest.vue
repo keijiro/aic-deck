@@ -5,13 +5,16 @@ In print/export it shows the `-print.jpg` poster (see utils/printVideo.ts).
 -->
 <script setup>
 import { useSlideContext } from '@slidev/client'
+import { computed } from 'vue'
 import { usePrintVideo } from '../utils/printVideo'
+import { withBase } from '../utils/base'
 
 const props = defineProps({
   video: { type: String, required: true },
 })
 
-const { poster, preload } = usePrintVideo(() => props.video)
+const url = computed(() => withBase(props.video))
+const { poster, preload } = usePrintVideo(() => url.value)
 
 // Audio only in the play-mode window; presenter view shows the video muted.
 const { $renderContext } = useSlideContext()
@@ -22,7 +25,7 @@ const { $renderContext } = useSlideContext()
     <SlidevVideo class="conntest-player" autoplay loop
                  :print-poster="poster" :preload="preload"
                  :muted="$renderContext !== 'slide'">
-      <source :src="video" type="video/mp4" />
+      <source :src="url" type="video/mp4" />
     </SlidevVideo>
     <div class="conntest-text"><slot /></div>
   </div>

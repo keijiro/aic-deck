@@ -271,6 +271,7 @@ clicks: 2
 
 <script setup>
 import { useNav } from '@slidev/client'
+import { withBase } from '../utils/base'
 const { isPrintMode } = useNav()
 </script>
 
@@ -281,7 +282,7 @@ const { isPrintMode } = useNav()
       :style="{ '--i': n * 2 + m, '--r': `${Math.sin((n * 2 + m) * 7.3 + 1) * 2.5}deg`,
                 '--x': `${Math.sin((n * 2 + m) * 3.1 + 2) * 6}px`, '--y': `${Math.sin((n * 2 + m) * 5.7 + 3) * 5}px` }"
     >
-      <img :src="`/images/sec7/${k}-${s}.jpg`" />
+      <img :src="withBase(`/images/sec7/${k}-${s}.jpg`)" />
       <figcaption>{{ m ? 'Output' : 'Concept' }}</figcaption>
     </figure>
   </div>

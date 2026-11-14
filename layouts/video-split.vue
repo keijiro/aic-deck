@@ -5,6 +5,8 @@ Optional `qr` (image path) is pinned to the bottom-right corner of the slide,
 out of the text flow.
 -->
 <script setup>
+import { withBase } from '../utils/base'
+
 defineProps({
   video: { type: String, required: true },
   qr: { type: String, default: null },
@@ -15,7 +17,7 @@ defineProps({
   <div class="slidev-layout video-split">
     <LoopVideo :src="video" />
     <div><slot /></div>
-    <img v-if="qr" :src="qr" class="slide-qr" alt="QR code" />
+    <img v-if="qr" :src="withBase(qr)" class="slide-qr" alt="QR code" />
   </div>
 </template>
 

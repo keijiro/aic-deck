@@ -9,6 +9,7 @@ In print/export it shows the `-print.jpg` poster (see utils/printVideo.ts).
 import { useSlideContext } from '@slidev/client'
 import { computed } from 'vue'
 import { usePrintVideo } from '../utils/printVideo'
+import { withBase } from '../utils/base'
 
 const props = defineProps({
   src: { type: String, required: true },
@@ -18,13 +19,14 @@ const props = defineProps({
 // Audio only in the play-mode window; presenter view shows the video muted.
 const { $clicks, $renderContext } = useSlideContext()
 const shown = computed(() => $clicks.value === props.at)
-const { noPlay, poster, preload } = usePrintVideo(() => props.src)
+const url = computed(() => withBase(props.src))
+const { noPlay, poster, preload } = usePrintVideo(() => url.value)
 </script>
 
 <template>
   <Transition name="popup-video">
     <div v-if="shown" class="popup-video">
-      <video :src="src" :poster="poster" :preload="preload" :autoplay="!noPlay"
+      <video :src="url" :poster="poster" :preload="preload" :autoplay="!noPlay"
              :muted="$renderContext !== 'slide'" playsinline />
     </div>
   </Transition>

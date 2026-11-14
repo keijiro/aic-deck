@@ -5,6 +5,8 @@ on the left and its text on the right. Frontmatter `videos` (two paths) and opti
 Each QR code keeps the shared `.slide-qr` size and sits at the right end of its row.
 -->
 <script setup>
+import { withBase } from '../utils/base'
+
 defineProps({
   videos: { type: Array, required: true },
   qrs: { type: Array, default: () => [] },
@@ -16,7 +18,7 @@ defineProps({
     <div v-for="(slot, i) in ['top', 'bottom']" :key="slot" class="video-pair-row">
       <LoopVideo :src="videos[i]" />
       <div><slot :name="slot" /></div>
-      <img v-if="qrs[i]" :src="qrs[i]" class="slide-qr" alt="QR code" />
+      <img v-if="qrs[i]" :src="withBase(qrs[i])" class="slide-qr" alt="QR code" />
     </div>
   </div>
 </template>

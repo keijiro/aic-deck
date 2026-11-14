@@ -98,7 +98,10 @@ clicks: 6
 }
 .msg {
   opacity: 0;
-  animation: 1.2s ease-in-out both;
+  /* Longhands: the build's CSS minifier turns a name-less `animation` shorthand into `none` */
+  animation-duration: 1.2s;
+  animation-timing-function: ease-in-out;
+  animation-fill-mode: both;
 }
 .msg.to-llm { animation-name: to-llm; }
 .msg.to-human { animation-name: to-human; }
