@@ -415,3 +415,9 @@ html:root {
   color: white;
   background: var(--c-red);
 }
+
+/* Section 7: bars shown at full height from the start (no grow-in) */
+.req-chart .bars.static .bar {
+  transform: none;
+  animation: none;
+}

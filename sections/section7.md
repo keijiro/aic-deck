@@ -529,3 +529,162 @@ clicks: 6
 
 やはり、他人に見せられるぐらいのクオリティまで引き上げるには、大雑把に 10 倍ぐらいのコストは覚悟しておいた方がいいということでしょう。
 -->
+
+---
+
+<div class="req-chart mt-17">
+  <div class="inset" style="top: -24px">
+    <img src="/images/sec7/disassembler-prototype.jpg" />
+    <svg class="dia" width="72" height="20"><path class="dia-arrow solid" d="M 4 10 L 62 10" /></svg>
+    <img src="/images/sec7/disassembler-released.jpg" />
+  </div>
+  <div class="bars static">
+    <div class="bar" style="--i: 1"><i class="r" style="height:23.7%"></i><i class="o" style="height:9.6%"></i><i class="w" style="height:9.6%"></i></div>
+    <div class="bar" style="--i: 2"><i class="r" style="height:20.6%"></i><i class="o" style="height:8.2%"></i><i class="w" style="height:7.4%"></i></div>
+    <div class="bar" style="--i: 3"><i class="r" style="height:37.4%"></i><i class="o" style="height:16.3%"></i><i class="w" style="height:12.3%"></i><b>3,297</b></div>
+    <div class="bar" style="--i: 4"><i class="r" style="height:17.6%"></i><i class="o" style="height:6.2%"></i><i class="w" style="height:6.7%"></i></div>
+    <div class="bar" style="--i: 5"><i class="r" style="height:24.2%"></i><i class="o" style="height:9.0%"></i><i class="w" style="height:7.9%"></i></div>
+    <div class="bar" style="--i: 6"><i class="r" style="height:12.1%"></i><i class="o" style="height:4.6%"></i><i class="w" style="height:5.2%"></i></div>
+    <div class="bar" style="--i: 7"><i class="r" style="height:20.4%"></i><i class="o" style="height:7.2%"></i><i class="w" style="height:7.7%"></i></div>
+    <div class="bar" style="--i: 8"><i class="r" style="height:2.3%"></i><i class="o" style="height:1.4%"></i><i class="w" style="height:2.0%"></i></div>
+    <div class="bar" style="--i: 9"><i class="r" style="height:0.1%"></i><i class="o" style="height:0.1%"></i><i class="w" style="height:0.3%"></i></div>
+    <div class="bar" style="--i: 10"><i class="r" style="height:9.8%"></i><i class="o" style="height:7.2%"></i><i class="w" style="height:5.9%"></i></div>
+    <div class="bar" style="--i: 11"><i class="r" style="height:2.5%"></i><i class="o" style="height:1.9%"></i><i class="w" style="height:2.3%"></i></div>
+    <div class="bar" style="--i: 12"><i class="r" style="height:2.2%"></i><i class="o" style="height:1.3%"></i><i class="w" style="height:1.9%"></i></div>
+    <div class="bar" style="--i: 13"><i class="r" style="height:1.4%"></i><i class="o" style="height:1.2%"></i><i class="w" style="height:2.1%"></i></div>
+    <div class="bar" style="--i: 14"><i class="r" style="height:0.1%"></i><i class="o" style="height:0.0%"></i><i class="w" style="height:0.6%"></i></div>
+    <div class="bar" style="--i: 15"><i class="r" style="height:2.0%"></i><i class="o" style="height:0.9%"></i><i class="w" style="height:2.0%"></i></div>
+    <div class="bar" style="--i: 16"><i class="r" style="height:2.8%"></i><i class="o" style="height:1.0%"></i><i class="w" style="height:2.3%"></i></div>
+    <div class="bar" style="--i: 17"><i class="r" style="height:1.6%"></i><i class="o" style="height:0.6%"></i><i class="w" style="height:1.8%"></i></div>
+    <div class="bar" style="--i: 18"><i class="r" style="height:2.2%"></i><i class="o" style="height:1.2%"></i><i class="w" style="height:1.8%"></i></div>
+    <div class="bar" style="--i: 19"><i class="r" style="height:1.2%"></i><i class="o" style="height:0.7%"></i><i class="w" style="height:1.2%"></i></div>
+    <div class="bar" style="--i: 20"><i class="r" style="height:0.5%"></i><i class="o" style="height:0.3%"></i><i class="w" style="height:0.8%"></i></div>
+    <div class="bar" style="--i: 21"><i class="r" style="height:0.2%"></i><i class="o" style="height:0.2%"></i><i class="w" style="height:0.6%"></i></div>
+    <div class="bar" style="--i: 22"><i class="r" style="height:3.4%"></i><i class="o" style="height:1.2%"></i><i class="w" style="height:2.4%"></i></div>
+    <div class="bar" style="--i: 23"><i class="r" style="height:3.4%"></i><i class="o" style="height:1.6%"></i><i class="w" style="height:3.0%"></i></div>
+    <div class="bar" style="--i: 24"><i class="r" style="height:4.2%"></i><i class="o" style="height:1.2%"></i><i class="w" style="height:2.9%"></i></div>
+    <div class="bar" style="--i: 25"><i class="r" style="height:0.1%"></i><i class="o" style="height:0.1%"></i><i class="w" style="height:0.7%"></i></div>
+    <div class="bar" style="--i: 26"><i class="r" style="height:0.8%"></i><i class="o" style="height:0.6%"></i><i class="w" style="height:1.3%"></i></div>
+    <div class="bar" style="--i: 27"><i class="r" style="height:0.8%"></i><i class="o" style="height:0.7%"></i><i class="w" style="height:1.3%"></i></div>
+    <div class="bar" style="--i: 28"><i class="r" style="height:0.1%"></i><i class="o" style="height:0.0%"></i><i class="w" style="height:0.3%"></i></div>
+    <div class="bar" style="--i: 29"><i class="r" style="height:0.4%"></i><i class="o" style="height:0.4%"></i><i class="w" style="height:1.8%"></i></div>
+    <div class="bar" style="--i: 30"><i class="r" style="height:0.1%"></i><i class="o" style="height:0.1%"></i><i class="w" style="height:0.4%"></i></div>
+    <div class="bar" style="--i: 31"><i class="r" style="height:2.6%"></i><i class="o" style="height:0.9%"></i><i class="w" style="height:2.6%"></i></div>
+    <div class="bar" style="--i: 32"><i class="r" style="height:0.0%"></i><i class="o" style="height:0.1%"></i><i class="w" style="height:0.3%"></i></div>
+    <div class="bar" style="--i: 33"><i class="r" style="height:0.1%"></i><i class="o" style="height:0.1%"></i><i class="w" style="height:0.5%"></i></div>
+    <div class="bar" style="--i: 34"><i class="r" style="height:0.7%"></i><i class="o" style="height:0.4%"></i><i class="w" style="height:0.9%"></i></div>
+    <div class="bar" style="--i: 35"><i class="r" style="height:0.8%"></i><i class="o" style="height:0.7%"></i><i class="w" style="height:0.9%"></i></div>
+    <div class="bar" style="--i: 36"><i class="r" style="height:1.2%"></i><i class="o" style="height:0.8%"></i><i class="w" style="height:1.6%"></i></div>
+    <div class="bar" style="--i: 37"><i class="r" style="height:1.2%"></i><i class="o" style="height:0.8%"></i><i class="w" style="height:1.6%"></i></div>
+    <div class="bar" style="--i: 38"><i class="r" style="height:1.1%"></i><i class="o" style="height:1.4%"></i><i class="w" style="height:1.7%"></i></div>
+    <div class="bar" style="--i: 39"><i class="r" style="height:0.2%"></i><i class="o" style="height:0.2%"></i><i class="w" style="height:0.6%"></i></div>
+    <div class="bar" style="--i: 40"><i class="r" style="height:1.0%"></i><i class="o" style="height:0.9%"></i><i class="w" style="height:1.3%"></i></div>
+    <div class="bar" style="--i: 41"><i class="r" style="height:19.2%"></i><i class="o" style="height:6.2%"></i><i class="w" style="height:7.5%"></i><b>1,645</b></div>
+    <div class="bar" style="--i: 42"><i class="r" style="height:0.6%"></i><i class="o" style="height:0.4%"></i><i class="w" style="height:0.9%"></i></div>
+    <div class="bar" style="--i: 43"><i class="r" style="height:0.4%"></i><i class="o" style="height:0.4%"></i><i class="w" style="height:0.8%"></i></div>
+    <div class="bar" style="--i: 44"><i class="r" style="height:6.3%"></i><i class="o" style="height:2.1%"></i><i class="w" style="height:3.1%"></i></div>
+    <div class="bar" style="--i: 45"><i class="r" style="height:0.3%"></i><i class="o" style="height:0.1%"></i><i class="w" style="height:0.4%"></i></div>
+    <div class="bar" style="--i: 46"><i class="r" style="height:0.5%"></i><i class="o" style="height:0.3%"></i><i class="w" style="height:0.9%"></i></div>
+    <div class="bar" style="--i: 47"><i class="r" style="height:23.3%"></i><i class="o" style="height:7.7%"></i><i class="w" style="height:8.9%"></i><b>1,992</b></div>
+    <div class="bar" style="--i: 48"><i class="r" style="height:0.7%"></i><i class="o" style="height:0.6%"></i><i class="w" style="height:1.1%"></i></div>
+    <div class="bar" style="--i: 49"><i class="r" style="height:5.1%"></i><i class="o" style="height:3.2%"></i><i class="w" style="height:3.0%"></i></div>
+    <div class="bar" style="--i: 50"><i class="r" style="height:0.2%"></i><i class="o" style="height:0.1%"></i><i class="w" style="height:0.5%"></i></div>
+    <div class="bar" style="--i: 51"><i class="r" style="height:0.2%"></i><i class="o" style="height:0.1%"></i><i class="w" style="height:0.4%"></i></div>
+    <div class="bar" style="--i: 52"><i class="r" style="height:1.7%"></i><i class="o" style="height:1.6%"></i><i class="w" style="height:1.8%"></i></div>
+    <div class="bar" style="--i: 53"><i class="r" style="height:3.1%"></i><i class="o" style="height:2.4%"></i><i class="w" style="height:2.3%"></i></div>
+    <div class="bar" style="--i: 54"><i class="r" style="height:5.7%"></i><i class="o" style="height:1.7%"></i><i class="w" style="height:3.8%"></i></div>
+    <div class="bar" style="--i: 55"><i class="r" style="height:1.6%"></i><i class="o" style="height:0.8%"></i><i class="w" style="height:1.3%"></i></div>
+    <div class="bar" style="--i: 56"><i class="r" style="height:3.7%"></i><i class="o" style="height:2.8%"></i><i class="w" style="height:2.6%"></i></div>
+    <div class="bar" style="--i: 57"><i class="r" style="height:0.1%"></i><i class="o" style="height:0.0%"></i><i class="w" style="height:0.4%"></i></div>
+    <div class="bar" style="--i: 58"><i class="r" style="height:2.3%"></i><i class="o" style="height:1.5%"></i><i class="w" style="height:3.8%"></i></div>
+    <div class="bar" style="--i: 59"><i class="r" style="height:1.6%"></i><i class="o" style="height:1.1%"></i><i class="w" style="height:1.4%"></i></div>
+    <div class="bar" style="--i: 60"><i class="r" style="height:4.6%"></i><i class="o" style="height:2.9%"></i><i class="w" style="height:2.8%"></i></div>
+    <div class="bar" style="--i: 61"><i class="r" style="height:0.2%"></i><i class="o" style="height:0.1%"></i><i class="w" style="height:0.5%"></i></div>
+    <div class="bar" style="--i: 62"><i class="r" style="height:4.9%"></i><i class="o" style="height:2.8%"></i><i class="w" style="height:2.9%"></i></div>
+    <div class="bar" style="--i: 63"><i class="r" style="height:0.2%"></i><i class="o" style="height:0.1%"></i><i class="w" style="height:0.5%"></i></div>
+    <div class="bar" style="--i: 64"><i class="r" style="height:0.8%"></i><i class="o" style="height:0.5%"></i><i class="w" style="height:1.0%"></i></div>
+    <div class="bar" style="--i: 65"><i class="r" style="height:2.5%"></i><i class="o" style="height:1.3%"></i><i class="w" style="height:1.7%"></i></div>
+    <div class="bar" style="--i: 66"><i class="r" style="height:0.2%"></i><i class="o" style="height:0.1%"></i><i class="w" style="height:0.6%"></i></div>
+    <div class="bar" style="--i: 67"><i class="r" style="height:2.2%"></i><i class="o" style="height:1.4%"></i><i class="w" style="height:2.2%"></i></div>
+    <div class="bar" style="--i: 68"><i class="r" style="height:0.1%"></i><i class="o" style="height:0.0%"></i><i class="w" style="height:0.5%"></i></div>
+    <div class="bar" style="--i: 69"><i class="r" style="height:0.0%"></i><i class="o" style="height:0.0%"></i><i class="w" style="height:0.3%"></i></div>
+    <div class="bar" style="--i: 70"><i class="r" style="height:0.2%"></i><i class="o" style="height:0.1%"></i><i class="w" style="height:0.4%"></i></div>
+    <div class="bar" style="--i: 71"><i class="r" style="height:0.8%"></i><i class="o" style="height:0.6%"></i><i class="w" style="height:1.2%"></i></div>
+    <div class="bar" style="--i: 72"><i class="r" style="height:2.9%"></i><i class="o" style="height:1.5%"></i><i class="w" style="height:1.8%"></i></div>
+    <div class="bar" style="--i: 73"><i class="r" style="height:1.1%"></i><i class="o" style="height:0.7%"></i><i class="w" style="height:1.2%"></i></div>
+    <div class="bar" style="--i: 74"><i class="r" style="height:0.2%"></i><i class="o" style="height:0.1%"></i><i class="w" style="height:0.6%"></i></div>
+    <div class="bar" style="--i: 75"><i class="r" style="height:1.0%"></i><i class="o" style="height:0.6%"></i><i class="w" style="height:1.0%"></i></div>
+    <div class="bar" style="--i: 76"><i class="r" style="height:2.4%"></i><i class="o" style="height:1.6%"></i><i class="w" style="height:1.9%"></i></div>
+    <div class="bar" style="--i: 77"><i class="r" style="height:0.9%"></i><i class="o" style="height:0.5%"></i><i class="w" style="height:1.0%"></i></div>
+    <div class="bar" style="--i: 78"><i class="r" style="height:3.2%"></i><i class="o" style="height:1.5%"></i><i class="w" style="height:1.8%"></i></div>
+    <div class="bar" style="--i: 79"><i class="r" style="height:0.4%"></i><i class="o" style="height:0.3%"></i><i class="w" style="height:0.8%"></i></div>
+    <div class="bar" style="--i: 80"><i class="r" style="height:0.1%"></i><i class="o" style="height:0.1%"></i><i class="w" style="height:1.4%"></i></div>
+    <div class="bar" style="--i: 81"><i class="r" style="height:1.5%"></i><i class="o" style="height:0.6%"></i><i class="w" style="height:1.9%"></i></div>
+    <div class="bar" style="--i: 82"><i class="r" style="height:1.0%"></i><i class="o" style="height:0.7%"></i><i class="w" style="height:1.2%"></i></div>
+    <div class="bar" style="--i: 83"><i class="r" style="height:0.4%"></i><i class="o" style="height:0.1%"></i><i class="w" style="height:0.5%"></i></div>
+    <div class="bar" style="--i: 84"><i class="r" style="height:1.3%"></i><i class="o" style="height:0.9%"></i><i class="w" style="height:1.2%"></i></div>
+    <div class="bar" style="--i: 85"><i class="r" style="height:0.2%"></i><i class="o" style="height:0.1%"></i><i class="w" style="height:0.5%"></i></div>
+    <div class="bar" style="--i: 86"><i class="r" style="height:0.6%"></i><i class="o" style="height:0.2%"></i><i class="w" style="height:0.7%"></i></div>
+    <div class="bar" style="--i: 87"><i class="r" style="height:0.7%"></i><i class="o" style="height:0.6%"></i><i class="w" style="height:0.8%"></i></div>
+    <div class="bar" style="--i: 88"><i class="r" style="height:0.4%"></i><i class="o" style="height:0.3%"></i><i class="w" style="height:0.7%"></i></div>
+    <div class="bar" style="--i: 89"><i class="r" style="height:0.8%"></i><i class="o" style="height:0.5%"></i><i class="w" style="height:1.0%"></i></div>
+    <div class="bar" style="--i: 90"><i class="r" style="height:3.8%"></i><i class="o" style="height:1.9%"></i><i class="w" style="height:2.9%"></i></div>
+    <div class="bar" style="--i: 91"><i class="r" style="height:2.0%"></i><i class="o" style="height:0.9%"></i><i class="w" style="height:1.7%"></i></div>
+    <div class="bar" style="--i: 92"><i class="r" style="height:0.1%"></i><i class="o" style="height:0.1%"></i><i class="w" style="height:0.5%"></i></div>
+    <div class="bar" style="--i: 93"><i class="r" style="height:0.5%"></i><i class="o" style="height:0.3%"></i><i class="w" style="height:1.2%"></i></div>
+    <div class="bar" style="--i: 94"><i class="r" style="height:2.5%"></i><i class="o" style="height:1.5%"></i><i class="w" style="height:1.8%"></i></div>
+    <div class="bar" style="--i: 95"><i class="r" style="height:1.6%"></i><i class="o" style="height:1.1%"></i><i class="w" style="height:1.6%"></i></div>
+    <div class="bar" style="--i: 96"><i class="r" style="height:0.6%"></i><i class="o" style="height:0.2%"></i><i class="w" style="height:0.6%"></i></div>
+    <div class="bar" style="--i: 97"><i class="r" style="height:4.1%"></i><i class="o" style="height:2.2%"></i><i class="w" style="height:3.0%"></i></div>
+    <div class="bar" style="--i: 98"><i class="r" style="height:0.3%"></i><i class="o" style="height:0.1%"></i><i class="w" style="height:0.5%"></i></div>
+    <div class="bar" style="--i: 99"><i class="r" style="height:0.5%"></i><i class="o" style="height:0.2%"></i><i class="w" style="height:0.6%"></i></div>
+    <div class="bar" style="--i: 100"><i class="r" style="height:0.6%"></i><i class="o" style="height:0.3%"></i><i class="w" style="height:0.8%"></i></div>
+    <div class="bar" style="--i: 101"><i class="r" style="height:0.4%"></i><i class="o" style="height:0.1%"></i><i class="w" style="height:0.4%"></i></div>
+    <div class="bar" style="--i: 102"><i class="r" style="height:0.2%"></i><i class="o" style="height:0.1%"></i><i class="w" style="height:0.5%"></i></div>
+    <div class="bar" style="--i: 103"><i class="r" style="height:0.7%"></i><i class="o" style="height:0.5%"></i><i class="w" style="height:0.9%"></i></div>
+    <div class="bar" style="--i: 104"><i class="r" style="height:0.6%"></i><i class="o" style="height:0.2%"></i><i class="w" style="height:0.5%"></i></div>
+    <div class="bar" style="--i: 105"><i class="r" style="height:0.5%"></i><i class="o" style="height:0.3%"></i><i class="w" style="height:0.7%"></i></div>
+    <div class="bar" style="--i: 106"><i class="r" style="height:0.3%"></i><i class="o" style="height:0.2%"></i><i class="w" style="height:0.8%"></i></div>
+    <div class="bar" style="--i: 107"><i class="r" style="height:0.2%"></i><i class="o" style="height:0.2%"></i><i class="w" style="height:0.8%"></i></div>
+    <div class="bar" style="--i: 108"><i class="r" style="height:0.2%"></i><i class="o" style="height:0.1%"></i><i class="w" style="height:0.5%"></i></div>
+    <div class="bar" style="--i: 109"><i class="r" style="height:1.7%"></i><i class="o" style="height:0.8%"></i><i class="w" style="height:1.3%"></i></div>
+    <div class="bar" style="--i: 110"><i class="r" style="height:0.3%"></i><i class="o" style="height:0.1%"></i><i class="w" style="height:0.5%"></i></div>
+    <div class="bar" style="--i: 111"><i class="r" style="height:0.5%"></i><i class="o" style="height:0.3%"></i><i class="w" style="height:1.0%"></i></div>
+    <div class="bar" style="--i: 112"><i class="r" style="height:0.2%"></i><i class="o" style="height:0.1%"></i><i class="w" style="height:0.5%"></i></div>
+    <div class="bar" style="--i: 113"><i class="r" style="height:0.2%"></i><i class="o" style="height:0.2%"></i><i class="w" style="height:0.5%"></i></div>
+    <div class="bar" style="--i: 114"><i class="r" style="height:0.1%"></i><i class="o" style="height:0.1%"></i><i class="w" style="height:0.5%"></i></div>
+    <div class="bar" style="--i: 115"><i class="r" style="height:3.3%"></i><i class="o" style="height:1.5%"></i><i class="w" style="height:2.1%"></i></div>
+    <div class="bar" style="--i: 116"><i class="r" style="height:3.7%"></i><i class="o" style="height:2.2%"></i><i class="w" style="height:2.4%"></i></div>
+    <div class="bar" style="--i: 117"><i class="r" style="height:0.3%"></i><i class="o" style="height:0.2%"></i><i class="w" style="height:0.6%"></i></div>
+    <div class="bar" style="--i: 118"><i class="r" style="height:0.0%"></i><i class="o" style="height:0.1%"></i><i class="w" style="height:0.4%"></i></div>
+    <div class="bar" style="--i: 119"><i class="r" style="height:0.8%"></i><i class="o" style="height:0.9%"></i><i class="w" style="height:1.3%"></i></div>
+  </div>
+  <div class="sum">合計 36,584 pts</div>
+  <div class="legend">
+    <span><i class="r"></i>キャッシュ読み取り</span>
+    <span><i class="w"></i>キャッシュ書き込み</span>
+    <span><i class="o"></i>出力</span>
+  </div>
+</div>
+
+<div class="bonus-ribbon">BONUS SLIDE!</div>
+
+<style>
+/* Diagonal ribbon across the top-right corner, above the chart inset (z-index 1) */
+.bonus-ribbon {
+  position: absolute;
+  z-index: 10;
+  top: 48px;
+  right: -52px;
+  width: 260px;
+  padding: 6px 0;
+  transform: rotate(45deg);
+  background: var(--c-yellow);
+  color: black;
+  font-size: 1.1rem;
+  font-weight: bold;
+  text-align: center;
+  letter-spacing: 0.05em;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.5);
+}
+</style>
